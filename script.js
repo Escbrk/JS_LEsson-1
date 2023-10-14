@@ -550,39 +550,221 @@
 
 // ___________________________________________
 
-const x1 = 10;
-const x2 = 30;
+// const x1 = 10;
+// const x2 = 30;
 
-const number = 50;
+// const number = 50;
 
-console.log(`Число ${number} попадает в отрезок до ${x1}`, number < x1);
-console.log(`Число ${number} попадает в отрезок после ${x2}`, number > x2);
-console.log(`Число ${number} попадает в отрезок от ${x1} до ${x2}`, number > x1 && number < x2);
-console.log(
-    `Число ${number} попадает в отрезок до ${x1} или после ${x2}`,
-    number < x1 || number > x2
-);
+// console.log(`Число ${number} попадает в отрезок до ${x1}`, number < x1);
+// console.log(`Число ${number} попадает в отрезок после ${x2}`, number > x2);
+// console.log(`Число ${number} попадает в отрезок от ${x1} до ${x2}`, number > x1 && number < x2);
+// console.log(
+//     `Число ${number} попадает в отрезок до ${x1} или после ${x2}`,
+//     number < x1 || number > x2
+// );
+
+// // ___________________________________________
+
+// const isOnline = true;
+// const isFriend = true;
+// const isDnd = false;
+
+// const canOpenChat = isOnline && isFriend && !isDnd;
+
+// console.log('Можео открыть чат? ', canOpenChat);
+
+// // ___________________________________________
+
+// const sub = 'vip';
+// console.log(sub);
+
+// const canAccesContent = sub.toLowerCase() === 'pro' || sub.toLowerCase() === 'vip';
+// console.log('Есть доступ?', canAccesContent);
+
+// // ___________________________________________
+
+// const balance = 1000
+// let message
 
 // ___________________________________________
 
-const isOnline = true;
-const isFriend = true;
-const isDnd = false;
+// const balance = 1000;
 
-const canOpenChat = isOnline && isFriend && !isDnd;
+// const message = balance >= 0 ? 'Позитивный баланс' : 'Негативный баланс'; //! Тернарный оператор
 
-console.log('Можео открыть чат? ', canOpenChat);
+// /* Он заменяет цепочку if -> else
+
+//     if (balance >= 0) {
+//     message = 'Позитивный баланс'
+//     } else {
+//     message = 'Негативный баланс'
+//     }
+
+// */
+// console.log(message);
 
 // ___________________________________________
 
-const sub = 'vip';
-console.log(sub);
+// const stars = 1;
+// let price;
 
-const canAccesContent = sub.toLowerCase() === 'pro' || sub.toLowerCase() === 'vip';
-console.log('Есть доступ?', canAccesContent);
+// switch (stars) {
+//     case 1:
+//     case 2:
+//         price = 20;
+//         break;
+
+//     case 3:
+//     case 4:
+//         price = 30;
+//         break;
+
+//     case 5:
+//         price = 120;
+//         break;
+
+//     default:
+//         console.log('Такого кол-ва звезд нет');
+// }
+
+// console.log(price);
 
 // ___________________________________________
 
-const balance = 1000
-let message
+// const option = 1;
+// let message = ' ';
 
+// switch (option) {
+//     case 1:
+//         message = 'Вы сможете забрать товар завтра с 12:00 в нашем офисе';
+//         break;
+
+//     case 2:
+//         message = 'Курьер доставит заказ завтра с 9:00 до 18:00';
+//         break;
+
+//     case 3:
+//         message = 'Посылка будет отправлена сегодня';
+//         break;
+//     default:
+//         message = 'Вам перезвонит менеджер';
+// }
+
+// console.log(message);
+
+// ___________________________________________
+
+// for (let i = 0; i <= 10; i += 1) {
+//     console.log(i)
+// }
+// console.log('qweqwe')
+
+// ___________________________________________
+
+// const minSalary = 500;
+// const maxSalary = 5000;
+
+// const employees = 6;
+// let totalSalary = 0;
+
+// for (let i = 1; i <= employees; i += 1) {
+//     const salary = Math.round(Math.random() * (maxSalary - minSalary) + minSalary);
+//     console.log(`ЗП Работника номер ${i} - `, salary);
+//     totalSalary += salary;
+// }
+
+// console.log('totalSalary: ', totalSalary);
+
+// ___________________________________________
+
+// const min = 0;
+// const max = 7;
+// let total = 0;
+
+// for (let i = min; i <= max; i += 1) {
+
+//     if (i % 2 !== 0) {
+//         console.log('Не четное: ', i)
+//         continue
+//     }
+
+//     console.log('Четное: ', i);
+//     total += i;
+// }
+
+// console.log(total);
+
+// ___________________________________________
+
+// let balance = 10000;
+// const payment = 2000;
+
+// console.log(
+//     `Общая стоимость заказа ${payment} кредитов. Проверяем кол-во доступных средств на счету`
+// );
+
+// if (payment <= balance) {
+//     balance -= payment;
+//     console.log('Все хорошо, снимаем деньги...   Спасибо за покупку!');
+//     console.log(`На счету осталось ${balance} кредитов`);
+// } else {
+//     console.log('На счету недостаточно средств для проведения операции');
+// }
+
+// console.log('Операция завершена');
+
+// ___________________________________________
+
+let totalSpent = 2000;
+let payment = 500;
+let discount = 0;
+
+/*
+
+    ЕЩЕ ОДИН ВАРИАНТ РЕШЕНИЯ ЗАДАЧИ
+
+if (totalSpent < 100) {
+    console.log('У вас еще нет партнерской ссылки');
+} else if (totalSpent >= 100 && totalSpent <= 1000) {
+    console.log('Бронзовый партнер, скидка 2%');
+    discount = 0.02;
+} else if (totalSpent >= 1000 && totalSpent <= 5000) {
+    console.log('Серебряный партнер, скидка 5%');
+    discount = 0.05;
+} else {
+    console.log('Золотой партнер, скидка 10%');
+    discount = 0.1;
+}
+
+*/
+
+// if (totalSpent >= 100 && totalSpent <= 1000) {
+//     console.log('Бронзовый партнер, скидка 2%');
+//     discount = 0.02;
+// } else if (totalSpent >= 1000 && totalSpent <= 5000) {
+//     console.log('Серебряный партнер, скидка 5%');
+//     discount = 0.05;
+// } else if (totalSpent >= 5000) {
+//     console.log('Золотой партнер, скидка 10%');
+//     discount = 0.1;
+// } else {
+//     console.log('У вас еще нет партнерской ссылки');
+// }
+
+// console.log(`Оформляем заказ на сумму ${payment} со скидкой ${discount * 100}%`);
+// console.log(payment);
+
+// payment -= payment * discount
+// totalSpent += payment;
+
+// console.log(`Общая сумма потраченого в магазине: ${totalSpent}`);
+
+// ___________________________________________
+
+const btnAdd = document.querySelector('button')
+
+console.log(btnAdd);
+
+// console.dir(btnAdd);
+// console.dir(btnAdd.textContent);
+// btnAdd.textContent = 'qweqwe'
