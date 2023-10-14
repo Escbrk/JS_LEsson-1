@@ -495,7 +495,7 @@
 // console.log(quantity);
 // console.log(typeof quantity);
 
-// ___________________________________________
+//? ___________________________________________
 
 // let elementWidth = '50px';
 
@@ -512,7 +512,7 @@
 
 // console.log(salary);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const base = 2;
 // const power = 5;
@@ -521,7 +521,7 @@
 // console.log(result);
 // console.log(base ** power);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const base = Number(prompt('Введи число: '));
 // console.log(base)
@@ -530,7 +530,7 @@
 
 // console.log(base ** power);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const colors = ['tomato', 'teal', 'orange', 'deeppink', 'skyblue', 'green'];
 // const max = colors.length - 1;
@@ -542,13 +542,13 @@
 
 // document.body.style.backgroundColor = color;
 
-// ___________________________________________
+//? ___________________________________________
 
 // let brand = prompt('Text brand:')
 // brand = brand[0].toUpperCase() + brand.slice(1).toLowerCase()
 // console.log(brand)
 
-// ___________________________________________
+//? ___________________________________________
 
 // const x1 = 10;
 // const x2 = 30;
@@ -563,7 +563,7 @@
 //     number < x1 || number > x2
 // );
 
-// // ___________________________________________
+// //? ___________________________________________
 
 // const isOnline = true;
 // const isFriend = true;
@@ -573,7 +573,7 @@
 
 // console.log('Можео открыть чат? ', canOpenChat);
 
-// // ___________________________________________
+// //? ___________________________________________
 
 // const sub = 'vip';
 // console.log(sub);
@@ -581,12 +581,12 @@
 // const canAccesContent = sub.toLowerCase() === 'pro' || sub.toLowerCase() === 'vip';
 // console.log('Есть доступ?', canAccesContent);
 
-// // ___________________________________________
+// //? ___________________________________________
 
 // const balance = 1000
 // let message
 
-// ___________________________________________
+//? ___________________________________________
 
 // const balance = 1000;
 
@@ -603,7 +603,7 @@
 // */
 // console.log(message);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const stars = 1;
 // let price;
@@ -629,7 +629,7 @@
 
 // console.log(price);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const option = 1;
 // let message = ' ';
@@ -652,14 +652,14 @@
 
 // console.log(message);
 
-// ___________________________________________
+//? ___________________________________________
 
 // for (let i = 0; i <= 10; i += 1) {
 //     console.log(i)
 // }
 // console.log('qweqwe')
 
-// ___________________________________________
+//? ___________________________________________
 
 // const minSalary = 500;
 // const maxSalary = 5000;
@@ -675,7 +675,7 @@
 
 // console.log('totalSalary: ', totalSalary);
 
-// ___________________________________________
+//? ___________________________________________
 
 // const min = 0;
 // const max = 7;
@@ -694,7 +694,7 @@
 
 // console.log(total);
 
-// ___________________________________________
+//? ___________________________________________
 
 // let balance = 10000;
 // const payment = 2000;
@@ -713,7 +713,7 @@
 
 // console.log('Операция завершена');
 
-// ___________________________________________
+//? ___________________________________________
 
 let totalSpent = 2000;
 let payment = 500;
@@ -759,12 +759,68 @@ if (totalSpent < 100) {
 
 // console.log(`Общая сумма потраченого в магазине: ${totalSpent}`);
 
-// ___________________________________________
+//? ___________________________________________
 
-const btnAdd = document.querySelector('button')
+// const btnAdd = document.querySelector('button[data-add]');
+// const btnReset = document.querySelector('button[data-reset]');
+// const valueInput = document.querySelector('input[data-value]');
+// const outputEl = document.querySelector('.js-output span');
 
-console.log(btnAdd);
+// console.log(outputEl);
+
+// console.log(btnAdd);
+// console.log(valueInput);
+
+// let total = 0;
 
 // console.dir(btnAdd);
 // console.dir(btnAdd.textContent);
 // btnAdd.textContent = 'qweqwe'
+
+// btnAdd.addEventListener('click', function () {
+//     console.log('click hehehe');
+
+//     const value = Number(valueInput.value);
+
+//     console.log(typeof value, value);
+
+//     total += value;
+
+//     // outputEl.textContent = `Сумма: ${total}`;
+//     outputEl.textContent = total;
+//     valueInput.value = '';
+// });
+
+// btnReset.addEventListener('click', function () {
+//     total = 0
+//     outputEl.textContent = total;
+// });
+
+/*  //!Еще один вариант записи функции
+//*      btnAdd.addEventListener('click', () => {
+//*          console.log('click hehehe');
+//*      })
+*/
+
+//? ___________________________________________
+
+// function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
+//     let message;
+//     const totalPrice = pricePerDroid * orderedQuantity;
+//     // Change code below this line
+//     if (totalPrice > customerCredits) {
+//         message = 'Insufficient funds!';
+//         console.log(message);
+//     } else {
+//         customerCredits -= totalPrice;
+//         message = `You ordered ${orderedQuantity} droids, you have ${customerCredits} credits left`;
+//         console.log(message);
+//     }
+//     // Change code above this line
+//     return message;
+// }
+
+// makeTransaction(3000, 5, 23000);
+
+//? ___________________________________________
+
