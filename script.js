@@ -715,9 +715,9 @@
 
 //? ___________________________________________
 
-let totalSpent = 2000;
-let payment = 500;
-let discount = 0;
+// let totalSpent = 2000;
+// let payment = 500;
+// let discount = 0;
 
 /*
 
