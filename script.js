@@ -824,3 +824,258 @@ if (totalSpent < 100) {
 
 //? ___________________________________________
 
+// const clients = ['Mango', 'Poly', 'Ajax', 'Alex'];
+
+// console.log(clients);
+
+// clients[0] = 'Pablo'
+// clients[1] = 'Escobar'
+// console.log(clients);
+
+// console.log(clients.length);
+
+// const lastElementIndex = clients.length - 1
+// console.log(lastElementIndex);
+// console.log(clients[lastElementIndex]);
+//? ___________________________________________
+// for (let i = 0; i < clients.length; i += 1) {
+//     console.log(clients[i]);
+// }
+
+// for (const client of clients) {
+//     console.log(client);
+// }
+
+// const string = 'JavaScript'
+
+// for (const charecter of string) {
+//     console.log(charecter);
+// }
+//? ___________________________________________
+// const clientNameToFind = 'Poly'
+// let message = 'Клиента с таким именем нету в базе данных!';
+
+// for (const client of clients) {
+//     if (client === clientNameToFind) {
+//         message = 'Клиент с таким именем есть в базе данных!'
+//         break
+//     }
+//     // message = 'Клиента с таким именем нету в базе данных!';    //* Или задать значение сразу при создании переменной или записать ее сразу после цыкла for
+// }
+
+// console.log(message);
+//? ___________________________________________
+// const numbers = [1, 3, 14, 18, 4, 7, 29, 6, 34];
+// const threshold = 15;
+
+// for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] < threshold) {
+//         continue;
+//     }
+
+//     console.log(`Число больше чем ${threshold}: ${numbers[i]}`);
+// }
+//? ___________________________________________
+
+// const a = ['Mango']
+// const b = a
+
+// console.log(a);
+// console.log(b);
+
+// a.push('Poly')
+// console.log(a);
+// console.log(b);
+
+// a.push('Ajax')
+// console.log(a);
+// console.log(b);
+
+//? ___________________________________________
+
+// const name = 'Mango'
+// console.log((name.split('')));
+
+// const message = 'JavaScript это интересно';
+// console.log(message.split(' '));
+
+// const words = ['JavaScript', 'это', 'интересно'];
+
+// console.log(words.join(''));
+// console.log(words.join(' '));
+// console.log(words.join('-'));
+
+//? ___________________________________________
+
+// const clients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+
+// console.log(clients.indexOf('Poly'));
+// console.log(clients.indexOf('Monkong'));
+
+// console.log(clients.includes('Poly'));
+// console.log(clients.includes('Monkong'));
+
+//? ___________________________________________
+
+// const redFruits = ['apple', 'strawberry', 'cherry', 'cranberries'];
+// const fruit = 'cherry';
+
+// const hasFruit = redFruits.includes(fruit);
+
+// if (hasFruit) {
+//     console.log(`${fruit} is a red fruit`);
+// }
+
+//? ___________________________________________
+
+// const numbers = []
+
+// numbers.push(1)
+// console.log(numbers)
+
+// numbers.push(2);
+// console.log(numbers);
+
+// numbers.push(3);
+// console.log(numbers);
+
+// numbers.push(4);
+// console.log(numbers);
+
+// numbers.push(5);
+// console.log(numbers);
+
+// console.log(numbers.pop());
+// console.log(numbers);
+
+// console.log(numbers.pop());
+// console.log(numbers);
+
+// console.log(numbers.pop());
+// console.log(numbers);
+
+// console.log(numbers.pop());
+// console.log(numbers);
+
+// console.log(numbers.pop());
+// console.log(numbers);
+
+//? ___________________________________________
+
+// const clients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+// console.log(clients.slice(1, 3));
+// console.log(clients.slice());
+// console.log(clients.slice(1));
+// console.log(clients.slice(2));
+
+//? ___________________________________________
+
+// const scores = [1, 2, 3, 4, 5];
+
+// const deletedScores = scores.splice(0, 3)
+
+// console.log(scores);
+// console.log(deletedScores);
+
+//? ___________________________________________
+
+// const colors = ['red', 'green', 'blue'];
+
+// colors.splice(2, 0, 'purple');
+// console.log(colors);
+// colors.splice(1, 0, 'yellow', 'pink');
+// console.log(colors);
+
+//? ___________________________________________
+
+// const languages = ['C', 'C++', 'Java', 'JavaScript'];
+// console.log(languages);
+
+// languages.splice(1, 1, 'Python')
+// console.log(languages);
+
+// languages.splice(2, 1, 'C#', 'Swift', 'Go')
+// console.log(languages);
+
+//? ___________________________________________
+//! Метод concat()
+
+// const oldClients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+// const newClients = ['Monkong', 'Singu'];
+
+// const allClientsWithOldFirst = oldClients.concat(newClients)
+// console.log(allClientsWithOldFirst);
+
+// const allClientsWithNewFirst = newClients.concat(oldClients)
+// console.log(allClientsWithNewFirst);
+
+// console.log(oldClients);
+// console.log(newClients);
+
+//? ___________________________________________
+//! Функции
+
+// function multiply(x, y, z) {
+//     console.log('Код до return выполняется как обычно');
+
+//     return x * y * z;
+
+//     console.log('Этот лог никогда не выполнится, он стоит после return');
+// }
+
+// let result = multiply(2, 3, 5);
+// console.log(result)
+
+// function multiply(x, y, z) {
+//     console.log(`Результат умножения равен ${x * y * z}`);
+// }
+
+// console.log('Лог до вызова функции multiply');
+// multiply(2, 3, 5); // Результат умножения равен 30
+// console.log('Лог после вызова функции multiply');
+
+// function count(countFrom = 0, countTo = 10, step = 1) {
+//   console.log(`countFrom = ${countFrom}, countTo = ${countTo}, step = ${step}`);
+
+//   for (let i = countFrom; i <= countTo; i += step) {
+//     console.log(i);
+//   }
+// }
+
+// count(1, 5); // countFrom = 1, countTo = 5, step = 1
+// count(2); // countFrom = 2, countTo = 10, step = 1
+// count(); // countFrom = 0, countTo = 10, step = 1
+// count(3, 6)
+
+//? ___________________________________________
+//! Псевдомассив arguments
+
+// function multiply() {
+//   let total = 1;
+
+//   for (const argument of arguments) {
+//     total *= argument;
+//   }
+
+//   return total;
+// }
+
+// console.log(multiply(1, 2, 3)); //  6
+// console.log(multiply(1, 2, 3, 4)); //  24
+// console.log(multiply(1, 2, 3, 4, 5)); //  120
+// console.log(multiply(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+//? ___________________________________________
+//! Преобразование псевдомассива
+
+// function fn() {
+//     const args = Array.from(arguments);
+// }
+
+function fn(...args) {
+    console.log(args);
+}
+
+fn(1, 2, 3, 4)
+
+console.log(fn);
