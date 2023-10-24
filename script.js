@@ -1072,10 +1072,27 @@ if (totalSpent < 100) {
 //     const args = Array.from(arguments);
 // }
 
-function fn(...args) {
-    console.log(args);
+// function fn(...args) {
+//     console.log(args);
+// }
+
+// fn(1, 2, 3, 4, 'text')
+
+// console.log(fn);
+
+//? ___________________________________________
+//! Паттерн «Ранний возврат»
+
+function withdraw(amount, balance) {
+    if (amount === 0) {
+        console.log('Для проведения операции введите сумму больше нуля');
+    } else if (amount > balance) {
+        console.log('Недостаточно средств на счету');
+    } else {
+        console.log('Операция снятия средств проведена успешно');
+    }
 }
 
-fn(1, 2, 3, 4)
-
-console.log(fn);
+withdraw(0, 300);
+withdraw(500, 300);
+withdraw(100, 300);
