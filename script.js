@@ -1082,17 +1082,425 @@ if (totalSpent < 100) {
 
 //? ___________________________________________
 //! Паттерн «Ранний возврат»
+//* Вот это:
 
-function withdraw(amount, balance) {
-    if (amount === 0) {
-        console.log('Для проведения операции введите сумму больше нуля');
-    } else if (amount > balance) {
-        console.log('Недостаточно средств на счету');
-    } else {
-        console.log('Операция снятия средств проведена успешно');
-    }
+// function withdraw(amount, balance) {
+//     if (amount === 0) {
+//         console.log('Для проведения операции введите сумму больше нуля');
+//     } else if (amount > balance) {
+//         console.log('Недостаточно средств на счету');
+//     } else {
+//         console.log('Операция снятия средств проведена успешно');
+//     }
+// }
+
+// withdraw(0, 300);
+// withdraw(500, 300);
+// withdraw(100, 300);
+
+//*Можно зпменить вот этим:
+
+// function withdraw(amount, balance) {
+//     if (amount === 0) {
+//         console.log('Для проведения операции введите сумму больше нуля');
+//         return;
+//     }
+
+//     if (amount > balance) {
+//         console.log('Недостаточно средств на счету');
+//         return;
+//     }
+
+//     console.log(`Операция снятия средств проведена: -${amount}, у вас осталось: ${balance - amount} кредитов`);
+// }
+
+// withdraw(0, 300);
+// withdraw(500, 300);
+// withdraw(100, 300);
+// withdraw(155, 200)
+// withdraw(200, 200);
+
+//? ___________________________________________
+//! Функциональное выражение
+
+//* Объявление функции (function declaration):
+// function multiply(x, y, z) {
+//     console.log(`Результат умножения равен ${x * y * z}`);
+// }
+
+// multiply(2, 5, 6)
+
+//* Функциональное выражение (function expression):
+// const multiply = function (x, y, z) {
+//     console.log(`Результат умножения равен ${x * y * z}`);
+// }
+
+// multiply(5, 6, 10)
+
+//? ___________________________________________
+//! Стек вызовов
+
+// function fnA() {
+//     console.log("Лог внуртри функции fnA до вызова fnB");
+//     fnB()
+//      console.log("Лог внуртри функции fnA после вызова fnB");
+// }
+
+// function fnB() {
+//     console.log("Лог внутри функции fnB");
+// }
+
+// console.log("Лог перед вызовом fnA");
+// fnA();
+// console.log("Лог после вызова fnA");
+
+//? ___________________________________________
+
+// function bar() {
+//     console.log('bar');
+// }
+
+// function baz() {
+//     console.log('baz');
+// }
+
+// function foo() {
+//     console.log('foo');
+//     bar();
+//     baz();
+// }
+
+// foo();
+
+//? ___________________________________________
+//! Массивы
+
+// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax']
+// console.table(friends)
+// // console.log(friends.length);
+// console.log(friends[2]);
+
+// friends[1] = 'qweqwe'
+// friends[4] = 'qweqweqwe'
+// console.table(friends);
+
+// const lastIndex = friends.length - 1
+// console.log(lastIndex);
+
+//? ___________________________________________
+//! Передача по значению
+
+// let a = 10
+// let b = a
+
+// console.log(a);
+// console.log(b);
+
+// a = 20
+
+// console.log(a);
+// console.log(b);
+
+//! Передача по ссылке
+
+// const a = [1, 2, 3]
+// const b = a
+
+// console.log('a', a);
+// console.log('b', b);
+
+// a[0] = 500
+
+// console.log('a', a);
+// console.log('b', b);
+// console.log(a === b); // true
+
+// console.log([1, 2, 3] === [1, 2, 3]); // false
+
+//? Перебор массива:
+
+// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax']
+// // console.table(friends);
+
+// for (let i = 0; i < friends.length; i += 1) {
+//     // console.log(friends[i]);
+//     friends[i] += `-${i + 1}`
+// }
+
+// for (const friend of friends) {
+//     console.log(friend);
+// }
+
+// console.table(friends);
+
+//? ___________________________________________
+
+// const cart = [54, 28, 105, 70, 92, 17, 120];
+// let total = 0;
+
+// // for (let i = 0; i < cart.length; i += 1) {
+// //     console.log(cart[i]);
+
+// //     total += cart[i]
+// // }
+// //* Задачка без налога:
+// // for (const value of cart) {
+// //     total += value
+// // }
+
+// //* Задачка + такс:
+// for (let i = 0; i < cart.length; i += 1) {
+//     // cart[i] = Math.round(cart[i] * 1.05)
+//     cart[i] *= 1.05
+
+//     total += cart[i]
+// }
+
+// console.log('Total $:', total.toFixed(2));
+
+//? ___________________________________________
+
+// const numbers = [1, 5, 8, 9, 12, 4, 15, 27, 30, 18, 14];
+// let total = 0;
+
+// // for (let i = 0; i < numbers.length; i += 1) {
+// //     // console.log(numbers[i]);
+// //     if (numbers[i] % 2 === 0) {
+// //         console.log('Четное');
+
+// //         total += numbers[i]
+// //     }
+// // }
+
+// for (const number of numbers) {
+//     if (number % 2 === 0) {
+//         console.log(`${number} - четное`);
+//         total += number;
+//     }
+// }
+// //* Логика от обратного:
+// // for (const number of numbers) {
+// //     if (number % 2 !== 0) {
+// //         console.log(`${number} - нечетное`);
+// //         continue;
+// //     }
+
+// //     total += number;
+// //     console.log(`${number} - четное`);
+// // }
+
+// console.log('Total:', total);
+
+//? ___________________________________________
+
+// const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
+// const loginToFind = 'poly1scute';
+// let message = `Пользователь ${loginToFind} не найден`;
+
+// for (let i = 0; i < logins.length; i += 1) {
+//     if (logins[i] === loginToFind) {
+//         message = `Пользователь ${loginToFind} найден`;
+//         break;
+//     }
+// }
+
+// console.log(message);
+
+//* ___________________________________________
+
+// for (const login of logins) {
+//     if (login === loginToFind) {
+//         message = `Пользователь ${loginToFind} найден`;
+//         break;
+//     }
+// }
+
+// console.log(message);
+
+//* ___________________________________________
+
+// const message = logins.includes(loginToFind)
+//     ? `Пользователь ${loginToFind} найден`
+//     : `Пользователь ${loginToFind} не найден`;
+
+// console.log(message);
+
+//? ___________________________________________
+//! Найти самое маленькое число в массиве:
+
+// const numbers = [51, 18, 13, 24, 7, 85, 19];
+// let smallestNumber = numbers[0]
+
+// for (const number of numbers) {
+
+//     if (smallestNumber > number) {
+//         smallestNumber = number
+//     }
+// }
+
+// console.log(smallestNumber);
+
+//! Найти самое большое число в массиве:
+
+// const numbers = [51, 18, 13, 24, 7, 85, 19];
+// let smallestNumber = numbers[0];
+
+// for (const number of numbers) {
+//     if (smallestNumber < number) {
+//         smallestNumber = number;
+//     }
+// }
+
+// console.log(smallestNumber);
+
+//? ___________________________________________
+//! Метод join():
+
+// const friends = ['Mango', 'Poly', 'Kiwi', 'Ajax'];
+// // let string = '';
+
+// // for (const friend of friends) {
+// //     string += friend + ','
+// // }
+// // string = string.slice(0, string.length - 1);
+
+// const string = friends.join(', ')
+// console.log(string);
+
+//? ___________________________________________
+
+// const string = 'JavaScript';
+// const letters = string.split('');
+// let invertedString = '';
+
+// console.log(letters);
+
+// for (const letter of letters) {
+//     console.log(letter);
+
+//     // if (letter === letter.toLowerCase()) {
+//     //     invertedString += letter.toUpperCase()
+//     // } else {
+//     //     invertedString += letter.toLowerCase()
+//     // }
+
+//     invertedString += letter === letter.toLowerCase() ? letter.toUpperCase() : letter.toLowerCase();
+// }
+
+// console.log('invertedString:', invertedString);
+
+//? ___________________________________________
+
+// const title = 'Top 10 benefits of React framework';
+
+// //* Старый метод:
+
+// // const normalizedTitle = title.toLowerCase()
+// // console.log(normalizedTitle.split(' ').join('-'));
+
+// //*Цепочка вызова:
+
+// const slug = title.toLowerCase().split(' ').join('-')
+
+// console.log(slug);
+
+//? ___________________________________________
+//! Метод concat() :
+
+// const array1 = [5, 10, 15, 20];
+// const array2 = [10, 20, 30];
+
+// //* Сшитие двух массивов:
+// const numbers = array1.concat(array2)
+
+// let total = 0
+
+// for (const number of numbers) {
+//     total += number
+// }
+
+// console.log(total);
+
+//? ___________________________________________
+
+// const cards = ['Карточка-1', 'Карточка-2', 'Карточка-3', 'Карточка-4', 'Карточка-5'];
+// console.table(cards);
+
+// //* Удаление элемента в массиве (по индексу), метод (indexOf):
+
+// const cardToRemove = 'Карточка-3';
+// const index = cards.indexOf(cardToRemove);
+
+// // console.log(cards.splice(index, 1)); // ['Карточка-3'] - удаленный элемент
+// cards.splice(index, 1)
+// console.log(index);
+
+// console.table(cards);
+// console.log(cards);
+
+//* Добавление элемента в массиве (по индексу):
+
+// const cardToInsert = 'Карточка-6';
+// const index = 3;
+
+// cards.splice(index, 0, cardToInsert);
+
+// console.table(cards);
+
+//* Обновление элемента в массиве (по индексу):
+
+// const cardToUpdate = 'NEW Карточка-4';
+// const index = 3;
+
+// cards.splice(index, 1, cardToUpdate);
+
+// console.table(cards);
+
+//? ___________________________________________
+//! ФУНКЦИИ
+//? ___________________________________________
+
+// const add = function (x, y) {
+//     return x + y;
+// };
+
+// const r1 = add(2, 6);
+// console.log('r1:', r1);
+// const r2 = add(5, 10);
+// console.log('r2:', r2);
+
+//? ___________________________________________
+
+// const fn = function (value) {
+//     if (value < 50) {
+//         return 'Меньше чем 50';
+//     }
+//     return 'Больше чем 50';
+// };
+
+// console.log('Result:', fn(48));
+// console.log('Result:', fn(482));
+
+//? ___________________________________________
+/* 
+    //*!    * - Стэк вызовов
+    //*!    * - Stack trace и поиск ошибок
+*/
+
+const fnA = function () {
+    console.log('Выполняется функция A');
+fnB();
+
 }
 
-withdraw(0, 300);
-withdraw(500, 300);
-withdraw(100, 300);
+const fnB = function () {
+    console.log('Выполняется функция B');
+fnC();
+
+};
+
+const fnC = function () {
+    console.log('Выполняется функция C');
+};
+
+fnA()
