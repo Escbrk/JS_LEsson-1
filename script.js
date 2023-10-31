@@ -1487,20 +1487,850 @@ if (totalSpent < 100) {
     //*!    * - Stack trace и поиск ошибок
 */
 
-const fnA = function () {
-    console.log('Выполняется функция A');
-fnB();
+// const fnA = function () {
+//     console.log('Выполняется функция A');
+// fnB();
 
-}
+// }
 
-const fnB = function () {
-    console.log('Выполняется функция B');
-fnC();
+// const fnB = function () {
+//     console.log('Выполняется функция B');
+// fnC();
 
-};
+// };
 
-const fnC = function () {
-    console.log('Выполняется функция C');
-};
+// const fnC = function () {
+//     console.log('Выполняется функция C');
+//     console.log(value);
+// };
 
-fnA()
+// fnA()
+// fnB()
+// fnC()
+
+//? ___________________________________________
+
+// const calculateTotalPrice = function (items) {
+//     console.log(items);
+
+//     let total = 0;
+
+//     for (const item of items) {
+//         total += item;
+//     }
+//     return total;
+// };
+
+// console.log(calculateTotalPrice([1, 2, 3]));
+// console.log(calculateTotalPrice([5, 10, 15, 20]));
+// console.log(calculateTotalPrice([100, 200, 300]));
+
+//? ___________________________________________
+
+// const logItems = function (items) {
+//     for (const item of items) {
+//         console.log(item);
+//     }
+// };
+
+// logItems(['Mango', 'Kiwi', 'Poly', 'Ajax']);
+// logItems([1, 2, 3, 4, 5]);
+// logItems(['клавиатура', 'наушники', 'часы']);
+
+//? ___________________________________________
+
+// const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
+// // const loginToFind = 'poly1scute';
+// // let message = `Пользователь ${loginToFind} не найден`;
+
+// const findLogin = function (allLogins, loginToFind) {
+//     return allLogins.includes(loginToFind)
+//         ? `Пользователь ${loginToFind} найден`
+//         : `Пользователь ${loginToFind} не найден`;
+
+//     //! ___________________________________________
+
+//     // for (const login of allLogins) {
+//     //     if (login === loginToFind) {
+//     //         return `Пользователь ${loginToFind} найден`;
+//     //     }
+//     // }
+
+//     // return `Пользователь ${loginToFind} не найден`;
+// };
+
+// console.log(findLogin(logins, 'avocod3r'));
+// console.log(findLogin(logins, 'k1widab3st'));
+// console.log(findLogin(logins, 'jam4l'));
+// console.log(findLogin(logins, 'poly1scute'));
+
+//? ___________________________________________
+
+// const findSmallestNumber = function (numbers) {
+//     let smallestNumber = numbers[0];
+
+//     for (const number of numbers) {
+//         if (number < smallestNumber) {
+//             smallestNumber = number;
+//         }
+//     }
+//     return smallestNumber;
+// };
+
+// console.log(findSmallestNumber([3, 8, 12, -2, 15]));
+// console.log(findSmallestNumber([100, 54, 8, 12, 47]));
+// console.log(findSmallestNumber([7, 21, 84, 15, 4]));
+
+//? ___________________________________________
+
+// const changeCase = function (string) {
+//     const letters = string.split('');
+//     let invertedString = '';
+
+//     for (const letter of letters) {
+//         const isInLowerCase = letter === letter.toLowerCase();
+
+//         invertedString += isInLowerCase ? letter.toUpperCase() : letter.toLowerCase();
+//     }
+
+//     return invertedString;
+// };
+
+// console.log(changeCase('qweRTY'));
+// console.log(changeCase('mAnGo'));
+// console.log(changeCase('AjAx'));
+
+//? ___________________________________________
+
+// const title = 'Top 10 benefits of React framework';
+
+// const slugify = function (string) {
+//     return string.toLowerCase().split(' ').join('-')
+// }
+
+// console.log(slugify('qweqwe qweqwe qweqwe'));
+// console.log(slugify('Hello my name is'));
+// console.log(slugify('QweEQ aOLIIPki POKJ'));
+
+//? ___________________________________________
+
+// const fn = function () {
+//     console.log(arguments);
+
+// const args = Array.from(arguments)
+
+//     console.log(args);
+// };
+
+// fn(1, 2, 3);
+// fn(1, 2, 3, 4, 5);
+// fn(1, 2, 3, 4, 5, 6, 7);
+
+//! ___________________________________________
+
+// const fn = function (a, b, ...args) {
+//     console.log(`${a} ${b}`);
+//     console.log(args);
+// };
+
+// fn(1, 2, 3);
+// fn(1, 2, 3, 4, 5);
+// fn(1, 2, 3, 4, 5, 6, 7);
+
+//? ___________________________________________
+
+// const add = function (...args) {
+//     console.log(args);
+
+//     let total = 0
+
+//     for (const arg of args) {
+//         total += arg
+//     }
+
+//     return total
+// };
+
+// console.log(add(1, 2, 3));
+// console.log(add(1, 2, 4, 5, 6));
+
+//? ___________________________________________
+
+// const filterNumbers = function (array, ...args) {
+//     console.log(array);
+//     console.log(args);
+
+//     const uniqueElements = [];
+
+//     for (const element of array) {
+//         if (args.includes(element)) {
+//             uniqueElements.push(element);
+//             console.log(`${element} есть везде!`);
+//         }
+//     }
+
+//     return uniqueElements;
+// };
+
+// console.log(filterNumbers([1, 2, 3, 4, 5], 10, 15, 2, 3, 8));
+// console.log(filterNumbers([10, 15, 25, 30], 23, 30, 18, 15));
+// console.log(filterNumbers([100, 200, 300, 400, 500], 7, 12, 200, 64));
+
+//? ___________________________________________
+//! Объекты
+//? ___________________________________________
+
+// const book = {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     genres: ['historical prose', 'adventure'],
+//     isPublic: true,
+//     rating: 8.38,
+// };
+
+// console.log(book);
+
+// const user = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: {
+//         country: 'Jamaica',
+//         city: 'Ocho Rios',
+//     },
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     },
+// };
+
+// console.log(user);
+
+//? ___________________________________________
+//! Свойства
+//? ___________________________________________
+
+// const playlist = {
+//     name: 'Мой супер плейлист',
+//     rating: 5,
+//     tracks: ['track-1', 'track-2', 'track-3'],
+//     trackCount: 3,
+// };
+
+// playlist.price = 200;
+// playlist.array = [1, 2, 3];
+// playlist.location = {
+//     country: 'Canada',
+//     province: 'AB',
+//     city: 'Calgary',
+// };
+
+// console.log(playlist);
+// console.log(playlist);
+
+// console.log(playlist.rating);
+// console.log(playlist.name);
+// console.log(playlist.trackCount);
+// console.log(playlist.tracks);
+
+const propertyName = 'tracks';
+
+// console.log(playlist.propertyName);
+// console.log(playlist[propertyName]);
+
+//! Короткая запись сво-тв:
+
+// const username = 'Mango';
+// const email = 'mango@mail.com';
+
+// const signupData = {
+//     username,
+//     email,
+// };
+
+// console.log(signupData);
+
+//! Вычисляемые св-ва
+
+//* <input name='color' value='tomato' ></input>
+
+// const inputName = 'color';
+// const inputValue = 'tomato';
+
+// const colorPickerDate = {
+//     [inputName]: inputValue,
+// };
+
+// console.log(colorPickerDate);
+
+//! Ссылочный тип {} === {}
+
+// const a = { x: 1, y: 2 };
+// const b = a;
+
+// console.log(b === a);
+
+// a.c = 100;
+
+// console.log(a);
+// console.log(b);
+
+//! Массивы и функции это объекты
+
+// const a = [1, 2, 3];
+
+// a.hello = ':)'
+
+// console.log(a);
+
+// const fn = function () {
+//     console.log('hello');
+// };
+
+// fn.hello = ':)'
+
+// // console.log(fn);
+// console.dir(fn);
+// console.log(fn.hello);
+
+//? ___________________________________________
+
+// const playlist = {
+//     name: 'Мой супер плейлист',
+//     rating: 5,
+//     tracks: ['track-1', 'track-2', 'track-3'],
+//     // getName: function () {
+//     //     console.log('This is the getName');
+//     // },
+//     // getName() {
+//     //     console.log('This is the getName');
+//     // },
+
+//     changeName(newName) {
+//         console.log('this inside changeName', this);
+
+//         this.name = newName;
+//     },
+
+//     addTrack(track) {
+//         this.tracks.push(track);
+//     },
+
+//     updateRating(newRating) {
+//         this.rating = newRating;
+//     },
+
+//     getTrackCount() {
+//         return this.tracks.length;
+//     },
+// };
+// // playlist.getName();
+// console.log(playlist);
+
+// playlist.changeName('New cool name');
+
+// playlist.addTrack('new track');
+// console.log(playlist);
+
+// playlist.updateRating(10);
+// console.log(playlist);
+
+//? ___________________________________________
+//! Перебор через for...in и Object.keys | values | entries
+
+// const feedback = {
+//     good: 5,
+//     neutral: 10,
+//     bad: 3,
+// };
+
+// let totalFeedback = 0;
+
+// const keys = Object.keys(feedback)
+
+// console.log(keys);
+
+// for (const key of keys) {
+//     console.log(key);
+//     console.log(feedback[key]); // Доступ к значению
+
+// }
+
+// const values = Object.values(feedback);
+// console.log(values);
+
+// for (const value of values) {
+//     console.log(value);
+//     totalFeedback += value;
+// }
+
+// console.log('totalFeedback: ', totalFeedback);
+
+// const keys = [];
+// const values = [];
+// const advert = {
+//     service: 'apt',
+// };
+// const apartment = Object.create(advert);
+// apartment.descr = 'Spacious apartment in the city center';
+// apartment.rating = 4;
+// apartment.price = 2153;
+
+// for (const key in apartment) {
+//     // Change code below this line
+
+//     if (apartment.hasOwnProperty(key)) {
+//         keys.push(key)
+//         values.push(apartment[key])
+//     }
+
+//     // Change code above this line
+// }
+
+// console.log(keys);
+// console.log(values);
+//? ___________________________________________
+
+// const friends = [
+//     { name: 'Mango', online: false },
+//     { name: 'Kiwi', online: true },
+//     { name: 'Poly', online: true },
+//     { name: 'Ajax', online: false },
+// ];
+
+// console.table(friends);
+
+// for (const friend of friends) {
+//     console.log(friend.name);
+
+//     friend.newprpo = 555;
+// }
+
+// console.table(friends);
+
+//* Ищем друга по имени
+
+// const findFriendByName = function (allFriends, name) {
+//     for (const friend of allFriends) {
+//         if (friend.name === name) {
+//             return 'НАШЛИ';
+//         }
+//     }
+//     return 'НЕ НАШЛИ';
+// };
+
+// console.log(findFriendByName(friends, 'Poly'));
+// console.log(findFriendByName(friends, 'Chelsy'));
+
+//? ___________________________________________
+
+// const getAllNames = function (allFriends) {
+//     const names = [];
+
+//     for (const friend of allFriends) {
+//         // console.log(friend.name);
+//         names.push(friend.name);
+//     }
+//     return names;
+// };
+
+// console.log(getAllNames(friends));
+
+//? ___________________________________________
+
+// const getOnlineFriends = function (allFriends) {
+
+//     const onlineFriends = []
+
+//     for (const friend of allFriends) {
+
+//         if (friend.online)
+//            onlineFriends.push(friend)
+//     }
+//     return onlineFriends
+// };
+
+// console.log(getOnlineFriends(friends));
+
+//? ___________________________________________
+
+// const getOfflineFriends = function (allFriends) {
+
+//     const offlineFriends = [];
+
+//     for (const friend of allFriends) {
+//         if (!friend.online) {
+//             offlineFriends.push(friend);
+//         }
+
+//     }
+//     return offlineFriends
+// };
+
+// console.log(getOfflineFriends(friends));
+
+//? ___________________________________________
+
+// const getFriendsByOnlineStatus = function (allFriends) {
+//     const friendsByStatus = {
+//         online: [],
+//         offline: [],
+//     };
+
+//     for (const friend of allFriends) {
+//         if (friend.online) {
+//             friendsByStatus.online.push(friend);
+//             continue;
+//         }
+//         friendsByStatus.offline.push(friend);
+//     }
+
+//     return friendsByStatus;
+// };
+
+// console.log(getFriendsByOnlineStatus(friends));
+
+//? ___________________________________________
+
+// const x = {
+//     a: 1,
+//     b: 2,
+//     c: 50,
+//     d: 100,
+// };
+
+// console.log(Object.keys(x));
+// console.log(Object.keys(x).length);
+
+//? ___________________________________________
+/* //! Операция spread (распыление)
+ * //! Arrey.prototype.concat() и аналог через spread
+ */
+
+// const numbers = [1,2,3].concat([4,5,6], [7,8,9])
+
+// const numbers = [0,5,10, ...[1, 2, 3], 4, 5];
+// const numbers = [...[1, 2, 3], ...[4, 5, 6], ...[7, 8, 9]];
+
+// console.log(numbers);
+
+/*
+ * //! Поиск самой малекьеой температуры (числа)
+ */
+
+// const temps = [18, 14, 12, 21, 17, 29, 24];
+//!________________________________________
+
+// const a = [{ x: 1 }, { y: 2 }, { z: 3 }];
+// const b = [...a];
+
+// console.log(a);
+// console.log(b);
+
+// a[0].x = 1000
+
+// console.log(a);
+// console.log(b);
+
+//? ___________________________________________
+//! Сшиваем несколько массивов в один через concat() и spread
+
+// const lastWeekTemps = [1, 2, 3];
+// const currentTemps = [4, 5, 6];
+// const nextWeekTemps = [7, 8, 9];
+
+// const allTemps = lastWeekTemps.concat(currentTemps, nextWeekTemps) //* Метод concat()
+
+// const allTemps = [...lastWeekTemps, ...currentTemps, ...nextWeekTemps]    //* Метод spread
+
+// console.log(allTemps);
+
+//? ___________________________________________
+/* //! Распыление объектов
+ * //! -Object.prototype/assign() и spread
+ */
+
+// const a = { x: 1, y: 2 };
+// const b = { x: 0, z: 3 };
+
+// const c = Object.assign({}, a, b)  //* старый метод
+
+// const c = {
+//     ...a,
+//     ...b,
+// };
+
+// console.log(c);
+
+// const defaultSettings = {
+//     theme: 'light',
+//     showNotifications: true,
+//     hideSidebar: false,
+// };
+
+// const userSettings = {
+//     // theme: 'dark',
+//     showNotifications: false,
+//     hideSidebar: true,
+// };
+
+// const finalSettings = {
+//     ...defaultSettings,
+//     ...userSettings
+// }
+
+// console.log(finalSettings);
+
+//? ___________________________________________
+/* //! Деструктуризация объекта
+ * //! - Значение по умолчанию
+ * //! - Имя переменной отличное от имени свойства
+ */
+
+// const playlist = {
+//     name: 'Мой супер плейлист',
+//     rating: 5,
+//     tracks: ['track-1', 'track-2', 'track-3'],
+//     // trackCount: 3,
+// };
+
+// const {
+//     name,
+//     rating,
+//     tracks,
+//     trackCount: numberOfTracks = 2,
+//     author = 'unknown'
+// } = playlist;
+
+// // console.log(name, rating, tracks, numberOfTracks);
+// console.log(numberOfTracks);
+// console.log(author);
+
+/*
+ * //! Глубокая деструктуризация
+ */
+
+// const profile = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: 'Ocho Rios, Jamaica',
+//     avatar: 'http//s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     },
+// };
+
+// const {
+//     name,
+//     tag,
+//     location,
+//     avatar,
+//     stats: { followers, views, likes },
+// } = profile;
+
+// console.log(followers);
+
+//? ___________________________________________
+//! Деструктуризация массивов
+
+// const rgb = [255, 100, 80];
+
+// const [red, green, blue] = rgb;
+// const [red, , blue] = rgb; // пропуск свойства
+// console.log(red, blue);
+
+// console.log(red, green, blue);
+
+// const authors = {
+//     kiwi: 4,
+//     poly: 7,
+//     ajax: 9,
+//     mango: 6,
+// };
+
+// // const ratings = Object.values(authors)
+// // console.log(Math.max(...ratings));
+
+// const entries = Object.entries(authors);
+
+// for (const /*entry*/ [name, rating] of entries) {
+//     // const [name, rating] = entry
+
+//     // const name = entry[0];
+//     // const rating = entry[1];
+
+//     console.log(name, rating);
+// }
+
+//? ___________________________________________
+//! Операция rest (сбор)
+
+// const profile = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: 'Ocho Rios, Jamaica',
+//     avatar: 'http//s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     },
+// };
+
+// // const { name, tag, location, ...restProps } = profile;
+
+// // console.log(profile);
+// // console.log(restProps);
+
+// const showProfileInfo = function (userProfile) {
+//     const {
+//         name,
+//         tag,
+//         location,
+//         // avatar,
+//         // stats: { followers, views, likes },
+//         ...restProps
+//     } = userProfile;
+
+//     console.log(userProfile);
+//     console.log(restProps);
+// };
+
+// showProfileInfo(profile);
+
+//? ___________________________________________
+//! EXAMPLE
+
+// const profile = {
+//     name: 'Jacques Gluke',
+//     tag: 'jgluke',
+//     location: 'Ocho Rios, Jamaica',
+//     avatar: 'http//s3.amazonaws.com/uifaces/faces/twitter/r_oy/128.jpg',
+//     stats: {
+//         followers: 5603,
+//         views: 4827,
+//         likes: 1308,
+//     },
+// };
+
+// const makeProfileMarkup = function (userProfile) {
+//     const {
+//         avatar = 'http://i.pravatar.cc/400?img=6',
+//         name,
+//         tag,
+//         location = 'Planet Earth',
+//         stats: { followers, views, likes },
+//     } = userProfile;
+
+//     return `<div>
+//             <img src="${avatar}" alt="user avatar">
+//             <p>
+//                 ${name}
+//                 <span>@${tag}</span>
+//             </p>
+//             <p>Location: ${location}</p>
+//             <ul>
+//                 <li>Followers: ${followers}</li>
+//                 <li>Views: ${views}</li>
+//                 <li>Likes: ${likes}</li>
+//             </ul>
+//         </div>`;
+// };
+
+// const markup = makeProfileMarkup(profile)
+
+// console.log(markup);
+
+// document.body.insertAdjacentHTML('afterbegin', markup)
+
+//? ___________________________________________
+
+//! CART_____________________
+
+// const cart = {
+//     items: [],
+//     getItems() {
+//         return this.items;
+//     },
+//     add(product) {
+//         for (const item of this.items) {
+//             if (item.name === product.name) {
+//                 item.quantity += 1;
+//                 return;
+//             }
+//         }
+
+//         const newProduct = {
+//             ...product,
+//             quantity: 1,
+//         };
+
+//         this.items.push(newProduct);
+//     },
+//     remove(productName) {
+//         const { items } = this;
+
+//         for (let i = 0; i < items.length; i += 1) {
+//             console.log(items[i]);
+//             const { name } = items[i];
+
+//             if (productName === name) {
+//                 console.log('hello', productName);
+
+//                 items.splice(i, 1);
+//             }
+//         }
+//     },
+//     clear() {
+//         this.items = [];
+//     },
+//     countTotalPrice() {
+//         const { items } = this;
+
+//         let total = 0;
+
+//         for (const { price, quantity } of items) {
+//             total += price * quantity
+//             console.log(total);
+//         }
+
+//         return total;
+//     },
+//     increaseQuantity(productName) {},
+//     decreaseQuantity(productName) {},
+// };
+
+// console.log(cart.getItems());
+// console.table(cart.getItems());
+
+// cart.add({ name: '🍎', price: 50 });
+// cart.add({ name: '🍎', price: 50 });
+// cart.add({ name: '🍎', price: 50 });
+// cart.add({ name: '🍎', price: 50 });
+// cart.add({ name: '🍋', price: 60 });
+// cart.add({ name: '🍐', price: 60 });
+// cart.add({ name: '🍓', price: 110 });
+
+// console.table(cart.getItems());
+
+// cart.remove('🍋');
+// console.table(cart.getItems());
+
+// console.log('Total: ', cart.countTotalPrice());
+
+// cart.clear();
+// console.log(cart.getItems());
+// // console.table(cart);
+
+//! CART_____________________
+
+//? ___________________________________________
+
+
+
+// Декларативный подход
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(value => value > 3);
+console.log(filteredNumbers); // [4, 5]
