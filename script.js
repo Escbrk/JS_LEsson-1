@@ -2327,10 +2327,624 @@ const propertyName = 'tracks';
 //! CART_____________________
 
 //? ___________________________________________
+//! CALLBACK
 
+// const fnA = function (message, callback) {
+//     console.log(message);
 
+//     console.log(callback);
+//     callback(100)
+// };
 
-// Декларативный подход
-const numbers = [1, 2, 3, 4, 5];
-const filteredNumbers = numbers.filter(value => value > 3);
-console.log(filteredNumbers); // [4, 5]
+// const fnB = function (number) {
+//     console.log('Это лог при вызове fnB', number);
+//   }
+
+// fnA('qweqwe', fnB);
+
+//? ___________________________________________
+//! Функция doMath(a, b, callback)
+
+// const doMath = function (a, b, callback) {
+//     const result = callback(a, b);
+
+//     console.log(result);
+// };
+
+// doMath(2, 3, function (x, y) {
+//     return x + y;
+// });
+// doMath(10, 8, function (x, y) {
+//     return x - y;
+// });
+
+//? ___________________________________________
+//! Отложеный вызов: регистрация событий
+
+// const buttonRef = document.querySelector('.js-button');
+
+// buttonRef.addEventListener('click', function () {
+//     console.log('Клик по кнопке');
+// });
+
+// function addEventListener(eventType, callback) {
+//     // Если
+//     if (eventType === event) {
+//         callback();
+//     }
+// }
+
+//! Отложеный вызов: геолокация
+
+// const onGetPositionSucces = function (position) {
+//     console.log('Это вызов: onGetPositionSucces');
+//     console.log(position);
+// }
+
+// const onGetPositionError = function (error) {
+//     console.log(error);
+// }
+
+// window.navigator.geolocation.getCurrentPosition(onGetPositionSucces, onGetPositionError);
+
+//! Отложеный вызов: интервалы
+
+// const callback = function () {
+//     console.log('Через 2 секунды внутри колбека в таймауте');
+// }
+
+// console.log('В коде перед таймаутом');
+
+// setTimeout(callback, 2000)
+
+// console.log('В коде после таймаута');
+
+/* //! Отложеный вызов: http-запрос
+ * //! - API URL: https://pokeapi.co/api/v2/pokemon
+ */
+
+// const onRequestSucces = function (response) {
+//     console.log('Успешный запрос');
+//     console.log(response);
+// }
+
+// fetch('https://pokeapi.co/api/v2/pokemon').then(res => res.json()).then(onRequestSucces);
+
+// console.log('перед fetch');
+// console.log('после fetch');
+
+//! Фильтр
+
+// const filter = function (array, test) {
+//     const filteredArray = [];
+
+//     for (const el of array) {
+//         console.log(el);
+//         const passed = test(el);
+//         if (passed) {
+//             filteredArray.push(el);
+//         }
+//     }
+//     console.log(filteredArray);
+//     return filteredArray;
+// };
+
+// filter([1, 2, 3, 4, 5], function (value) {
+//     return value >= 3;
+// });
+// filter([1, 2, 3, 4, 5, 6, 7, 8], function (value) {
+//     return value <= 4;
+// });
+
+// const fruits = [
+//     { name: 'apples', quantity: 200, isFresh: true },
+//     { name: 'grapes', quantity: 150, isFresh: false },
+//     { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// filter(fruits, function (fruit) {
+//     return fruit.quantity >= 120;
+// });
+
+//! ЗАМЫКАНИЕ
+
+// const fnA = function (parameter) {
+//     const innerVariable = 'значение внутренней переменной функции fnA';
+
+//     const innerFunction = function () {
+//         console.log(parameter);
+//         console.log(innerVariable);
+//         console.log('Это вызов innerFunction');
+//     };
+
+//     return innerFunction;
+// };
+
+// const fnB = fnA(777);
+
+// fnB();
+
+// console.log(fnB);
+
+//! Поварёнок (пример)
+
+// const makeDish = function (sheffName, dish) {
+//     console.log(`${sheffName} готовит ${dish}`);
+// };
+
+// makeDish('Mango', 'пирожок');
+// makeDish('Mango', 'омлет');
+// makeDish('Mango', 'чай');
+
+// makeDish('Poly', 'котлеты');
+// makeDish('Poly', 'супик');
+// makeDish('Poly', 'кофе');
+
+// const makeSheff = function (name) {
+//     const makeDish = function (dish) {
+//     console.log(`${name} готовит ${dish}`);
+
+//     };
+
+//     return makeDish;
+// };
+
+// const mango = makeSheff('Mango')
+// const poly = makeSheff('Poly')
+
+// console.dir(mango);
+// console.log(mango);
+
+// mango('котлеты')
+// poly('чай')
+
+//! Округлятор 🤷‍♂️
+
+// const floatingPoint = 3.456789;
+// const someInt = Math.round(floatingPoint); // 3
+// const withDecimals = Number(floatingPoint.toFixed(2)); // 3.46
+
+// // const rounder = function (number, places) {
+// //     return Number(number.toFixed(places));
+// // };
+
+// const rounder = function (places) {
+//     return function (number) {
+//         return Number(number.toFixed(places));
+//     };
+// };
+
+// const rounder2 = rounder(2);
+// const rounder3 = rounder(3);
+
+// console.log(rounder3(3.4567));
+// console.log(rounder2(6.4567));
+
+// rounder2(floatingPoint); //  3.46
+// rounder3(floatingPoint); //  3.457
+
+//! Приватные данные и функции - скрытие реализации, интерфейс
+
+// const salatyManagerFactory = function (employeeName, baseSalary) {
+//     let salaty = baseSalary;
+
+//     return {
+//         raise(amount) {
+//             salaty += amount
+//         },
+//         lower(amount) {
+//             salaty -= amount;
+//         },
+//         current() {
+//             return `Текущая зарплата ${employeeName} - ${salaty}`;
+//         },
+//     };
+// }
+// const salaryManager = salatyManagerFactory('Mango', 5000)
+
+// console.log(salaryManager.raise(222));
+// console.log(salaryManager.current());
+
+//? ___________________________________________
+
+// const myLibFactory = function () {
+//     let value = 0;
+
+//     const add = function (num) {
+//     value += num
+// }
+
+//     return {
+//         add,
+//         getValue() {
+//             return value
+//         }
+//     };
+// };
+
+// const myLib = myLibFactory()
+
+// console.log(myLib);
+
+// console.log(myLib.getValue());
+// myLib.add(10)
+// console.log(myLib.getValue());
+
+//? ___________________________________________
+/*//! Стрелочные функции
+ * //!      - Объявление
+ * //!      - Явный и неявный возврат
+ * //!      - Аргементы
+ * //!      - Неявный возврат объекта
+ */
+
+// const add = function (a, b, c) {
+//     console.log(arguments);
+//     console.log(a, b, c);
+//     return a + b + c;
+// };
+
+// const addArrow = (...args) => {
+//     console.log(args);
+//     // return a + b + c;
+// };
+
+// const addArrow1 = (a, b, c) => 5 + 10 + 15;
+// console.log(addArrow1());
+
+// // console.log(add(5, 10, 15));
+
+// console.log(addArrow(5, 10, 15));
+
+//? ___________________________________________
+
+// const fnA = function () {
+//     return {
+//         a: 5,
+//     };
+// };
+
+// console.log(fnA());
+
+// const arrowFnA = () => ({ arrowA: 5 });
+
+// console.log(arrowFnA());
+
+//? ___________________________________________
+
+// const onGetPositionSucces = (position) => {
+//     console.log('Это вызов: onGetPositionSucces');
+//     console.log(position);
+// }
+
+// const onGetPositionError = (error) => {
+//     console.log(error);
+// }
+
+// window.navigator.geolocation.getCurrentPosition(onGetPositionSucces, onGetPositionError);
+
+//? ___________________________________________
+
+// const filter = (array, test) => {
+//     const filteredArray = [];
+
+//     for (const el of array) {
+//         console.log(el);
+//         const passed = test(el);
+//         if (passed) {
+//             filteredArray.push(el);
+//         }
+//     }
+//     return filteredArray;
+// };
+
+// filter([1, 2, 3, 4, 5], value => value >= 3);
+// filter([1, 2, 3, 4, 5, 6, 7, 8], value => value <= 4);
+
+// const fruits = [
+//     { name: 'apples', quantity: 200, isFresh: true },
+//     { name: 'grapes', quantity: 150, isFresh: false },
+//     { name: 'bananas', quantity: 100, isFresh: true },
+// ];
+
+// filter(fruits, fruit => fruit.quantity >= 120)
+
+//? ___________________________________________
+
+/*  //!  Синтаксис стрелочной функции
+ *  //!     - с параметрами
+ *  //!     - с одним параметром
+ *  //!     - без параметров
+ */
+
+// const add = (a, b) => a + b;
+// const logMessage = a => a;
+// const great = () => 'Hello';
+
+// console.log(add(5, 20));
+// console.log(logMessage('Привет'));
+// console.log(great());
+
+// const showThis = () => {
+//     console.log('this in showThis: ', this);
+// }
+
+// showThis()
+
+// const user = { name: 'Mango' }
+// user.showContext = showThis
+// user.showContext();
+
+//? ___________________________________________
+
+// const user = {
+//     fullName: 'Mango',
+//     showName() {
+//         console.log('this: ', this);
+//         console.log('this.fullName: ', this.fullName);
+
+//         const inner =  () => {
+//             console.log('this in inner: ', this);
+//         }
+
+//         inner()
+//     }
+
+// }
+
+// user.showName()
+
+//? ___________________________________________
+
+//? ___________________________________________
+
+//! Явный и неявный возврат
+//! Псевдомассив arguments
+
+//!_____________
+// const fn = feets => {
+//     const daySpeed = 7
+//     const nightSpeed = 2
+
+//     let total = 0
+//     let days = 0
+
+//     while (total < feets) {
+//         total += daySpeed
+//         days += 1
+
+//         if (total < feets) {
+//             total -= nightSpeed
+//         }
+//     }
+
+//     console.log(days);
+//     return days
+// }
+
+// fn(128)
+// fn(42);
+// fn(31);
+
+//!_______
+
+// const objA = {
+//     x: 5,
+//     showX() {
+//         console.log(this.x);
+
+//         const objB = {
+//             y: 10,
+//             showThis() {
+//                 console.log('this в objB.showThis: ', this);
+//             }
+//         }
+//         objB.showThis()
+//     }
+// }
+
+// objA.showX()
+
+//!_______
+
+// const numbers = [1, 5, 2, 4, 3];
+
+// const greaterThenTwo = numbers.filter(num => num > 2)
+// console.log(greaterThenTwo);
+
+// const multByTwo = greaterThenTwo.map(num => num * 3)
+// console.log(multByTwo);
+
+// const sorted = multByTwo.sort((a, b) => a - b)
+// console.log(sorted);
+
+// const res = numbers
+//     .filter(num => num > 2)
+//     .map(num => num * 3)
+//     .sort((a, b) => a - b)
+
+//     console.log(res);
+
+// const players = [
+//     { id: 'id-1', tag: 'Mango', isOnline: true, rank: 800 },
+//     { id: 'id-2', tag: 'Poly', isOnline: false, rank: 600 },
+//     { id: 'id-3', tag: 'Ajax', isOnline: true, rank: 100 },
+//     { id: 'id-4', tag: 'Kiwi', isOnline: true, rank: 400 },
+// ];
+
+// const onlineAndSorted = players
+//     .filter(player => player.isOnline)
+//     .sort((prevPlayer, nextPlayer) => prevPlayer.rank - nextPlayer.rank);
+
+// const players = [
+//     { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, isOnline: false, rank: 800 },
+//     { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, isOnline: true, rank: 600 },
+//     { id: 'player-4', name: 'Kiwi', timePlayed: 230, points: 48, isOnline: true, rank: 400 },
+//     { id: 'player-3', name: 'Ajax', timePlayed: 150, points: 71, isOnline: false, rank: 100 },
+//     { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, isOnline: true, rank: 400 },
+// ];
+
+// // const updatedPlayers = players.map(player => ({
+// //     ...player,
+// //     points: player.points + player.points * 0.1,
+// // }));
+
+// const playerIdToUpdate = 'player-3';
+
+// const updatedPlayers = players.map(player =>
+//     player.id === playerIdToUpdate ? { ...player, timePlayed: player.timePlayed + 50 } : player
+// );
+
+// console.table(updatedPlayers);
+
+//? ___________________________________________
+/*
+ *  Методы массивов:
+ *      - forEach
+ *      - map
+ *      - filter
+ *      - find
+ *      - every и some
+ *      - reduce
+ *      - sort
+ *   - Чейнинг методов
+ */
+
+//!--------------------------------
+
+/*
+ *      Array.prototype.forEach(callback(currentValue, index, array), thisArg)
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Ничего не возвращает
+ *          - Заменяет классический for, если не нужно прерывать цикл
+ */
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// numbers.forEach(function (number, index, array) {
+//     console.log('number', number);
+
+//     array[index] = 20;
+// });
+
+// console.log(numbers);
+
+/*
+ *      Array.prototype.map()
+ *          - Поэлементно перебирает оригинальрный массив
+ *          - Не изменяет оригинальный массив
+ *          - Возвращает новый массив такой же длины
+ */
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const doubleNums = numbers.map(number => number * 2);
+
+// console.log('doubleNums', doubleNums);
+
+//? ___________________________________________
+
+// const players = [
+//     { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false, rank: 800 },
+//     { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true, rank: 600 },
+//     { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true, rank: 400 },
+//     { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false, rank: 100 },
+//     { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true, rank: 400 },
+// ];
+// console.table(players);
+
+//! Получаем массив имён всех игроков
+
+// const playersNames = players.map(player => player.name);
+// console.log('playersNames', playersNames);
+
+// const playerIds = players.map(player => player.id);
+// console.log('playerIds', playerIds);
+
+// const res = players.map(({ name, online }) => ({ name, online }));
+// console.log('res', res);
+
+//! Увеличиваем кол-во поинтов каждого игрока на 10%
+
+// const updatedPlayers = players.map(player => ({
+//     ...player,
+//     points: player.points * 1.1,
+//     type: 'Gamer',
+// }));
+// console.table(updatedPlayers);
+
+//! Увеличиваем кол-во часов игрока по ID
+
+// const playerIdToUpdate = 'player-3';
+
+// const updatedPlayers = players.map(player =>
+//     // Тернарник
+//     playerIdToUpdate === player.id ? { ...player, timePlayed: (player.timePlayed += 300) } : player
+// );
+
+// console.log(updatedPlayers);
+
+/*
+ *      Array.prototype.filter()
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Возвращает новый массив (с элементами или пустой)
+ *          - Добавляет в возвращаемый массив элементы которые удовлетворяют условию callback - функции
+ *              - если callback вернул true элемент добавляется в возвращаемый массив
+ *              - если callback вернул false элемент НЕ добавляется в возвращаемый массив
+ */
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const filterNumbers = numbers.filter(number => number < 15);
+// console.log(filterNumbers);
+
+// //! Получаем массив всех online игроков
+
+// const onlinePlayers = players.filter(({ online }) => online);
+// console.table(onlinePlayers);
+
+// //! Получаем массив всех offline игроков
+
+// const offlinePlayers = players.filter(({ online }) => !online);
+// console.table(offlinePlayers);
+
+// //! Получаем список хардкорных игроков с временем больше 250
+
+// const hardcorePlayers = players.filter(({ timePlayed }) => timePlayed > 250)
+// console.table(hardcorePlayers);
+
+/*
+ *      Array.prototype.find()
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Возвращает первый элемент удовлетворяющий условию или undefined
+ */
+// const numbers = [5, 10, 15, 20, 25];
+
+// const number = numbers.find(number => number === 10)
+// console.log(number);
+
+const players = [
+    { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false, rank: 800 },
+    { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true, rank: 600 },
+    { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true, rank: 400 },
+    { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false, rank: 100 },
+    { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true, rank: 400 },
+];
+
+//! Ищем игрока по ID
+
+const playerIdToFind = 'player-3';
+
+const playerWithId = players.find(({ id }) => id === playerIdToFind);
+// console.log(playerWithId);
+
+const findPlayerById = (allPlayers, playerId) => allPlayers.find(({ id }) => id === playerId);
+
+console.log(findPlayerById(players, 'player-1'));
+console.log(findPlayerById(players, 'player-4'));
+
+//! Ищем игрока по имени
+
+const playerNameToFind = 'Mango';
+const playerWithName = players.find(({ name }) => name === playerNameToFind);
+// console.log(playerWithName);
