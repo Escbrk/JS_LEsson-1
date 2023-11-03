@@ -2923,28 +2923,324 @@ const propertyName = 'tracks';
 // const number = numbers.find(number => number === 10)
 // console.log(number);
 
-const players = [
-    { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false, rank: 800 },
-    { id: 'player-2', name: 'Poly', timePlayed: 470, points: 92, online: true, rank: 600 },
-    { id: 'player-3', name: 'Kiwi', timePlayed: 230, points: 48, online: true, rank: 400 },
-    { id: 'player-4', name: 'Ajax', timePlayed: 150, points: 71, online: false, rank: 100 },
-    { id: 'player-5', name: 'Chelsy', timePlayed: 80, points: 48, online: true, rank: 400 },
-];
+// const players = [
+//     {
+//         id: 'player-1',
+//         name: 'Mango',
+//         timePlayed: 310,
+//         points: 54,
+//         online: false,
+//         rank: 800,
+//     },
+//     {
+//         id: 'player-2',
+//         name: 'Poly',
+//         timePlayed: 470,
+//         points: 92,
+//         online: true,
+//         rank: 600,
+//     },
+//     {
+//         id: 'player-3',
+//         name: 'Kiwi',
+//         timePlayed: 230,
+//         points: 48,
+//         online: true,
+//         rank: 400,
+//     },
+//     {
+//         id: 'player-4',
+//         name: 'Ajax',
+//         timePlayed: 150,
+//         points: 71,
+//         online: false,
+//         rank: 100,
+//     },
+//     {
+//         id: 'player-5',
+//         name: 'Chelsy',
+//         timePlayed: 80,
+//         points: 48,
+//         online: true,
+//         rank: 400,
+//     },
+// ];
 
 //! Ищем игрока по ID
 
-const playerIdToFind = 'player-3';
+// const playerIdToFind = 'player-3';
 
-const playerWithId = players.find(({ id }) => id === playerIdToFind);
-// console.log(playerWithId);
+// const playerWithId = players.find(({ id }) => id === playerIdToFind);
+// // console.log(playerWithId);
 
-const findPlayerById = (allPlayers, playerId) => allPlayers.find(({ id }) => id === playerId);
+// const findPlayerById = (allPlayers, playerId) => allPlayers.find(({ id }) => id === playerId);
 
-console.log(findPlayerById(players, 'player-1'));
-console.log(findPlayerById(players, 'player-4'));
+// console.log(findPlayerById(players, 'player-1'));
+// console.log(findPlayerById(players, 'player-4'));
 
 //! Ищем игрока по имени
 
-const playerNameToFind = 'Mango';
-const playerWithName = players.find(({ name }) => name === playerNameToFind);
+// const playerNameToFind = 'Mango';
+// const playerWithName = players.find(({ name }) => name === playerNameToFind);
 // console.log(playerWithName);
+
+/*
+ *      Array.prototype.every()
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Возвращает true если все элементы массива удовлетворяют условию
+ */
+
+// const isAllOnline = players.every(({ online }) => online);
+// console.log('isAllOnline', isAllOnline);
+
+/*
+ *      Array.prototype.some()
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Возвращает true если хотя бы один элемент массива удовлетворяет условию
+ */
+
+// const isAnyOnline = players.some(({online}) => online)
+// console.log('isAnyOnline', isAnyOnline);
+
+// const anyHardcorePlayers = players.some(({ timePlayed }) => timePlayed > 400)
+// console.log('anyHardcorePlayers', anyHardcorePlayers);
+
+/*
+ *      Array.prototype.reduce()
+ *          - Поэлементно перебирает оригинальный массив
+ *          - Возвращает что угодно 🤯
+ *          - Заменяет все на свете, но использовать нужно с умом
+ */
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// const total = numbers.reduce((acc, number) => acc + number, 0);
+
+// console.log(total);
+
+//? ___________________________________________
+//! Считаем общую зарплату
+
+// const salary = {
+//     mango: 100,
+//     poly: 50,
+//     ajax: 150,
+// };
+
+// const totalSalary = Object.values(salary).reduce(
+//     (total, value) => total + value
+// );
+// console.log('totalSalary', totalSalary);
+
+//! Считаем общее кол-во часов
+
+// const players = [
+//     { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+//     { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+//     { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+//     { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+//     { id: 'player-5', name: 'Chelsy', timePlayed: 80, online: true },
+// ];
+
+// const totalTimePlayed = players.reduce(
+//     (totalTime, player) => totalTime + player.timePlayed,
+//     0
+// );
+// console.log('totalTimePlayed', totalTimePlayed);
+
+//! Считаем общую сумму товаров корзины
+
+// const cart = [
+//     { label: 'Apples', price: 100, quantity: 2 },
+//     { label: 'Bananas', price: 120, quantity: 3 },
+//     { label: 'Lemons', price: 70, quantity: 4 },
+// ];
+
+// const totalAmount = cart.reduce(
+//     (total, {price, quantity}) =>  total + price * quantity,
+//     0
+// );
+
+// console.log(totalAmount);
+
+//? ___________________________________________
+//! Собираем все тего из твитов
+
+// const tweets = [
+//     { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//     { id: '001', likes: 2, tags: ['html', 'css'] },
+//     { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//     { id: '003', likes: 8, tags: ['css', 'react'] },
+//     { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
+
+// const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+// tags.push(...tweet.tags);
+// return tags;
+
+//! Ведем статистику тегов
+
+//! #1
+// console.log(allTags);
+// const tagsStats = allTags.reduce((acc, tag) => {
+
+//     if (acc[tag]) {
+//         acc[tag] += 1
+
+//         return acc
+//     }
+
+//     acc[tag] = 1
+
+//     return acc
+// }, {})
+// console.log(tagsStats);
+
+//! #2
+// console.log(allTags);
+// const tagsStats = allTags.reduce((acc, tag) => {
+
+//     return {
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     };
+// }, {});
+// console.log(tagsStats);
+
+//! #3
+// console.log(allTags);
+// const tagsStats = allTags.reduce((acc, tag) => ({
+//     ...acc,
+//     [tag]: acc[tag] ? acc[tag] + 1 : 1,
+// }), {});
+// console.log(tagsStats);
+
+//? ___________________________________________
+
+/*
+ *      Array.prototype.sort(callback(currentEl, nextEl){})
+ *          - Сортитрует и ИЗМЕНЯЕТ оригинальный массив
+ *          - По умолчанию:
+ *              - сортирует по возрастанию
+ *              - приводит элементы к строке и сортирует по [Unicode](http://unicode-table.com/en/)
+ */
+
+const numbers = [1, 9, 6, 2, 3];
+// numbers.sort()
+// console.log('numbers', numbers);
+
+// const letters = ['b', 'B', 'a', 'A'];
+// letters.sort()
+// console.log('letters', letters);
+
+/*
+ *      compareFunction - функция сравнения (callback)
+ *      Элементы массива сортируются в соответствии с её возвращенным значением
+ *          - если compareFunction(A, B) меньше 0, сортировка поставит A перед B
+ *          - если compareFunction(A, B) больше 0, сортировка поставит B перед A
+ *          - если compareFunction(A, B) вернёт 0, сортировка оставит A и B на
+ *          неизмененными по отношению друг к другу, но отсортирует их по отношению
+ *          ко всем другим элементам
+ */
+
+// numbers.sort((currentEl, nextEl) => {
+//     return currentEl - nextEl
+// })
+
+// console.log(numbers);
+
+/*
+ *      Как сделать копию массива, чтобы не сортировать оригинальный
+ *          - Array.prototype.slice()
+ *          - Операция spread
+ */
+
+// const copy = [...numbers]
+// copy.sort()
+
+// const ascSortedNumbers = [...numbers].sort((a, b) => a - b);
+// const descSortedNumbers = [...numbers].sort((a, b) => b - a);
+
+// console.log([1, 2, 3, 4, 5].reverse());  // .reverse()
+
+// console.log('ascSortedNumbers', ascSortedNumbers); // console.log('copy', copy);
+// console.log('descSortedNumbers', descSortedNumbers);
+// console.log('numbers', numbers);
+
+//! Кастомная сортировка сложных типов
+
+// const players = [
+//     { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+//     { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+//     { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+//     { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+//     { id: 'player-5', name: 'Chelsy', timePlayed: 80, online: true },
+// ];
+
+//! По игровому времени
+// const sortedByBestPlayer = [...players].sort(
+//     (prevPlayer, nextPlayer) =>nextPlayer.timePlayed - prevPlayer.timePlayed
+// );
+// console.table(sortedByBestPlayer);
+// console.log(sortedByBestPlayer);
+
+// const sortedByWorstPlayer = [...players].sort(
+//     (prevPlayer, nextPlayer) => prevPlayer.timePlayed - nextPlayer.timePlayed
+// );
+// console.table(sortedByWorstPlayer);
+// console.log(sortedByWorstPlayer);
+
+// const sortedByName = [...players].sort((a, b) => {
+//     const res = a.name[0] < b.name[0]
+
+//     if (res) {
+//         return -1
+//     }
+//     if (!res) {
+//         return 1
+//     }
+// })
+// console.table(sortedByName);
+// console.log(sortedByName);
+
+/*
+ *      Array.prototype.flat(depth)
+ *          - Разглаживает массив до указанной глубины
+ *          - По усолчанию глубина 1
+ */
+
+// const array = [1, 2, [4, [5]], [6, [7, 8, [9]]]];
+// console.log(array);
+// console.log(array.flat());
+// console.log(array.flat(2));
+// console.log(array.flat(3));
+
+/*
+ *      Array.prototype.flatMap(callback)
+ *          - Комбинация map + flat
+ */
+
+const tweets = [
+    { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+    { id: '001', likes: 2, tags: ['html', 'css'] },
+    { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+    { id: '003', likes: 8, tags: ['css', 'react'] },
+    { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+];
+
+const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+
+//!_____________________________________________
+// const tags = tweets.map(t => t.tags).flat()
+const tags = tweets.flatMap(t => t.tags);
+console.log(tags);
+//!_____________________________________________
+
+const tagsStats = allTags.reduce(
+    (acc, tag) => ({
+        ...acc,
+        [tag]: acc[tag] ? acc[tag] + 1 : 1,
+    }),
+    {}
+);
+console.log(tagsStats);
