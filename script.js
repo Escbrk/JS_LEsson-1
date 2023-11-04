@@ -1078,6 +1078,7 @@ if (totalSpent < 100) {
 
 // fn(1, 2, 3, 4, 'text')
 
+<<<<<<< Updated upstream
 // console.log(fn);
 
 //? ___________________________________________
@@ -3431,3 +3432,7 @@ console.log(changeEven([1, 2, 3, 4, 4], 10));
 //     }
 // }
 // Change code above this line
+=======
+
+// console.log(fn);
+>>>>>>> Stashed changes
