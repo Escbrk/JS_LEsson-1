@@ -3125,7 +3125,7 @@ const propertyName = 'tracks';
  *              - приводит элементы к строке и сортирует по [Unicode](http://unicode-table.com/en/)
  */
 
-const numbers = [1, 9, 6, 2, 3];
+// const numbers = [1, 9, 6, 2, 3];
 // numbers.sort()
 // console.log('numbers', numbers);
 
@@ -3220,27 +3220,214 @@ const numbers = [1, 9, 6, 2, 3];
  *          - Комбинация map + flat
  */
 
-const tweets = [
-    { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-    { id: '001', likes: 2, tags: ['html', 'css'] },
-    { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
-    { id: '003', likes: 8, tags: ['css', 'react'] },
-    { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
-];
+// const tweets = [
+//     { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//     { id: '001', likes: 2, tags: ['html', 'css'] },
+//     { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//     { id: '003', likes: 8, tags: ['css', 'react'] },
+//     { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
 
-const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+// const tags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
 
-//!_____________________________________________
-// const tags = tweets.map(t => t.tags).flat()
-const tags = tweets.flatMap(t => t.tags);
-console.log(tags);
-//!_____________________________________________
+// //!_____________________________________________
+// // const tags = tweets.map(t => t.tags).flat()
 
-const tagsStats = allTags.reduce(
-    (acc, tag) => ({
-        ...acc,
-        [tag]: acc[tag] ? acc[tag] + 1 : 1,
-    }),
-    {}
-);
-console.log(tagsStats);
+//! Цепочка
+// const tags = tweets
+//     .flatMap(tweet => tweet.tags)
+//     .reduce(
+//         (acc, tag) => ({
+//             ...acc,
+//             [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//         }),
+//         {}
+//     );
+// console.log(tags);
+// //!_____________________________________________
+
+// const stats = tags.reduce(
+//     (acc, tag) => ({
+//         ...acc,
+//         [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     }),
+//     {}
+// );
+// console.log(stats);
+
+//? ___________________________________________
+
+/*
+ *      Цепочки вызовов - chaining
+ */
+
+const numbers = [1, 5, 2, 4, 3];
+
+//! 💩способ____________
+// const greaterThenTwo = numbers.filter(num => num > 2);
+// console.log(greaterThenTwo);
+
+// const multByThree = greaterThenTwo.map(num => num * 3);
+// console.log(multByThree);
+
+// const sorted = multByThree.sort((a, b) => a - b);
+// console.log(sorted);
+
+//! Цепочка предыдущих трех
+// const sorted = numbers
+//     .filter(num => num > 2)
+//     .map(num => num * 3)
+//     .sort((a, b) => a - b);
+
+// console.log(sorted);
+
+/*
+ *      Сортируем тех кто online по рангу
+ *          - сначала фильтруем
+ *          - потом сортируем
+ */
+
+// const players = [
+//     { id: 'id-1', tag: 'Mango', isOnline: true, rank: 800 },
+//     { id: 'id-2', tag: 'Poly', isOnline: false, rank: 600 },
+//     { id: 'id-3', tag: 'Ajax', isOnline: true, rank: 100 },
+//     { id: 'id-4', tag: 'Kiwi', isOnline: true, rank: 400 },
+//     { id: 'id-5', tag: 'Chelsy', isOnline: false, rank: 200 },
+// ];
+
+// const onlineAndSorter = players
+//     .filter(player => player.isOnline)
+//     .sort((prevPlayer, nextPlayer) => nextPlayer.rank - prevPlayer.rank);
+// console.log(onlineAndSorter);
+
+/*
+ *      Chaining в методах объекта как jQuery
+ */
+
+// const element = {
+//     class: '',
+//     hovered: false,
+//     chsngeClass(cls) {
+//         this.class = cls;
+
+//         return this;
+//     },
+//     toggleHovered() {
+//         this.hovered = !this.hovered;
+
+//         return this;
+//     },
+// };
+
+// element.toggleHovered().chsngeClass('open');
+// console.log(element);
+
+/*
+ *      Lodash
+ */
+
+//! isEmpty()
+
+// console.log(_.isEmpty({}));
+// console.log(_.isEmpty({ a: 1 }));
+
+/*
+ *      get()
+ *
+ *          - user && user.location && obj.location.city
+ *          - user?.location?.city
+ */
+
+// const user = {
+//     name: 'mango',
+//     location: {
+//         coords: [1, 2],
+//         city: 'Lviv',
+//     },
+// };
+
+// console.log(_.get(user, 'location.city',  ));
+
+//! Новый синтаксис
+// console.log(user?.location?.city);
+
+/*
+ *      union()
+ */
+
+// console.log(_.union([1, 2, 3], [3, 4, 5]));
+
+/*
+ *      range()
+ */
+
+// console.log(_.range(3, 8, 1));
+
+/*
+ *      sortBy()
+ */
+
+// const users = [
+//     { user: 'fred', age: 48 },
+//     { user: 'barney', age: 36 },
+//     { user: 'fred', age: 40 },
+//     { user: 'barney', age: 34 },
+// ];
+
+// console.log(_.sortBy(users, user => user.age));
+
+/*
+ *      sum() и sumBy()
+ */
+
+// console.log(_.sum([1, 2, 3, 4, 5]));
+
+// const players = [
+//     { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+//     { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+//     { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+//     { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+//     { id: 'player-5', name: 'Chelsy', timePlayed: 80, online: true },
+// ];
+
+// console.log(_.sumBy(players, player => player.timePlayed));
+
+/*
+ *     uniq() и uniqBy()
+ *     sortedUniq() и sortedUniqBy()
+ */
+
+/*
+ *      random()
+ */
+
+/*
+ *      min() и max()
+ *      minBy() и maxBy()
+ */
+
+// console.log(_.minBy(players, player => player.timePlayed).name);
+
+/*
+ *      camelCase(), capitalize(), kebabCase(), lowerCase(), upperCase()
+ */
+
+// console.log(_.kebabCase('a b c'));
+
+//?______________________________
+
+const changeEven = (numbers, value) => {
+    const newArray = [...numbers].forEach();
+
+    return newArray;
+};
+
+changeEven([1, 2, 3, 4, 5, 6], 20);
+console.log(changeEven([1, 2, 3, 4, 4], 10));
+// Change code below this line
+// for (let i = 0; i < numbers.length; i += 1) {
+//     if (numbers[i] % 2 === 0) {
+//         numbers[i] += value;
+//     }
+// }
+// Change code above this line
