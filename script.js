@@ -3416,18 +3416,21 @@ const numbers = [1, 5, 2, 4, 3];
 
 //?______________________________
 
-const changeEven = (numbers, value) => {
-    const newArray = [...numbers].forEach();
 
-    return newArray;
+const pizzaPalace = {
+    pizzas: ['Supercheese', 'Smoked', 'Four meats'],
+    // Change code below this line
+    checkPizza(pizzaName) {
+        return pizzas.includes(pizzaName);
+    },
+    order(pizzaName) {
+        const isPizzaAvailable = checkPizza(this.pizzaName);
+
+        if (!isPizzaAvailable) {
+            return `Sorry, there is no pizza named «${this.pizzaName}»`;
+        }
+
+        return `Order accepted, preparing «${this.pizzaName}» pizza`;
+    },
+    // Change code above this line
 };
-
-changeEven([1, 2, 3, 4, 5, 6], 20);
-console.log(changeEven([1, 2, 3, 4, 4], 10));
-// Change code below this line
-// for (let i = 0; i < numbers.length; i += 1) {
-//     if (numbers[i] % 2 === 0) {
-//         numbers[i] += value;
-//     }
-// }
-// Change code above this line
