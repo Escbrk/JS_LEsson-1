@@ -3488,21 +3488,91 @@ const users = [
     },
 ];
 
+/*
+ *      Функция это частный случай объекта -> ССЫЛОЧНЫЙ ТИП
+ */
 
-const pizzaPalace = {
-    pizzas: ['Supercheese', 'Smoked', 'Four meats'],
-    // Change code below this line
-    checkPizza(pizzaName) {
-        return pizzas.includes(pizzaName);
+// console.log('[] === []: ', [] === []);
+// console.log('{} === {}: ', {} === {});
+// console.log(
+//     'function () {} === function () {}: ',
+//     function () {} === function () {}
+// );
+
+// const fnA = function () {
+//     console.log('hello');
+// };
+
+// const fnB = fnA;
+// console.log('fnB === fnA: ', fnB === fnA);
+
+/*
+ *      Контекст (this)
+ *          - Где и как была объявлена функция НЕ ИМЕЕТ НИКАКОГО ВЛИЯНИЯ на контекст
+ *          - Контекст определяется В МОМЕНТ ВЫЗОВА ФУНКЦИИ, если он не привязан явно
+ */
+
+/*
+ *      Как метод объекта. В контексте объекта
+ */
+
+// const user = {
+//     tag: 'Mango',
+//     showTag() {
+//         console.log('showTag -> this', this);
+//     },
+// };
+
+// user.showTag()
+
+/*
+ *      Вызов без контекста
+ *          - В строгом режиме = undefined
+ *          - Не в строгом режиме = window
+ */
+
+// const foo = function () {
+//     console.log('foo -> this', this);
+// };
+
+// foo();
+
+/*
+ *      Как метод объекта, но объявлена как внешняя функция.
+ *      В контексте объекта.
+ */
+
+// const showTag = function () {
+//     console.log('showTag -> this', this);
+//     console.log('showTag -> this.tag', this.tag);
+// };
+
+// showTag()
+
+// const user = {
+//     tag: 'Mango',
+// };
+
+// console.log('user', user);
+
+// user.showUserTag = showTag;
+
+// user.showUserTag();
+
+/*
+ *      Вызов без контекста, но объявнена как метод объекта
+ */
+
+const user = {
+    tag: 'Mango',
+    showTag() {
+        console.log('showTag -> this', this);
+        console.log('showTag -> this.tag', this.tag);
     },
-    order(pizzaName) {
-        const isPizzaAvailable = checkPizza(this.pizzaName);
-
-        if (!isPizzaAvailable) {
-            return `Sorry, there is no pizza named «${this.pizzaName}»`;
-        }
-
-        return `Order accepted, preparing «${this.pizzaName}» pizza`;
-    },
-    // Change code above this line
 };
+
+user.showTag()
+
+const outerShowTag = user.showTag
+
+outerShowTag()
