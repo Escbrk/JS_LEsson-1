@@ -3609,27 +3609,268 @@ const propertyName = 'tracks';
  *      Тренировка 2
  */
 
-const book = {
-    title: 'React for beginners',
-    showThis() {
-        console.log('showThis -> this', this);
-    },
-    showTitle() {
-        console.log('showTitle -> this.title', this.title);
-    }
-}
+// const book = {
+//     title: 'React for beginners',
+//     showThis() {
+//         console.log('showThis -> this', this);
+//     },
+//     showTitle() {
+//         console.log('showTitle -> this.title', this.title);
+//     }
+// }
 
+// book.showThis()
+// const outerSHowThis = book.showThis
+// outerSHowThis()
 
-book.showThis()
-const outerSHowThis = book.showThis
-outerSHowThis()
-
-const outerShowTitle = book.showTitle
-outerShowTitle()
-
+// const outerShowTitle = book.showTitle
+// book.outerShowTitle()
 
 // book.showTitle()
 
 /*
  *      Тренировка 3
  */
+
+// const makeChangeColor = function () {
+//     const changeColor = function (color) {
+//         console.log('changeColor -> this', this);
+//     };
+
+//     changeColor()
+
+//     const sweater = {
+//         color: 'teal'
+//     }
+
+//     sweater.updateColor = changeColor
+
+//     sweater.updateColor('red')
+
+//     return sweater.updateColor
+// };
+
+// const swapColor = makeChangeColor()
+// swapColor('blue')
+
+/*
+ *      Тренировка 4
+ */
+
+// const makeChangeColor = function () {
+//     const changeColor = function (color) {
+//         console.log('changeColor -> this', this);
+//         this.color = color;
+//     };
+
+//     return changeColor;
+// };
+
+// const updateColor = makeChangeColor();
+// // updateColor('yellow')
+
+// const hat = {
+//     color: 'blue',
+//     updateColor,
+// };
+
+// hat.updateColor('orange')
+// console.log(hat);
+
+/*
+ *      Тренировка 5
+ */
+
+// const counter = {
+//     value: 0,
+//     increment(value) {
+//         console.log('increment -> this', this);
+//         this.value += value;
+//     },
+//     decrement(value) {
+//         console.log('decrement -> this', this);
+//         this.value -= value;
+//     },
+// };
+
+// const updateCounter = function (value, operation) {
+//     operation(value);
+// };
+
+/*
+ *      При передачи методов объектов как callback'ов - КОНТЕКСТ НЕ СОХРАНЯЕТСЯ          //!НЕТ АВТОМАТИЧЕСКОЙ ПРИВЯЗКИ КОНТЕКСТА
+ *          //! counter.increment / counter.decrement как аргумент -> 💩  (не сохраняет контекст)
+ */
+// updateCounter(10, counter.increment);
+// updateCounter(5, counter.decrement);
+
+/*
+ *      Методы:
+ *                  call и apply - вызывают функцию сдесь и сейчас
+ */
+
+// const showThis = function (a, b, array) {
+//     console.log(a, b, array);
+//     console.log('showThis -> this', this);
+// };
+
+// showThis();
+
+// const objA = {
+//     a: 5,
+//     b: 10,
+// };
+
+// // showThis.call(objA, 12, 20, 30, 35);
+// showThis.call(objA, 5, 1, [100, 200, 300]);
+// showThis.apply(objA, [5, 1, [100, 200, 300]]);
+// showThis.call(objA);
+
+// const objB = {
+//     x: 788,
+//     y: 25,
+// };
+
+// showThis.call(objB, 1, 1, 2);
+// showThis.apply(objB, [1, 1, 2]);
+
+// const changeColor = function (color) {
+//     console.log('changeColor -> this', this);
+//     this.color = color;
+// };
+
+// const hat = {
+//     color: 'black',
+// };
+
+// // changeColor.call(hat, 'orange');
+
+// // console.log(hat);
+
+// const sweater = {
+//     color: 'green',
+// };
+
+// // changeColor.call(sweater, 'blue');
+// // console.log(sweater);
+
+// /*
+//  *      bind - позволяет сделать копию функции с привязаным контекстом
+//  */
+
+// const changeHatColor = changeColor.bind(hat);
+// const changeSweaterColor = changeColor.bind(sweater)
+
+// // console.log(changeHatColor());
+// changeHatColor()
+// changeSweaterColor()
+
+/*
+ *      counter
+ */
+
+// const counter = {
+//     value: 0,
+//     increment(value) {
+//         console.log('increment -> this', this);
+//         this.value += value;
+//     },
+//     decrement(value) {
+//         console.log('decrement -> this', this);
+//         this.value -= value;
+//     },
+// };
+
+// const updateCounter = function (value, operation) {
+//     operation(value);
+// };
+
+// updateCounter(10, counter.increment.bind(counter));
+// console.log(counter);
+
+// updateCounter(5, counter.decrement.bind(counter));
+// console.log(counter);
+
+//! Счетчик
+
+// const counter = {
+//     value: 0,
+//     increment(value) {
+//         console.log('increment -> this', this);
+//         this.value += 1;
+//     },
+//     decrement(value) {
+//         console.log('decrement -> this', this);
+//         this.value -= 1;
+//     },
+// };
+
+// const decrementBtn = document.querySelector('.js-decrement');
+// const incrementBtn = document.querySelector('.js-increment');
+// const valueEl = document.querySelector('.js-value');
+
+// decrementBtn.addEventListener('click', function () {
+//     console.log('Кликнули на -');
+
+//     counter.decrement();
+//     console.log(counter);
+
+//     valueEl.textContent = counter.value
+// });
+
+// incrementBtn.addEventListener('click', function () {
+//     console.log('Кликнули на +');
+
+//     counter.increment();
+//     console.log(counter);
+
+//     valueEl.textContent = counter.value;
+// });
+
+// console.log(decrementBtn);
+// console.log(incrementBtn);
+// console.log(valueEl);
+
+// decrementBtn.textContent = 'adawdawdadaw'
+
+/*      //! План занятия:
+ *      - Прототипное наследование
+ *      - Прототип объекта и Object.create()
+ *      - Создание объектов через new - функция-конструктор
+ *      - Статические методы и свойства
+ */
+
+/*
+ *      Прототип объекта
+ *
+ *          - Object.create()
+ *          - [[Prototype]] и __proto__
+ *          - Object.getPrototypeOf()
+ *          - Собственные свойства и Object.prototype.hasOwnProperty()
+ *          - Цепочка прототипов
+ */
+
+// const objC = {
+//     z: 5,
+// };
+// console.log('objC', objC);
+
+// const objB = Object.create(objC)
+// objB.y = 2
+// console.log('objB', objB);
+
+// const objA = Object.create(objB)
+// objA.x = 1
+// console.log('objA', objA);
+
+/*
+ *      Основы ООП: классб экземпляр (объект), интерфейс
+ */
+
+/*
+ *      Функции-конструкторы
+ *          - Именование
+ *          - Оператор new
+ *          - Свойство Function.prototype
+ */
+
