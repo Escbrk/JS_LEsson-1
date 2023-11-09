@@ -3901,6 +3901,8 @@ const propertyName = 'tracks';
 
 // console.log(Car.prototype);
 
+// Car.description = 'Класс описывающий автомобиль';
+
 // const myCar = new Car({
 //     brand: 'Audi',
 //     model: 'Q3',
@@ -3927,24 +3929,24 @@ const propertyName = 'tracks';
 
 //? ___________________________________________
 
-const User = function ({ email, password } = {}) {
-    (this.email = email), (this.password = password);
-};
+// const User = function ({ email, password } = {}) {
+//     (this.email = email), (this.password = password);
+// };
 
-User.prototype.changeEmail = function (newEmail) {
-    this.email = newEmail;
-};
-User.prototype.changePassword = function (newPassword) {
-    this.password = newPassword;
-};
+// User.prototype.changeEmail = function (newEmail) {
+//     this.email = newEmail;
+// };
+// User.prototype.changePassword = function (newPassword) {
+//     this.password = newPassword;
+// };
 
-const mango = new User({ email: 'mango@mail.com', password: 1111111 });
-// console.log(mango);
+// const mango = new User({ email: 'mango@mail.com', password: 1111111 });
+// // console.log(mango);
 
-mango.changeEmail('pahancheg@icloud.com');
-// console.log(mango);
+// mango.changeEmail('pahancheg@icloud.com');
+// // console.log(mango);
 
-mango.changePassword('qweqwe123');
+// mango.changePassword('qweqwe123');
 
 // console.log(mango);
 
@@ -4041,5 +4043,168 @@ mango.changePassword('qweqwe123');
 
 // new CounterPlugin({ rootSelector: '#counter1', step: 10, initialValue: 100 });
 // new CounterPlugin({ rootSelector: '#counter2', step: 2 });
+
+//? ___________________________________________
+
+/*
+ *      Классы
+ *          - объявление
+ *          - конструктор
+ *          - методы
+ *          - static
+ *          - приватные свойства
+ *          - синтаксис публичных свойств и методы классов
+ *          - геттеры и сеттеры
+ */
+
+// class Car {
+//     static description = 'Класс описывающий автомобиль';
+
+//     static logInfo(carObj) {
+//         console.log('Car.logInfo -> carObj', carObj);
+//     }
+//     // #test = 'test';
+//     mySuperPublicField = 555;
+
+//     constructor({ brand, model, price } = {}) {
+//         console.log('выполняется конструктор');
+
+//         this._brand = brand;
+//         this._model = model;
+//         this._price = price;
+//     }
+
+//     get price() {
+//         return this._price;
+//     }
+//     set price(newPrice) {
+//         this._price = newPrice;
+//     }
+
+//     get model() {
+//         return this._model;
+//     }
+//     set model(newModel) {
+//         this._model = newModel;
+//     }
+
+//     // changePrice(newPrice) {
+//     //     this.price = newPrice;
+
+//     //     // console.log(this.#test);
+//     // }
+
+//     set model(newModel) {
+//         this._model = newModel;
+//     }
+//     // setModel(newModel) {
+//     //     this.model = newModel;
+//     // }
+
+//     get model() {
+//         return this._model;
+//     }
+//     // getModel() {
+//     //     return this.model
+//     // }
+// }
+
+// console.dir(Car);
+
+// const carInstance = new Car({
+//     brand: 'Audi',
+//     model: 'Q3',
+//     price: 35000,
+// });
+
+// console.log(carInstance);
+
+// carInstance.price = 20;
+
+// console.log(carInstance);
+
+// carInstance.model = 'Q7'
+// console.log(carInstance);
+
+/*
+ *      Наследование
+ *          - extends
+ *          - super()
+ */
+
+class Hero {
+    constructor({ name = 'Hero', xp = 0 } = {}) {
+        this.name = name;
+        this.xp = xp;
+    }
+    gainXp(amount) {
+        console.log(`${this.name} получает ${amount} опыта`);
+        this.xp += amount;
+    }
+}
+
+// const mango = new Hero({ name: 'mango', xp: 1000 });
+
+class Warrior extends Hero {
+    constructor({ weapon, ...restProps } = {}) {
+        super(restProps);
+
+        this.weapon = weapon;
+    }
+
+    attack() {
+        console.log(`${this.name} атакует используя ${this.weapon}`);
+    }
+}
+
+class Berserk extends Warrior {
+    constructor({ warcry, ...restProps } = {}) {
+        super(restProps);
+
+        this.warcry = warcry;
+    }
+
+    babyRage() {
+        console.log(this.warcry);
+    }
+}
+
+const ajax = new Berserk({
+    name: 'Ajax',
+    xp: 5000,
+    weapon: 'Axe',
+    warcry: 'Waaaaaaah!!',
+});
+console.log(ajax);
+ajax.babyRage();
+ajax.attack()
+ajax.gainXp(4000)
+
+class Mage extends Hero {
+    constructor({ spells = [], ...restProps } = {}) {
+        super(restProps);
+
+        this.spells = spells;
+    }
+
+    cast() {
+        console.log(`${this.name} что-то там кастует используя ${this.spells}`);
+    }
+}
+
+const mango = new Warrior({ name: 'Mango', xp: 1000, weapon: 'Алебарда' });
+console.log(mango);
+
+mango.attack();
+
+const poly = new Mage({
+    name: 'Poly',
+    xp: 500,
+    weapon: ['Магический посох', 'FireBall'],
+});
+console.log(poly);
+poly.cast();
+poly.gainXp(19500);
+console.log(poly);
 
 //? ___________________________________________
