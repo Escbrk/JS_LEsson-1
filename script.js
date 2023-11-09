@@ -4132,79 +4132,172 @@ const propertyName = 'tracks';
  *          - super()
  */
 
-class Hero {
-    constructor({ name = 'Hero', xp = 0 } = {}) {
-        this.name = name;
-        this.xp = xp;
-    }
-    gainXp(amount) {
-        console.log(`${this.name} получает ${amount} опыта`);
-        this.xp += amount;
-    }
-}
+// class Hero {
+//     constructor({ name = 'Hero', xp = 0 } = {}) {
+//         this.name = name;
+//         this.xp = xp;
+//     }
+//     gainXp(amount) {
+//         console.log(`${this.name} получает ${amount} опыта`);
+//         this.xp += amount;
+//     }
+// }
 
-// const mango = new Hero({ name: 'mango', xp: 1000 });
+// // const mango = new Hero({ name: 'mango', xp: 1000 });
 
-class Warrior extends Hero {
-    constructor({ weapon, ...restProps } = {}) {
-        super(restProps);
+// class Warrior extends Hero {
+//     constructor({ weapon, ...restProps } = {}) {
+//         super(restProps);
 
-        this.weapon = weapon;
-    }
+//         this.weapon = weapon;
+//     }
 
-    attack() {
-        console.log(`${this.name} атакует используя ${this.weapon}`);
-    }
-}
+//     attack() {
+//         console.log(`${this.name} атакует используя ${this.weapon}`);
+//     }
+// }
 
-class Berserk extends Warrior {
-    constructor({ warcry, ...restProps } = {}) {
-        super(restProps);
+// class Berserk extends Warrior {
+//     constructor({ warcry, ...restProps } = {}) {
+//         super(restProps);
 
-        this.warcry = warcry;
-    }
+//         this.warcry = warcry;
+//     }
 
-    babyRage() {
-        console.log(this.warcry);
-    }
-}
+//     babyRage() {
+//         console.log(this.warcry);
+//     }
+// }
 
-const ajax = new Berserk({
-    name: 'Ajax',
-    xp: 5000,
-    weapon: 'Axe',
-    warcry: 'Waaaaaaah!!',
-});
-console.log(ajax);
-ajax.babyRage();
-ajax.attack()
-ajax.gainXp(4000)
+// const ajax = new Berserk({
+//     name: 'Ajax',
+//     xp: 5000,
+//     weapon: 'Axe',
+//     warcry: 'Waaaaaaah!!',
+// });
+// console.log(ajax);
+// ajax.babyRage();
+// ajax.attack()
+// ajax.gainXp(4000)
 
-class Mage extends Hero {
-    constructor({ spells = [], ...restProps } = {}) {
-        super(restProps);
+// class Mage extends Hero {
+//     constructor({ spells = [], ...restProps } = {}) {
+//         super(restProps);
 
-        this.spells = spells;
-    }
+//         this.spells = spells;
+//     }
 
-    cast() {
-        console.log(`${this.name} что-то там кастует используя ${this.spells}`);
-    }
-}
+//     cast() {
+//         console.log(`${this.name} что-то там кастует используя ${this.spells}`);
+//     }
+// }
 
-const mango = new Warrior({ name: 'Mango', xp: 1000, weapon: 'Алебарда' });
-console.log(mango);
+// const mango = new Warrior({ name: 'Mango', xp: 1000, weapon: 'Алебарда' });
+// console.log(mango);
 
-mango.attack();
+// mango.attack();
 
-const poly = new Mage({
-    name: 'Poly',
-    xp: 500,
-    weapon: ['Магический посох', 'FireBall'],
-});
-console.log(poly);
-poly.cast();
-poly.gainXp(19500);
-console.log(poly);
+// const poly = new Mage({
+//     name: 'Poly',
+//     xp: 500,
+//     weapon: ['Магический посох', 'FireBall'],
+// });
+// console.log(poly);
+// poly.cast();
+// poly.gainXp(19500);
+// console.log(poly);
 
 //? ___________________________________________
+
+// console.log((document.querySelector('[data-value]').textContent = 'hi'));
+// console.log(document.querySelector('div'));
+
+// document.querySelector('[data-increment').textContent = 'Уменьшить';
+// document.querySelector('[data-decrement]').textContent = 'Увеличить';
+
+// // document.querySelector('[data-increment').innerHTML =
+// //     '<div><a href="">Уменьшить</a></div>';
+
+// // document.querySelector('div').remove();
+// document.querySelector('div').append('hello');
+
+//? ___________________________________________
+
+/*
+ *      План:
+ *          - Объекты window и document
+ *          - Поиск DOM-узлов с querySelector и querySelectorAll
+ *          - Свойство textContent
+ *          - Свойство "навигации" по DOM-узлам
+ *          - Работа с classList и атрибутам
+ *          - Создание узлов
+ *          - Вставка узлов: appendChild, insertBefore, append, prepend и т.д.
+ *          - Парс строки: innerHTML и insertAdjacentHTML
+ */
+
+/*
+ *      document.querySelector(selector) и document.querySelectorAll(selector)
+ *          selector - любой валидный CSS-селектор
+ *
+ *      Что возвращают?
+ */
+
+/*
+ *      Document.querySelector* и Element.querySelector*
+ */
+
+// console.log(document.querySelector('.site-nav'));
+
+// const navEl = document.querySelector('.site-nav');
+
+// const navLinksEl = navEl.querySelectorAll('.site-nav__link');
+// console.log(navEl);
+// console.log(navLinksEl);
+
+/*
+ *      Свойства элемента (hero)
+ *          - Изображение
+ *          - Текст и textContent
+ *      http://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480
+ */
+
+const imageEl = document.querySelector('.hero__image');
+
+const magicBtn = document.querySelector('.js-magic__btn');
+
+console.log('imageEl', imageEl);
+console.log(imageEl.src);
+imageEl.src =
+    'http://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480';
+imageEl.alt = 'Это новый котик';
+
+const heroTitleEL = document.querySelector('.hero__title');
+console.log('heroTitleEL', heroTitleEL);
+
+heroTitleEL.textContent = 'Я сладкий пирожочек!';
+
+
+/*
+ *      Атрибуты
+ *          - get( имя-атрибута )
+ *          - set( имя-атрибута )
+ *          - remove( имя-атрибута )
+ *          - has( имя-атрибута )
+ */
+
+// console.log(imageEl.getAttribute('src'));
+// console.log(imageEl.src);
+// console.log(imageEl.hasAttribute('src'));
+
+/*
+ *      Data-атрибуты
+ */
+
+const actions = document.querySelectorAll('.js-actions button');
+console.log(actions[0].dataset.action);
+
+magicBtn.addEventListener('click', () => {
+    const inputEl = document.querySelector('.js-input');
+    console.log(inputEl.valuel);
+    inputEl.value = 'qweqweq'
+})
