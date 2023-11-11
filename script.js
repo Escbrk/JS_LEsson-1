@@ -4537,9 +4537,9 @@ const magicBtn = document.querySelector('.js-magic__btn');
  *          - Объект события
  */
 
-const targetBtn = document.querySelector('.js-target-btn');
-const addListenerBtn = document.querySelector('.js-add-listener');
-const removeListenerBtn = document.querySelector('.js-remove-listener');
+// const targetBtn = document.querySelector('.js-target-btn');
+// const addListenerBtn = document.querySelector('.js-add-listener');
+// const removeListenerBtn = document.querySelector('.js-remove-listener');
 
 // targetBtn.addEventListener('click', () => {
 //     console.log('Click');
@@ -4553,28 +4553,185 @@ const removeListenerBtn = document.querySelector('.js-remove-listener');
 //     console.log('Клик по целевой кнопке');
 // }
 
-addListenerBtn.addEventListener('click', () => {
-    console.log('Вешаю слушателя на целевую кнопку');
+// addListenerBtn.addEventListener('click', () => {
+//     console.log('Вешаю слушателя на целевую кнопку');
 
-    // targetBtn.addEventListener('click', () => {
-    //     console.log('Клик по целевой кнопке');
-    // });
+//     // targetBtn.addEventListener('click', () => {
+//     //     console.log('Клик по целевой кнопке');
+//     // });
 
-    targetBtn.addEventListener('click', onTargetBtnClick);
-});
+//     targetBtn.addEventListener('click', onTargetBtnClick);
+// });
 
-removeListenerBtn.addEventListener('click', () => {
-    console.log('Снимаю слушателя с целевой кнопки');
+// removeListenerBtn.addEventListener('click', () => {
+//     console.log('Снимаю слушателя с целевой кнопки');
 
-    // targetBtn.removeEventListener('click', () => {
-    //     console.log('Клик по целевой кнопке');
-    // });
+//     // targetBtn.removeEventListener('click', () => {
+//     //     console.log('Клик по целевой кнопке');
+//     // });
 
-    targetBtn.removeEventListener('click', onTargetBtnClick);
-});
+//     targetBtn.removeEventListener('click', onTargetBtnClick);
+// });
+
+// function onTargetBtnClick() {
+//         console.log('Клик по целевой кнопке');
+
+// }
+
+/*
+ *      - Свойство submit
+ *      - Действия браузера по умолчанию
+ *      - Свойство elements
+ *      - Класс FormData - http://developer.mozilla.org/en-US/docs/Web/API/FormData
+ */
+
+// const form = document.querySelector('.js-register-form');
+
+// form.addEventListener('submit', onFormSubmit);
+
+// function onFormSubmit(event) {
+//     event.preventDefault();
+
+//     const formElements = event.currentTarget.elements;
+
+//     console.dir(formElements);
+
+//     const mail = formElements.email.value;
+//     const password = formElements.password.value;
+//     const subscription = formElements.subscription.value;
+
+//     const formData = new FormData(event.currentTarget)
+
+//     console.log(formData);
+
+//     formData.forEach((value, name) => {
+//         console.log(value, name);
+//     })
+// }
+
+/*
+ *      Паттерн "Объект ссылок"
+ *
+ *      События
+ *          - focus и blur
+ *          - input и change
+ *          - Чекбоксы и свойство checked
+ */
+
+// const refs = {
+//     input: document.querySelector('.js-input'),
+//     nameLabel: document.querySelector('.js-button > span'),
+//     licenseCheckbox: document.querySelector('.js-license'),
+//     btn: document.querySelector('.js-button'),
+// };
+
+// refs.input.addEventListener('focus', onInputFocus)
+// refs.input.addEventListener('blur', onInputBlur)
+// refs.input.addEventListener('change', onInputChange)
+// refs.input.addEventListener('input', onInputChange);
+
+// refs.input.addEventListener('input', onInputChange)
+
+// function onInputFocus() {
+//     console.log('Input получил фокус - событие focus');
+// }
+
+// function onInputBlur() {
+//     console.log('Input потерял фокус - событие blur');
+// }
+
+// function onInputChange(event) {
+//     console.log(event.currentTarget.value);
+//     refs.nameLabel.textContent = event.currentTarget.value
+// }
+
+// refs.licenseCheckbox.addEventListener('change', onLicenseChange);
+
+// function onLicenseChange(event) {
+//     refs.btn.disabled = !event.currentTarget.checked
+// }
+
+/*
+ *      Типы событий: keypress, keydown, keyup
+ *          - Ограничения keypress
+ *          - Свойства KeyboardEvent.key и KeyboardEvent.code
+ */
+
+// const refs = {
+//     output: document.querySelector('.js-output'),
+//     clearBtn: document.querySelector('.js-clear'),
+// };
+
+// window.addEventListener('keypress', onKeypress)
+// refs.clearBtn.addEventListener('click', onClearOutput)
+
+// function onKeypress(event) {
+//     // console.log(event);
+//     // console.log('event.key: ', event.key);
+//     // console.log('event.code: ', event.code);
+
+//     refs.output.textContent += event.key
+// }
+
+// function onClearOutput(event) {
+//     refs.output.textContent = ' '
+// }
+
+/*
+ *      События мыши
+ *          - mouseenter и mouseleave (это ховер)
+ *          - mouseover и mouseout
+ *          - mousemove (chatty event - болтливое событие)
+ *          - Долмат по координатам: http://nerdparadise.com/programming/javascriptmouseposition
+ *          - Хорошая задачка - https://learn.javascript.ru/task/move-ball-field
+ */
+
+//? ___________________________________________
+
+/*
+ *      1. Открыть и закрыть по кнопке: onModalOpen и onModalClose
+ *      2. Закрыть по клику в бекдроп: onBackDropClick
+ *      3. Закрыть по ESC: onEscapeKeypress
+ *
+ *      В CSS есть класс show-modal, который необходимо добавить на body при открытии модалки
+ */
+
+const refs = {
+    openModalBtn: document.querySelector('[data-action="open-modal"]'),
+    closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+    backdrop: document.querySelector('.js-backdrop'),
+};
+
+refs.openModalBtn.addEventListener('click', onOpenModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.backdrop.addEventListener('click', onBackDropClick);
+
+function onOpenModal() { 
+    window.addEventListener('keydown', onEscKeyPress);
+    document.body.classList.add('show-modal');
+    
+
+}
+function onCloseModal() {
+    window.removeEventListener('keydown', onEscKeyPress);
+    document.body.classList.remove('show-modal');
+}
 
 
-function onTargetBtnClick() {
-        console.log('Клик по целевой кнопке');
+// function onOpen_CloseToggle() {
+//     document.body.classList.toggle('show-modal');
+// }
 
+
+function onBackDropClick() {
+    if (event.target === event.currentTarget) {
+        onCloseModal();
+    }
+    // console.log(event.currentTarget);
+    // console.log(event.target);
+}
+
+function onEscKeyPress(event) {
+    console.log(event);
+    onCloseModal();
 }
