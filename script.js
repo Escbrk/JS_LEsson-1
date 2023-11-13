@@ -4696,42 +4696,162 @@ const magicBtn = document.querySelector('.js-magic__btn');
  *      В CSS есть класс show-modal, который необходимо добавить на body при открытии модалки
  */
 
-const refs = {
-    openModalBtn: document.querySelector('[data-action="open-modal"]'),
-    closeModalBtn: document.querySelector('[data-action="close-modal"]'),
-    backdrop: document.querySelector('.js-backdrop'),
-};
+// const refs = {
+//     openModalBtn: document.querySelector('[data-action="open-modal"]'),
+//     closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+//     backdrop: document.querySelector('.js-backdrop'),
+// };
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackDropClick);
+// refs.openModalBtn.addEventListener('click', onOpenModal);
+// refs.closeModalBtn.addEventListener('click', onCloseModal);
+// refs.backdrop.addEventListener('click', onBackDropClick);
 
-function onOpenModal() { 
-    window.addEventListener('keydown', onEscKeyPress);
-    document.body.classList.add('show-modal');
-    
-
-}
-function onCloseModal() {
-    window.removeEventListener('keydown', onEscKeyPress);
-    document.body.classList.remove('show-modal');
-}
-
-
-// function onOpen_CloseToggle() {
-//     document.body.classList.toggle('show-modal');
+// function onOpenModal() {
+//     window.addEventListener('keydown', onEscKeyPress);
+//     document.body.classList.add('show-modal');
+// }
+// function onCloseModal() {
+//     window.removeEventListener('keydown', onEscKeyPress);
+//     document.body.classList.remove('show-modal');
 // }
 
+// // function onOpen_CloseToggle() {
+// //     document.body.classList.toggle('show-modal');
+// // }
 
-function onBackDropClick() {
-    if (event.target === event.currentTarget) {
-        onCloseModal();
+// function onBackDropClick() {
+//     if (event.target === event.currentTarget) {
+//         onCloseModal();
+//     }
+//     // console.log(event.currentTarget);
+//     // console.log(event.target);
+// }
+
+// function onEscKeyPress(event) {
+//     if (event.code === 'Escape') {
+//         onCloseModal();
+//     }
+// }
+
+/*
+ *      Всплытие событий
+ *      event.target - целевой (исходный) элемент
+ *      event.currentTarget - текущий элемент, на слушателе которого поймали событие
+ */
+
+// const refs = {
+//     parent: document.querySelector('#parent'),
+//     child: document.querySelector('#child'),
+//     innerChild: document.querySelector('#inner-child'),
+// };
+
+// refs.parent.addEventListener('click', onParentClick);
+// refs.child.addEventListener('click', onChildClick);
+// refs.innerChild.addEventListener('click', onInnerChildClick);
+
+// function onParentClick(evt) {
+//     console.log('onParentClick');
+//     console.log('onParentClick -> evt.target', evt.target);
+//     console.log('onParentClick -> evt.currentTarget', evt.currentTarget);
+// }
+
+// function onChildClick(evt) {
+//     console.log('onChildClick');
+//     console.log('onChildClick -> evt.target', evt.target);
+//     console.log('onChildClick -> evt.currentTarget', evt.currentTarget);
+// }
+
+// function onInnerChildClick(evt) {
+//     console.log('onInnerChildClick');
+//     console.log('onInnerChildClick -> evt.target', evt.target);
+//     console.log('onInnerChildClick -> evt.currentTarget', evt.currentTarget);
+// }
+
+/*
+ *      Делегирование событий
+ *          - общий слушатель
+ *          - фильтр цели клика
+ */
+
+// const container = document.querySelector('.js-container');
+
+// container.addEventListener('click', onClick);
+
+// function onClick(event) {
+//     if (event.target.nodeName !== 'BUTTON') {
+//         return;
+//     }
+//     console.log(event.target.textContent);
+// }
+
+// /*
+//  *      Код добавления кнопок
+//  */
+
+// const addBtn = document.querySelector('.js-add-btn');
+// let labelCounter = 6
+
+// addBtn.addEventListener('click', onAddBtnClick)
+
+// function onAddBtnClick() {
+//     const btn = document.createElement('button')
+//     btn.textContent = `Кнопка ${labelCounter}`
+//     btn.type = 'button'
+
+//     container.appendChild(btn)
+//     labelCounter += 1
+// }
+
+/*
+ *      Делегирование
+ *          - один из многих
+ *          - несколько из многих и Set
+ */
+
+// const tags = document.querySelector('.js-tags');
+// let selectedTag = null
+
+// tags.addEventListener('click', onClick);
+
+// function onClick(evt) {
+//     if (evt.target.nodeName !== 'BUTTON') {
+//         return
+//     }
+
+//     const currentActiveBtn = document.querySelector('.tags__btn-active');
+
+//     if (currentActiveBtn) {
+//         currentActiveBtn.classList.remove('tags__btn-active');
+//     }
+
+//         // currentActiveBtn?.classList.remove('tags__btn-active');
+
+//     const nextActiveBtn = evt.target
+//     nextActiveBtn.classList.toggle('tags__btn-active');
+//     selectedTag = nextActiveBtn.dataset.value
+//     console.log(selectedTag);
+// }
+
+//? ___________________________________________
+
+const tags = document.querySelector('.js-tags');
+tags.addEventListener('click', onClick);
+
+function onClick(evt) {
+    if (evt.target.nodeName !== 'BUTTON') {
+        return;
     }
-    // console.log(event.currentTarget);
-    // console.log(event.target);
-}
 
-function onEscKeyPress(event) {
-    console.log(event);
-    onCloseModal();
+    const currentActiveBtn = document.querySelector('.tags__btn-active');
+
+    if (currentActiveBtn) {
+        currentActiveBtn.classList.remove('tags__btn-active');
+    }
+
+    // currentActiveBtn?.classList.remove('tags__btn-active');
+
+    const nextActiveBtn = evt.target;
+    nextActiveBtn.classList.toggle('tags__btn-active');
+    selectedTag = nextActiveBtn.dataset.value;
+    console.log(selectedTag);
 }
