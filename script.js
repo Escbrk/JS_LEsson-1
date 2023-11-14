@@ -4827,31 +4827,274 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //         // currentActiveBtn?.classList.remove('tags__btn-active');
 
 //     const nextActiveBtn = evt.target
-//     nextActiveBtn.classList.toggle('tags__btn-active');
+//     nextActiveBtn.classList.add('tags__btn-active');
 //     selectedTag = nextActiveBtn.dataset.value
 //     console.log(selectedTag);
 // }
 
 //? ___________________________________________
 
-const tags = document.querySelector('.js-tags');
-tags.addEventListener('click', onClick);
+// const tags = document.querySelector('.js-tags');
+// const selectedTags = new Set();
 
-function onClick(evt) {
-    if (evt.target.nodeName !== 'BUTTON') {
-        return;
-    }
+// tags.addEventListener('click', onClick);
 
-    const currentActiveBtn = document.querySelector('.tags__btn-active');
+// function onClick(evt) {
+//     if (evt.target.nodeName !== 'BUTTON') {
+//         return;
+//     }
 
-    if (currentActiveBtn) {
-        currentActiveBtn.classList.remove('tags__btn-active');
-    }
+//     const btn = evt.target;
+//     const isActive = btn.classList.contains('tags__btn-active');
 
-    // currentActiveBtn?.classList.remove('tags__btn-active');
+//     if (isActive) {
+//         selectedTags.delete(btn.dataset.value);
+//     } else {
+//         selectedTags.add(btn.dataset.value);
+//     }
 
-    const nextActiveBtn = evt.target;
-    nextActiveBtn.classList.toggle('tags__btn-active');
-    selectedTag = nextActiveBtn.dataset.value;
-    console.log(selectedTag);
+//     // selectedTags.push(evt.target.dataset.value);
+
+//     btn.classList.toggle('tags__btn-active');
+
+//     // if (btn.classList.contains('tags__btn-active')) {
+//     //     btn.classList.remove('tags__btn-active');
+//     // }
+//     console.log(selectedTags);
+// }
+
+//? ___________________________________________
+
+// const colors = [
+//     { hex: '#f44336', rgb: '244,67,54' },
+//     { hex: '#e91e63', rgb: '233,30,99' },
+//     { hex: '#9c27b0', rgb: '156,39,176' },
+//     { hex: '#673ab7', rgb: '103,58,183' },
+//     { hex: '#3f51b5', rgb: '63,81,181' },
+//     { hex: '#2196f3', rgb: '33,150,243' },
+//     { hex: '#00bcd4', rgb: '0,188,212' },
+//     { hex: '#009688', rgb: '0,150,136' },
+//     { hex: '#4caf50', rgb: '76,175,80' },
+//     { hex: '#ff3b3b', rgb: '255,235,59' },
+//     { hex: '#ff9800', rgb: '255,152,0' },
+//     { hex: '#795548', rgb: '121,85,72' },
+//     { hex: '#607d8b', rgb: '96,125,139' },
+// ];
+
+// const paletteContainer = document.querySelector('.js-palette');
+// const cardsMarkup = createColorCardsMarkup(colors);
+
+// paletteContainer.insertAdjacentHTML('beforeend', cardsMarkup);
+
+// function createColorCardsMarkup(colors) {
+//     return colors
+//         .map(({ hex, rgb }) => {
+//             return `
+//             <div class="color-card">
+//                 <div class="color-swatch" data-hex="${hex}" data-rgb="${rgb}" style="background-color: ${hex};"></div>
+//                 <div class="color-meta">
+//                     <p>HEX: ${hex}</p>
+//                     <p>RGB ${rgb}</p>
+//                 </div>
+//             </div>
+//             `;
+//         })
+//         .join('');
+// }
+
+// paletteContainer.addEventListener('click', onPaletteContainerClick);
+
+// function onPaletteContainerClick(e) {
+//     const isColorSwatch = e.target.classList.contains('color-swatch');
+//     if (!isColorSwatch) {
+//         return;
+//     }
+
+//     const swatchEl = e.target;
+//     const parentColorCard = swatchEl.closest('.color-card');
+
+//     removeActiveCardStatus();
+//     addActiveCardClass(parentColorCard)
+//     setBodyBgColor(swatchEl.dataset.hex);
+// }
+
+// function setBodyBgColor(color) {
+//     document.body.style.backgroundColor = color;
+// }
+
+// function removeActiveCardStatus() {
+//     const currentActiveCard = document.querySelector('.color-card.is-active');
+
+//     if (currentActiveCard) {
+//         currentActiveCard.classList.remove('is-active');
+//     }
+// }
+
+// function addActiveCardClass(card) {
+//     card.classList.add('is-active');
+//  }
+
+//? ___________________________________________
+
+/*
+ *      Chatty events (болтливые события)
+ *      Приёмы throttle и debounce с lodash
+ *      [Ленивая загрузка изображений] (https://web.dev/native-lazy-loading/)
+ *          - Нативная с атрибутом loading
+ *          - Бибиотека lazysizes
+ */
+
+/*
+ *      Chatty events
+ *      Приемы throttling и debouncing с Lodash
+ */
+
+/*
+ *      Mousemove и throttle
+ */
+
+// const coordsOutputRef = document.querySelector('.js-coords');
+// let mouseMoveCbInvocationCounter = 0;
+
+// // window.addEventListener('mousemove', _.throttle(onMouseMove, 500))
+
+// function onMouseMove(event) {
+//     mouseMoveCbInvocationCounter += 1;
+
+//     coordsOutputRef.textContent = `
+//     Кол-во вызовов onMouseMove: ${mouseMoveCbInvocationCounter},
+//     x: ${event.clientX},
+//     y: ${event.clientY}`;
+// }
+
+/*
+ *      input и debounce
+ */
+
+// const inputRef = document.querySelector('.js-input');
+// const outputRef = document.querySelector('.js-output');
+// let inputCbInvocationCounter = 0;
+
+// inputRef.addEventListener('input', _.debounce(onInputChange, 2000));
+
+// function onInputChange(event) {
+//     inputCbInvocationCounter += 1
+
+//     outputRef.textContent = `
+//     Кол-во вызовов onInputChange: ${inputCbInvocationCounter},
+//     Значение: ${event.target.value}
+// `;
+// }
+
+// ?____________________________________________
+
+// const tech = [
+//     { label: 'HTML' },
+//     { label: 'CSS' },
+//     { label: 'JavaScript' },
+//     { label: 'Node.js' },
+//     { label: 'React' },
+//     { label: 'Vue' },
+//     { label: 'Next.js' },
+//     { label: 'Mobx' },
+//     { label: 'Redux' },
+//     { label: 'React Router' },
+//     { label: 'GraphQl' },
+//     { label: 'PostgreSQL' },
+//     { label: 'MongoDB' },
+// ];
+
+// const refs = {
+//     list: document.querySelector('.js-list'),
+//     input: document.querySelector('#filter'),
+// };
+
+// refs.input.addEventListener('input', _.debounce(onFilterChange, 500));
+
+// const listItemsMarkup = createListItemsMarkup(tech);
+
+// function createListItemsMarkup(items) {
+//     return items.map(item => `<li>${item.label}</li>`).join('');
+// }
+
+// populateList(listItemsMarkup);
+
+// function onFilterChange(e) {
+//     const filter = e.target.value.toLowerCase();
+
+//     const filteredItems = tech.filter(t =>
+//         t.label.toLowerCase().includes(filter)
+//     );
+
+//     const listItemsMarkup = createListItemsMarkup(filteredItems);
+//     populateList(listItemsMarkup);
+// }
+
+// function populateList(markup) {
+//     refs.list.innerHTML = markup;
+// }
+
+// ?____________________________________________
+
+/*
+ *      Ленивая загрузка изображений (концепция)
+ *          - нативная поддержка
+ *          - событие загрузки изображений
+ */
+
+// const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+// console.log(lazyImages);
+
+// lazyImages.forEach(image => {
+//     image.addEventListener('load', onImageLoaded, { once: true });
+// });
+
+// function onImageLoaded(e) {
+//     console.log('Картинка загрузилась');
+
+//     e.target.classList.add('appear');
+// }
+
+/*
+ *      Библеотека lazysizes
+ *          - feature detection
+ */
+
+const lazyImages = document.querySelectorAll('img[data-src]');
+
+console.log(lazyImages);
+
+lazyImages.forEach(image => {
+    image.addEventListener('load', onImageLoaded, { once: true });
+});
+
+function onImageLoaded(e) {
+    e.target.classList.add('appear');
+}
+
+//? ___________________________________________
+
+if ('loading' in HTMLImageElement.prototype) {
+    addSrcLazyImages();
+} else {
+    addLAzySizeScript();
+}
+
+function addLAzySizeScript() {
+    const script = document.querySelector('script');
+    script.src =
+        'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    script.integrity =
+        'sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==';
+    script.src =
+        'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    script.crossOrigin = 'anonymous';
+    script.referrerpolicy = 'no-referrer';
+
+    document.body.appendChild(script);
+}
+function addSrcLazyImages() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => (img.src = img.dataset.src));
 }
