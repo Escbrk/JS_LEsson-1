@@ -5119,7 +5119,162 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 // const gallery = new SimpleLightbox('.gallery a');
 
-//? ___________________________________________
+//? _________________________________________
+
+//! setItem() - Добавить значение
+//! getItem() - Получить значение
+//! removeItem() - Удалить значение
+//! clear() - очистить все
+
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basiclightbox.min.css';
+
+const instruments = [
+  {
+    id: 1,
+    img: 'https://picsum.photos/id/684/600/400',
+    name: 'qweqwe',
+    price: 3500,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 2,
+    img: 'https://picsum.photos/id/674/600/400',
+    name: 'qweqwe',
+    price: 3200,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 3,
+    img: 'https://picsum.photos/id/654/600/400',
+    name: 'qweqwe',
+    price: 35000,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 4,
+    img: 'https://picsum.photos/id/694/600/400',
+    name: 'qweqwe',
+    price: 32500,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 5,
+    img: 'https://picsum.photos/id/634/600/400',
+    name: 'qweqwe',
+    price: 31500,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 6,
+    img: 'https://picsum.photos/id/664/600/400',
+    name: 'qweqwe',
+    price: 1111,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 7,
+    img: 'https://picsum.photos/id/34/600/400',
+    name: 'qweqwe',
+    price: 9326,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+  {
+    id: 8,
+    img: 'https://picsum.photos/id/284/600/400',
+    name: 'qweqwe',
+    price: 5734,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, quia laboriosam quas aut perferendis provident debitis quae asperiores autem, at non sit corporis nesciunt beatae reprehenderit. Qui blanditiis ratione a!',
+  },
+];
+
+const search = document.querySelector('.js-search');
+const list = document.querySelector('.list');
+const favoriteArr = [];
+const cartArr = [];
+const KEY_FAVORITE = 'favorite'
+const KEY_CART = 'cart';
 
 
+function createMarkup(arr) {
+  const markup = arr
+    .map(
+      ({ id, img, name }) => `
+        <li data-id='${id}' class='js-card'>
+            <img src=${img} alt=${name} width=300>
+            <h2>${name}</h2>
+            <a href='#' class='js-info'>More info</a>
+            <div>
+                <button class='js-favorite'>Add to favorite</button>
+                <button class='js-cart'>Add to cart</button>
+            </div>
+        </li>`
+    )
+    .join(' ');
 
+  list.innerHTML = markup;
+}
+
+list.addEventListener('click', onClick);
+
+function onClick(event) {
+  event.preventDefault();
+  if (event.target.classList.contains('js-info')) {
+    const product = findProduct(event.target);
+    console.log(product);
+
+    const instance = basicLightbox.create(`
+        <div class='modal'>
+            <img src='${product.img}' alt='${product.name}'>
+            <h2>${product.name}</h2>
+            <h3>${product.price} $</h3>
+            <p>${product.description}</p>
+            
+            <div>
+                <button class='js-favorite'>Add to favorite</button>
+                <button class='js-cart'>Add to cart</button>
+            </div>
+
+        </div>
+
+      `);
+
+    instance.show();
+  }
+
+  if (event.target.classList.contains('js-cart')) {
+    const product = findProduct(event.target);
+    cartArr.push(product)
+    console.log(cartArr);
+    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+  }
+
+  if (event.target.classList.contains('js-favorite')) {
+    const product = findProduct(event.target);
+    favoriteArr.push(product)
+    console.log(favoriteArr);
+    localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));
+  }
+}
+
+// const favorite = document.querySelector('.js-favotire');
+// const cart = document.querySelector('.js-cart');
+
+// favorite.addEventListener('click',)
+// cart.addEventListener('click', )
+
+createMarkup(instruments);
+
+function findProduct(elem) {
+  const productId = Number(elem.closest('.js-card').dataset.id);
+
+  return instruments.find(({ id }) => id === productId);
+}

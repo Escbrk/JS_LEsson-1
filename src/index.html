@@ -1,81 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-        <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
-        <style>
-            #parent,
-            #child,
-            #inner-child {
-                margin: 16px;
-                padding: 16px;
-                border: 1px solid #ffc107;
-                border-radius: 4px;
-                color: #fff;
-                font-weight: 500;
-                font-size: 18px;
-            }
+    <style>
+      #parent,
+      #child,
+      #inner-child {
+        margin: 16px;
+        padding: 16px;
+        border: 1px solid #ffc107;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+      }
 
-            #parent {
-                background-color: #673ab7;
-            }
+      #parent {
+        background-color: #673ab7;
+      }
 
-            #child {
-                background-color: #448aff;
-            }
+      #child {
+        background-color: #448aff;
+      }
 
-            #inner-child {
-                background-color: #006988;
-            }
+      #inner-child {
+        background-color: #006988;
+      }
 
-            .tags {
-                outline: 1px solid tomato;
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-                padding: 8px;
-                background-color: #fff;
-                list-style: none;
-                user-select: none;
-            }
+      .tags {
+        outline: 1px solid tomato;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 8px;
+        background-color: #fff;
+        list-style: none;
+        user-select: none;
+      }
 
-            .tags__item {
-                margin: 4px;
-            }
+      .tags__item {
+        margin: 4px;
+      }
 
-            .tags__btn {
-                border: 1px solid #212121;
-                border-radius: 4px;
-                display: inline-block;
-                padding: 4px 10px 4px;
+      .tags__btn {
+        border: 1px solid #212121;
+        border-radius: 4px;
+        display: inline-block;
+        padding: 4px 10px 4px;
 
-                font-size: 24px;
-                font-family: inherit;
-                color: #212121;
-                font-weight: 500;
-                text-align: center;
-                white-space: nowrap;
-                text-decoration: none;
-                outline: none;
+        font-size: 24px;
+        font-family: inherit;
+        color: #212121;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+        text-decoration: none;
+        outline: none;
 
-                background-color: #fff;
-                cursor: pointer;
-            }
+        background-color: #fff;
+        cursor: pointer;
+      }
 
-            .tags__btn-active {
-                color: #fff;
-                background-color: #3f51b5;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- <label for="">
+      .tags__btn-active {
+        color: #fff;
+        background-color: #3f51b5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <label for="">
             Число
             <input type="number" data-value/>
         </label>
@@ -84,17 +84,17 @@
 
         <p class="js-output">Сумма: <span>0</span></p> -->
 
-        <!-- <button class="js-button">Это кнопка<span role="image" aria-label="Иконка волшебника">🧙</span></button> -->
+    <!-- <button class="js-button">Это кнопка<span role="image" aria-label="Иконка волшебника">🧙</span></button> -->
 
-        <!-- <div class="counter">
+    <!-- <div class="counter">
             <button class="js-decrement">-</button>
             <p class="js-value" style="display: inline-block">0</p>
             <button class="js-increment">+</button>
         </div> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!--   <div id="counter1">
+    <!--   <div id="counter1">
             <button data-decrement>-</button>
             <span data-value>0</span>
             <button data-increment>+</button>
@@ -106,8 +106,8 @@
             <button data-increment>+</button>
         </div>  -->
 
-        <!-- <button>Сделать магию 🧙</button> -->
-        <!-- <ul class="site-nav">
+    <!-- <button>Сделать магию 🧙</button> -->
+    <!-- <ul class="site-nav">
             <li class="site-nav__item">
                 <a href="/index.html" class="site-nav__link">О нас</a>
             </li>
@@ -121,34 +121,34 @@
 
         <button type="button" class="js-magic__btn">Сделать магию 🧙</button> -->
 
-        <!-- <section class="hero"> -->
-        <!-- <h1 class="hero__title">Все про меня</h1>
+    <!-- <section class="hero"> -->
+    <!-- <h1 class="hero__title">Все про меня</h1>
             <img loading="lazy"
                 class="hero__image"
                 data-src="https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480"
                 alt="It's me"
                 width="320"
             /> -->
-        <!-- </section> -->
-        <!-- <hr /> -->
+    <!-- </section> -->
+    <!-- <hr /> -->
 
-        <!-- <input type="text" class="js-input" value="" /> -->
+    <!-- <input type="text" class="js-input" value="" /> -->
 
-        <!-- <div class="js-actions">
+    <!-- <div class="js-actions">
             <button type="button" data-action="add">Создать</button
             ><button type="button" data-action="remove">Удалить</button
             ><button type="button" data-action="edit">Редактировать</button>
         </div> -->
 
-        <!-- <div class="color-picker js-color-picker"></div> -->
+    <!-- <div class="color-picker js-color-picker"></div> -->
 
-        <!-- <button type="button" class="js-target-btn">Целевая кнопка</button>
+    <!-- <button type="button" class="js-target-btn">Целевая кнопка</button>
         <button type="button" class="js-add-listener">Добавить слушатель</button>
         <button type="button" class="js-remove-listener">Снять слушатель</button> -->
 
-        <!-- ? ___________________________________________ -->
+    <!-- ? ___________________________________________ -->
 
-        <!-- <form class="js-register-form" autocomplete="off">
+    <!-- <form class="js-register-form" autocomplete="off">
             <div role="group">
                 <label
                     >Почта
@@ -179,9 +179,9 @@
             <button type="submit">Зарегистрироваться</button>
         </form> -->
 
-        <!-- ? ___________________________________________ -->
+    <!-- ? ___________________________________________ -->
 
-        <!-- <label>Имя
+    <!-- <label>Имя
             <input type="text" class="js-input">
         </label>
         <p><label>
@@ -193,12 +193,12 @@
             Зарегистрироваться как <span>Аноним</span>
         </button> -->
 
-        <!-- ? ___________________________________________ -->
+    <!-- ? ___________________________________________ -->
 
-        <!-- <button class="js-clear">Очистить</button>
+    <!-- <button class="js-clear">Очистить</button>
         <p class="output js-output"></p> -->
 
-        <!-- ? ___________________________________________
+    <!-- ? ___________________________________________
 
         <button class="button" data-action="open-modal">Открыть модалку</button>
 
@@ -220,17 +220,17 @@
             </div>
         </div> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <div id="parent">PARENT
+    <!-- <div id="parent">PARENT
             <div id="child">CHILD
                 <div id="inner-child">INNER-CHILD</div>
             </div>
         </div> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <button type="button" class="js-add-btn">Добавить кнопку</button>
+    <!-- <button type="button" class="js-add-btn">Добавить кнопку</button>
 
         <div class="container js-container">
             <button type="button">Кнопка-1</button>
@@ -240,9 +240,9 @@
             <button type="button">Кнопка-5</button>
         </div> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <ul class="tags js-tags">
+    <!-- <ul class="tags js-tags">
             <li class="tags__item"><button class="tags__btn" data-value="html">#html</button></li>
             <li class="tags__item"><button class="tags__btn" data-value="css">#css</button></li>
             <li class="tags__item"><button class="tags__btn" data-value="javascript">#javascript</button></li>
@@ -253,29 +253,29 @@
             <li class="tags__item"><button class="tags__btn" data-value="nodejs">#nodejs</button></li>
         </ul> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <div class="palette js-palette"></div> -->
+    <!-- <div class="palette js-palette"></div> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <p class="js-coords">Кол-во вызовов onMouseMove: 0</p>
+    <!-- <p class="js-coords">Кол-во вызовов onMouseMove: 0</p>
         <hr>
         <input type="text" class="js-input">
         <p class="js-output">Кол-во вызовов onInputChange: 0</p> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <label>
+    <!-- <label>
                 Что ищем?
                 <input type="text" id="filter">
             </label>
 
             <ul class="js-list"></ul> -->
 
-        <!--!____________________________________________  -->
+    <!--!____________________________________________  -->
 
-        <!-- <ul class="feed">
+    <!-- <ul class="feed">
             <li class="feed__item">
                 <img
                     loading="lazy"
@@ -530,8 +530,22 @@
             </li>
         </ul> -->
 
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <header>
+      <ul
+        style="display: flex; flex-direction: row; gap: 20px; list-style: none"
+      >
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./favorite.html">Favorite</a></li>
+        <li><a href="./checkout.html">Checkout</a></li>
+      </ul>
 
-        <script defer src="./script.js" type="module"></script>
-    </body>
+      <input type="text" class="js-search" />
+    </header>
+
+    <ul class="list"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <script defer src="./js/script.js" type="module"></script>
+  </body>
 </html>
