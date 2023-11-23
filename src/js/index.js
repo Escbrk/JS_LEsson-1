@@ -5129,6 +5129,9 @@ const magicBtn = document.querySelector('.js-magic__btn');
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basiclightbox.min.css';
 
+import { common } from './common';
+import { createMarkup } from '../helpers/createMarkup';
+
 const instruments = [
   {
     id: 1,
@@ -5198,31 +5201,11 @@ const instruments = [
 
 const search = document.querySelector('.js-search');
 const list = document.querySelector('.list');
-const favoriteArr = [];
-const cartArr = [];
-const KEY_FAVORITE = 'favorite'
-const KEY_CART = 'cart';
+const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
+const cartArr = JSON.parse(localStorage.getItem(common.KEY_CART)) ?? [];
 
 
-function createMarkup(arr) {
-  const markup = arr
-    .map(
-      ({ id, img, name }) => `
-        <li data-id='${id}' class='js-card'>
-            <img src=${img} alt=${name} width=300>
-            <h2>${name}</h2>
-            <a href='#' class='js-info'>More info</a>
-            <div>
-                <button class='js-favorite'>Add to favorite</button>
-                <button class='js-cart'>Add to cart</button>
-            </div>
-        </li>`
-    )
-    .join(' ');
-
-  list.innerHTML = markup;
-}
-
+createMarkup(instruments, list);
 list.addEventListener('click', onClick);
 
 function onClick(event) {
@@ -5252,16 +5235,22 @@ function onClick(event) {
 
   if (event.target.classList.contains('js-cart')) {
     const product = findProduct(event.target);
-    cartArr.push(product)
+
+    cartArr.push(product);
     console.log(cartArr);
-    localStorage.setItem(KEY_CART, JSON.stringify(cartArr));
+    localStorage.setItem(common.KEY_CART, JSON.stringify(cartArr));
   }
 
   if (event.target.classList.contains('js-favorite')) {
     const product = findProduct(event.target);
-    favoriteArr.push(product)
+    const inStorage = favoriteArr.some(({ id }) => id === product.id);
+    if (inStorage) {
+      return;
+    }
+
+    favoriteArr.push(product);
     console.log(favoriteArr);
-    localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));
+    localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
   }
 }
 
@@ -5271,7 +5260,6 @@ function onClick(event) {
 // favorite.addEventListener('click',)
 // cart.addEventListener('click', )
 
-createMarkup(instruments);
 
 function findProduct(elem) {
   const productId = Number(elem.closest('.js-card').dataset.id);
