@@ -5204,7 +5204,6 @@ const list = document.querySelector('.list');
 const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 const cartArr = JSON.parse(localStorage.getItem(common.KEY_CART)) ?? [];
 
-
 createMarkup(instruments, list);
 list.addEventListener('click', onClick);
 
@@ -5259,7 +5258,6 @@ function onClick(event) {
 
 // favorite.addEventListener('click',)
 // cart.addEventListener('click', )
-
 
 function findProduct(elem) {
   const productId = Number(elem.closest('.js-card').dataset.id);
