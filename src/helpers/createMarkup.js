@@ -1,7 +1,8 @@
 function createMarkup(arr, list) {
-  const markup = arr
-    .map(
-      ({ id, img, name }) => `
+  if (arr.length) {
+    const markup = arr
+      .map(
+        ({ id, img, name }) => `
         <li data-id='${id}' class='js-card'>
             <img src=${img} alt=${name} width=300>
             <h2>${name}</h2>
@@ -11,8 +12,9 @@ function createMarkup(arr, list) {
                 <button class='js-cart'>Add to cart</button>
             </div>
         </li>`
-    )
-    .join(' ');
+      )
+      .join(' ');
+  }
 
   list.innerHTML = markup;
 }
