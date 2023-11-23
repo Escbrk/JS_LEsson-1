@@ -1,6 +1,7 @@
 function createMarkup(arr, list) {
+  let markup;
   if (arr.length) {
-    const markup = arr
+     markup = arr
       .map(
         ({ id, img, name }) => `
         <li data-id='${id}' class='js-card'>
@@ -14,6 +15,11 @@ function createMarkup(arr, list) {
         </li>`
       )
       .join(' ');
+  } else {
+   markup = `
+        <li >
+            <img src="https://picsum.photos/id/1029/600/400" alt='404' width=600>
+        </li>`;
   }
 
   list.innerHTML = markup;

@@ -5126,11 +5126,11 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //! removeItem() - Удалить значение
 //! clear() - очистить все
 
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basiclightbox.min.css';
+
 
 import { common } from './common';
 import { createMarkup } from '../helpers/createMarkup';
+import { createModal } from '../helpers/createModal';
 
 const instruments = [
   {
@@ -5211,25 +5211,8 @@ function onClick(event) {
   event.preventDefault();
   if (event.target.classList.contains('js-info')) {
     const product = findProduct(event.target);
-    console.log(product);
-
-    const instance = basicLightbox.create(`
-        <div class='modal'>
-            <img src='${product.img}' alt='${product.name}'>
-            <h2>${product.name}</h2>
-            <h3>${product.price} $</h3>
-            <p>${product.description}</p>
-            
-            <div>
-                <button class='js-favorite'>Add to favorite</button>
-                <button class='js-cart'>Add to cart</button>
-            </div>
-
-        </div>
-
-      `);
-
-    instance.show();
+    createModal(product)
+   
   }
 
   if (event.target.classList.contains('js-cart')) {
