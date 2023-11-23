@@ -5061,40 +5061,65 @@ const magicBtn = document.querySelector('.js-magic__btn');
  *          - feature detection
  */
 
-const lazyImages = document.querySelectorAll('img[data-src]');
+// const lazyImages = document.querySelectorAll('img[data-src]');
 
-console.log(lazyImages);
+// console.log(lazyImages);
 
-lazyImages.forEach(image => {
-    image.addEventListener('load', onImageLoaded, { once: true });
-});
+// lazyImages.forEach(image => {
+//     image.addEventListener('load', onImageLoaded, { once: true });
+// });
 
-function onImageLoaded(e) {
-    e.target.classList.add('appear');
-}
+// function onImageLoaded(e) {
+//     e.target.classList.add('appear');
+// }
 
 //? ___________________________________________
 
-if ('loading' in HTMLImageElement.prototype) {
-    addSrcLazyImages();
-} else {
-    addLAzySizeScript();
-}
+// if ('loading' in HTMLImageElement.prototype) {
+//     addSrcLazyImages();
+// } else {
+//     addLAzySizeScript();
+// }
 
-function addLAzySizeScript() {
-    const script = document.querySelector('script');
-    script.src =
-        'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    script.integrity =
-        'sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==';
-    script.src =
-        'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    script.crossOrigin = 'anonymous';
-    script.referrerpolicy = 'no-referrer';
+// function addLAzySizeScript() {
+//     const script = document.querySelector('script');
+//     script.src =
+//         'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+//     script.integrity =
+//         'sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==';
+//     script.src =
+//         'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+//     script.crossOrigin = 'anonymous';
+//     script.referrerpolicy = 'no-referrer';
 
-    document.body.appendChild(script);
-}
-function addSrcLazyImages() {
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    lazyImages.forEach(img => (img.src = img.dataset.src));
-}
+//     document.body.appendChild(script);
+// }
+// function addSrcLazyImages() {
+//     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+//     lazyImages.forEach(img => (img.src = img.dataset.src));
+// }
+
+//? ___________________________________________
+
+// function fn(arr, line) {
+//     const obj = {};
+//     for (let i = 1; i <= line; i += 1) {
+//         obj[i] = 0;
+//     }
+//     arr.forEach(buyer => {
+//         const values = Object.values(obj);
+//         const minValue = Math.min(...values);
+//         const currentLine = value.indexOf(minValue) + 1;
+//         obj[currentLine] += buyer;
+//     });
+//     return obj;
+// }
+
+// console.log(fn([12, 3, 5, 6, 2, 15, 7], 2));
+
+// const gallery = new SimpleLightbox('.gallery a');
+
+//? ___________________________________________
+
+
+
