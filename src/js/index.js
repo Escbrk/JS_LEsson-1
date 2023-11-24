@@ -5142,7 +5142,13 @@ createMarkup(instruments, list);
 list.addEventListener('click', onClick);
 
 
-onClick();
+try {
+  console.log(tet_value);
+} catch (error) {
+  console.log(error);
+}
+
+console.log('after error');
 
 
 // const favorite = document.querySelector('.js-favotire');

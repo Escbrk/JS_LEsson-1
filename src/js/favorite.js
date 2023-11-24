@@ -17,12 +17,3 @@ createMarkup(favorite, list)
 list.addEventListener('click', onClick);
 
 
-findProduct()
-
-try {
-  console.log(tet_value);
-} catch (error) {
-  console.log(error);
-}
-
-console.log('after error');
