@@ -5126,22 +5126,17 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //! removeItem() - Удалить значение
 //! clear() - очистить все
 
-
 import { createMarkup } from '../helpers/createMarkup';
 import { createModal } from '../helpers/createModal';
 import { findProduct } from '../helpers/findProduct';
 import { instruments } from '../helpers/instruments';
 import { onClick } from '../helpers/onClick';
 
-
 const search = document.querySelector('.js-search');
 const list = document.querySelector('.list');
 
-
 createMarkup(instruments, list);
 list.addEventListener('click', onClick);
-
-
 
 try {
   console.log(tet_value);
@@ -5151,10 +5146,8 @@ try {
 
 console.log('after error');
 
-
 // const favorite = document.querySelector('.js-favotire');
 // const cart = document.querySelector('.js-cart');
 
 // favorite.addEventListener('click',)
 // cart.addEventListener('click', )
-
