@@ -5151,3 +5151,5 @@ console.log('after error');
 
 // favorite.addEventListener('click',)
 // cart.addEventListener('click', )
+
+//? _________________________________________
