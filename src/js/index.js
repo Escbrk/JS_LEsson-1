@@ -5132,8 +5132,6 @@ import { findProduct } from '../helpers/findProduct';
 import { instruments } from '../helpers/instruments';
 import { onClick } from '../helpers/onClick';
 
-import 'basiclightbox/dist/basiclightbox.min.css';
-
 
 const search = document.querySelector('.js-search');
 const list = document.querySelector('.list');
