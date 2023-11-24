@@ -1,5 +1,11 @@
 import { common } from "./common";
 import { createMarkup } from '../helpers/createMarkup';
+import { findProduct } from "../helpers/findProduct";
+import { onClick } from "../helpers/onClick";
+
+
+
+
 
 
 const list = document.querySelector('.js-list');
@@ -7,10 +13,16 @@ const favorite = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 
 createMarkup(favorite, list)
 
-list.addEventListener('click', onClick)
 
-function findProduct(elem) {
-  const productId = Number(elem.closest('.js-card').dataset.id);
+list.addEventListener('click', onClick);
 
-  return instruments.find(({ id }) => id === productId);
+
+findProduct()
+
+try {
+  console.log(tet_value);
+} catch (error) {
+  console.log(error);
 }
+
+console.log('after error');

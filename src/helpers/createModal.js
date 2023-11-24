@@ -2,8 +2,9 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basiclightbox.min.css';
 
 function createModal(product) {
-  const instance = basicLightbox.create(`
-        <div class='modal'>
+  const instance = basicLightbox.create(
+    `
+        <div style='width: 600px; background-color: white;'>
             <img src='${product.img}' alt='${product.name}'>
             <h2>${product.name}</h2>
             <h3>${product.price} $</h3>
@@ -15,9 +16,26 @@ function createModal(product) {
             </div>
 
         </div>
-      `);
+      `,
+    {
+      handler: null,
+      onShow(instance) {
+        this.handler = closeModal.bind(instance)
+        document.addEventListener('keydown', this.handler)
+      },
+
+      onClose() {
+        document.removeEventListener('keydown', this.handler);
+      },
+    });
 
   instance.show();
+}
+
+function closeModal(evt) {
+  if (evt.code === 'Escape') {
+    this.close()
+  }
 }
 
 export { createModal };
