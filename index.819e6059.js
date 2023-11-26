@@ -1,4 +1,4 @@
-var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},r={},o={},n=e.parcelRequired7c6;null==n&&((n=function(e){if(e in r)return r[e].exports;if(e in o){var n=o[e];delete o[e];var t={id:e,exports:{}};return r[e]=t,n.call(t.exports,t,t.exports),t.exports}var l=new Error("Cannot find module '"+e+"'");throw l.code="MODULE_NOT_FOUND",l}).register=function(e,r){o[e]=r},e.parcelRequired7c6=n);var t=n("dEdDu");n("l5ICX"),n("8C1lk");var l=n("c1Bmg"),c=n("gyp8y");
+!function(){
 //! Метод concat()
 //! Функции
 //! Псевдомассив arguments
@@ -17,7 +17,7 @@ var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"u
 //! ___________________________________________
 //! Объекты
 //! Свойства
-document.querySelector(".js-magic__btn"),document.querySelector(".js-search");
+document.querySelector(".js-magic__btn");
 //! Короткая запись сво-тв:
 //! Вычисляемые св-ва
 //! Ссылочный тип {} === {}
@@ -82,5 +82,5 @@ document.querySelector(".js-magic__btn"),document.querySelector(".js-search");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-const i=document.querySelector(".list");(0,t.createMarkup)(l.instruments,i),i.addEventListener("click",c.onClick);try{console.log(tet_value)}catch(e){console.log(e)}console.log("after error");
-//# sourceMappingURL=index.1d1d28c7.js.map
+var o=new Date,e=Date.now();console.log(o),console.log(e)}();
+//# sourceMappingURL=index.819e6059.js.map
