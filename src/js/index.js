@@ -5162,7 +5162,6 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //     setTimeout(() => console.log(i), delay)
 // }
 
-
 // console.log('start');
 
 // setTimeout(() => { console.log('async') }, 0)
@@ -5193,7 +5192,6 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 // const date = new Date()
 // console.log(date);
-
 
 // const date = new Date();
 // console.log('Date: ', date);
@@ -5420,6 +5418,29 @@ const magicBtn = document.querySelector('.js-magic__btn');
 // };
 
 // fetchUserFromServer('Mango', onFetchSuccess, onFetchError);
+
+//? _________________________________________
+
+// const fetchUserFromServer = username => {
+//   return new Promise((resolve, reject) => {
+//     console.log(`Fetching data for ${username}`);
+
+//     setTimeout(() => {
+//       // Change value of isSuccess variable to simulate request status
+//       const isSuccess = true;
+
+//       if (isSuccess) {
+//         resolve('success value');
+//       } else {
+//         reject('error');
+//       }
+//     }, 2000);
+//   });
+// };
+
+// fetchUserFromServer('Mango')
+//   .then(user => console.log(user))
+//   .catch(error => console.error(error));
 
 //? _________________________________________
 
