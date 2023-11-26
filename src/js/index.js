@@ -5126,25 +5126,25 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //! removeItem() - Удалить значение
 //! clear() - очистить все
 
-import { createMarkup } from '../helpers/createMarkup';
-import { createModal } from '../helpers/createModal';
-import { findProduct } from '../helpers/findProduct';
-import { instruments } from '../helpers/instruments';
-import { onClick } from '../helpers/onClick';
+// import { createMarkup } from '../helpers/createMarkup';
+// import { createModal } from '../helpers/createModal';
+// import { findProduct } from '../helpers/findProduct';
+// import { instruments } from '../helpers/instruments';
+// import { onClick } from '../helpers/onClick';
 
-const search = document.querySelector('.js-search');
-const list = document.querySelector('.list');
+// const search = document.querySelector('.js-search');
+// const list = document.querySelector('.list');
 
-createMarkup(instruments, list);
-list.addEventListener('click', onClick);
+// createMarkup(instruments, list);
+// list.addEventListener('click', onClick);
 
-try {
-  console.log(tet_value);
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   console.log(tet_value);
+// } catch (error) {
+//   console.log(error);
+// }
 
-console.log('after error');
+// console.log('after error');
 
 // const favorite = document.querySelector('.js-favotire');
 // const cart = document.querySelector('.js-cart');
@@ -5153,3 +5153,40 @@ console.log('after error');
 // cart.addEventListener('click', )
 
 //? _________________________________________
+
+//!  Ассинхронный JS
+
+// for (let i = 3; i > 3; i--) {
+//     const delay = i * 1000
+
+//     setTimeout(() => console.log(i), delay)
+// }
+
+
+// console.log('start');
+
+// setTimeout(() => { console.log('async') }, 0)
+
+// console.log('end');
+
+//? _________________________________________
+
+// console.time('test async')
+
+// console.log('start');
+
+// setTimeout(() => { console.log('async') }, 0)
+
+// for (let i = 0; i < 100000; i += 1) {
+//     console.log('value', i);
+// }
+
+// console.timeEnd('test async')
+
+//? _________________________________________
+
+const date = new Date()
+const currentDate = Date.now()
+
+console.log(date);
+console.log(currentDate);
