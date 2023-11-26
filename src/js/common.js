@@ -1,7 +1,7 @@
-const common = {
-  KEY_FAVORITE: 'favorite',
-  KEY_CART: 'cart',
-};
+// const common = {
+//   KEY_FAVORITE: 'favorite',
+//   KEY_CART: 'cart',
+// };
 
 
-export {common}
+// export {common}
