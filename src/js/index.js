@@ -5185,8 +5185,241 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
-const date = new Date()
-const currentDate = Date.now()
+// const date = new Date()
+// const currentDate = Date.now()
 
-console.log(date);
-console.log(currentDate);
+// console.log(date);
+// console.log(currentDate);
+
+// const date = new Date()
+// console.log(date);
+
+
+// const date = new Date();
+// console.log('Date: ', date);
+
+// // Повертає день місяця від 1 до 31
+// console.log('getDate(): ', date.getDate());
+
+// // Повертає день тижня від 0 до 6
+// console.log('getDay(): ', date.getDay());
+
+// // Повертає місяць від 0 до 11
+// console.log('getMonth(): ', date.getMonth());
+
+// // Повертає рік з 4 цифр
+// console.log('getFullYear(): ', date.getFullYear());
+
+// // Повертає години
+// console.log('getHours(): ', date.getHours());
+
+// // Повертає хвилини
+// console.log('getMinutes(): ', date.getMinutes());
+
+// // Повертає секунди
+// console.log('getSeconds(): ', date.getSeconds());
+
+// // Повертає мілісекунди
+// console.log('getMilliseconds(): ', date.getMilliseconds());
+
+//? _________________________________________
+
+// const date = new Date();
+// console.log('Date: ', date);
+
+// // Повертає день місяця від 1 до 31
+// console.log('getUTCDate(): ', date.getUTCDate());
+
+// // Повертає день тижня від 0 до 6
+// console.log('getUTCDay(): ', date.getUTCDay());
+
+// // Повертає місяць від 0 до 11
+// console.log('getUTCMonth(): ', date.getUTCMonth());
+
+// // Повертає рік з 4 цифр
+// console.log('getUTCFullYear(): ', date.getUTCFullYear());
+
+// // Повертає години
+// console.log('getUTCHours(): ', date.getUTCHours());
+
+// // Повертає хвилини
+// console.log('getUTCMinutes(): ', date.getUTCMinutes());
+
+// // Повертає секунди
+// console.log('getUTCSeconds(): ', date.getUTCSeconds());
+
+// // Повертає мілісекунди
+// console.log('getUTCMilliseconds(): ', date.getUTCMilliseconds());
+
+//? _________________________________________
+
+// const date = new Date("March 16, 2030 14:25:00");
+
+// console.log(date.setMinutes(50));
+// // "Sat Mar 16 2030 14:50:00 GMT+0200"
+
+// console.log(date.setFullYear(2040, 4, 8));
+// // "Tue May 08 2040 14:50:00 GMT+0300"
+
+//? _________________________________________
+
+// const date = new Date("March 16, 2030 14:25:00");
+
+// console.log(date.toString());
+// // "Sat Mar 16 2030 14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+// console.log(date.toTimeString());
+// // "14:25:00 GMT+0200 (Eastern European Standard Time)"
+
+// console.log('Должно быть время в PM/AM: ', date.toLocaleTimeString());
+// // "2:25:00 PM"
+
+// console.log(date.toUTCString());
+// // "Sat, 16 Mar 2030 12:25:00 GMT"
+
+// console.log(date.toDateString());
+// // "Sat Mar 16 2030"
+
+// console.log(date.toISOString());
+// // "2030-03-16T12:25:00.000Z"
+
+// console.log(date.toLocaleString());
+// // "3/16/2030, 2:25:00 PM"
+
+// console.log(date.getTime());
+// // 1899894300000
+
+//? _________________________________________
+
+// // Change value of isSuccess variable to call resolve or reject
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve("Success! Value passed to resolve function");
+//     } else {
+//       reject("Error! Error passed to reject function");
+//     }
+//   }, 2000);
+// });
+
+// // Will run first
+// console.log("Before promise.then()");
+
+// // Registering promise callbacks
+// promise.then(
+//   // onResolve will run third or not at all
+//   value => {
+//     console.log("onResolve call inside promise.then()");
+//     console.log(value); // "Success! Value passed to resolve function"
+//   },
+//   // onReject will run third or not at all
+//   error => {
+//     console.log("onReject call inside promise.then()");
+//     console.log(error); // "Error! Error passed to reject function"
+//   }
+// );
+
+// // Will run second
+// console.log("After promise.then()");
+
+//? _________________________________________
+
+// // Change value of isSuccess variable to call resolve or reject
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve("Success! Value passed to resolve function");
+//     } else {
+//       reject("Error! Error passed to reject function");
+//     }
+//   }, 2000);
+// });
+
+// promise
+//   .then(value => {
+//     console.log(value);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+//? _________________________________________
+
+// // Change value of isSuccess variable to call resolve or reject
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve("Success! Value passed to resolve function");
+//     } else {
+//       reject("Error! Error passed to reject function");
+//     }
+//   }, 2000);
+// });
+
+// promise
+//   .then(value => console.log(value)) // "Success! Value passed to resolve function"
+//   .catch(error => console.log(error)) // "Error! Error passed to reject function"
+//   .finally(() => console.log("Promise settled")); // "Promise settled"
+
+//? _________________________________________
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(5);
+//   }, 2000);
+// });
+
+// promise
+//   .then(value => {
+//     console.log(value); // 5
+//     return value * 2;
+//   })
+//   .then(value => {
+//     console.log(value); // 10
+//     return value * 3;
+//   })
+//   .then(value => {
+//     console.log(value); // 30
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log('Final task');
+//   });
+
+//? _________________________________________
+
+// const fetchUserFromServer = (username, onSuccess, onError) => {
+//   console.log(`Fetching data for ${username}`);
+
+//   setTimeout(() => {
+//     // Change value of isSuccess variable to simulate request status
+//     const isSuccess = true;
+
+//     if (isSuccess) {
+//       onSuccess('success value');
+//     } else {
+//       onError('error');
+//     }
+//   }, 2000);
+// };
+
+// const onFetchSuccess = user => {
+//   console.log(user);
+// };
+
+// const onFetchError = error => {
+//   console.error(error);
+// };
+
+// fetchUserFromServer('Mango', onFetchSuccess, onFetchError);
+
+//? _________________________________________
+
