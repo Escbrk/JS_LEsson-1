@@ -1,4 +1,3 @@
-!function(){
 //! Метод concat()
 //! Функции
 //! Псевдомассив arguments
@@ -82,5 +81,9 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-var o=new Date,e=Date.now();console.log(o),console.log(e)}();
-//# sourceMappingURL=index.819e6059.js.map
+//! setItem() - Добавить значение
+//! getItem() - Получить значение
+//! removeItem() - Удалить значение
+//! clear() - очистить все
+//!  Ассинхронный JS
+//# sourceMappingURL=index.6c681bce.js.map
