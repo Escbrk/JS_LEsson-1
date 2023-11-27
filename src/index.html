@@ -6,7 +6,7 @@
     <title>Document</title>
 
     <style>
-      #parent,
+      /* #parent,
       #child,
       #inner-child {
         margin: 16px;
@@ -69,7 +69,14 @@
       .tags__btn-active {
         color: #fff;
         background-color: #3f51b5;
-      }
+      } */
+
+      /* .box {
+        display: none;
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      } */
     </style>
   </head>
   <body>
@@ -528,7 +535,7 @@
             </li>
         </ul> -->
 
-    <header>
+    <!-- <header>
       <ul
         style="display: flex; flex-direction: row; gap: 20px; list-style: none"
       >
@@ -540,9 +547,28 @@
       <input type="text" class="js-search" />
     </header>
 
-    <ul class="list"></ul>
+    <ul class="list"></ul>-->
+    <!-- 
+    <div class="box js-box">
+        <h2>Реклама: O_o</h2>
+        <p>реклама исчезнет через: <span class="js-timer"></span></p>
+    </div> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <div class="calendar">
+      <div class="date-style">
+        День недели: <span class="date-day"> 0</span>
+      </div>
+      <div class="date-style">День месяца: <span class="date"> 0</span></div>
+      <div class="date-style">Месяц: <span class="date-month"> 0</span></div>
+      <div class="date-style">Год: <span class="date-year"> 0</span></div>
+    </div>
+    <div class="digital-clock">Время: <span class="date-time">0</span></div>
+    <div class="clock">
+        <span class="clock-arrow clock-hours__arrow"></span>
+        <span class="clock-arrow clock-minutes__arrow"></span>
+        <span class="clock-arrow clock-seconds__arrow"></span>
+        <span class="clock-center"></span>
+    </div>
 
     <script defer src="./js/index.js" type="module"></script>
   </body>

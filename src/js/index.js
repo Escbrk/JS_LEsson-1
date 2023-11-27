@@ -5444,3 +5444,149 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
+// function multiply(a, b) {
+//   return a * b;
+// }
+
+// function square(n) {
+//   return multiply(n, n);
+// }
+
+// function printSquare(n) {
+//     var squared = square(n)
+//     console.log(squared);
+// }
+
+// printSquare(4)
+
+//? _________________________________________
+
+// function loop() {
+//     setTimeout(loop, 0)
+// }
+
+// loop()
+
+//? _________________________________________
+
+// Promise.resolve().then(() => console.log('Hey!'))
+// console.log('Yo!');
+
+//? _________________________________________
+
+// console.log(new Date());
+// const date = new Date();
+// console.log(date.getMonth());
+// console.log(date.getDay());
+
+// const namesOfMonth = [
+//   'Январь',
+//   'Февраль',
+//   'Март',
+//   'Апрель',
+//   'Май',
+//   'Июнь',
+//   'Июль',
+//   'Август',
+//   'Сентябрь',
+//   'Октябрь',
+//   'Ноябрь',
+//   'Декабрь',
+// ];
+
+// const namesOfDays = [
+//   'Воскресенье',
+//   'Понедельник',
+//   'Вторник',
+//   'Среда',
+//   'Четверг',
+//   'Пятница',
+//   'Суббота',
+// ];
+
+// console.log(namesOfMonth[date.getMonth()]);
+// console.log(namesOfDays[date.getDay()]);
+
+//? _________________________________________
+
+// const refs = {
+//   box: document.querySelector('.js-box'),
+//   timer: document.querySelector('.js-timer'),
+// };
+
+// let counter = 11;
+
+// setTimeout(() => {
+//   refs.box.style.display = 'block';
+//     const id = setInterval(() => {
+
+//       counter -= 1;
+//       refs.timer.textContent = counter;
+
+//     if (!counter) {
+//         clearInterval(id);
+//         refs.box.style.display = 'none'
+
+//         // refs.timer.textContent = 'X'
+//         // refs.timer.addEventListener('click', onClick)
+//     }
+//   }, 1000);
+
+//   return;
+// }, 1000);
+
+// function onClick() {
+//   refs.box.style.display = 'none';
+// }
+
+//? _________________________________________
+
+const refs = {
+  day: document.querySelector('.date-day'),
+  date: document.querySelector('.date'),
+  month: document.querySelector('.date-month'),
+  year: document.querySelector('.date-year'),
+  digitalClock: document.querySelector('.date-time'),
+};
+
+const namesOfMonth = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
+];
+
+const namesOfDays = [
+  'Воскресенье',
+  'Понедельник',
+  'Вторник',
+  'Среда',
+  'Четверг',
+  'Пятница',
+  'Суббота',
+];
+
+setInterval(() => {
+  const currentDate = new Date();
+
+  refs.day.textContent = namesOfDays[currentDate.getDay()];
+  refs.date.textContent = currentDate.getDate();
+  refs.month.textContent = namesOfMonth[currentDate.getMonth()];
+  refs.year.textContent = currentDate.getFullYear();
+  const currentTime = {
+    hours: currentDate.getHours().toString().padStart(2, 0),
+    minutes: currentDate.getMinutes().toString().padStart(2, 0),
+    seconds: currentDate.getSeconds().toString().padStart(2, 0),
+  };
+    const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
+
+    refs.digitalClock.textContent = formatTime
+}, 1000);
