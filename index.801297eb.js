@@ -81,9 +81,5 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-//! setItem() - Добавить значение
-//! getItem() - Получить значение
-//! removeItem() - Удалить значение
-//! clear() - очистить все
-//!  Ассинхронный JS
-//# sourceMappingURL=index.6c681bce.js.map
+const t={day:document.querySelector(".date-day"),date:document.querySelector(".date"),month:document.querySelector(".date-month"),year:document.querySelector(".date-year"),digitalClock:document.querySelector(".date-time")},e=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],n=["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];setInterval((()=>{const o=new Date;t.day.textContent=n[o.getDay()],t.date.textContent=o.getDate(),t.month.textContent=e[o.getMonth()],t.year.textContent=o.getFullYear();const a=`${o.getHours().toString().padStart(2,0)}:${o.getMinutes().toString().padStart(2,0)}:${o.getSeconds().toString().padStart(2,0)}`;t.digitalClock.textContent=a}),1e3);
+//# sourceMappingURL=index.801297eb.js.map
