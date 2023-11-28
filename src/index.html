@@ -109,26 +109,26 @@
         border-radius: 50%;
       }
 
-      .clock-second__arrow {
+      .clock-seconds__arrow {
         bottom: 50%;
         left: 50%;
         width: 5px;
         height: 40%;
       }
 
-      /* .clock-minutes__arrow {
+      .clock-minutes__arrow {
         bottom: 50%;
         left: 50%;
         width: 7px;
         height: 33%;
-      } */
+      }
 
-      /* .clock-hours__arrow {
+      .clock-hours__arrow {
         bottom: 50%;
         left: 50%;
         width: 12px;
         height: 24%;
-      } */
+      }
 
       .date {
         width: 100px;
@@ -136,9 +136,24 @@
         color: black;
       }
 
-      /* .calendar {
+      .calendar {
+        display: flex;
+        justify-content: space-between;
+      }
 
-      } */
+      .date-style {
+        display: flex;
+        font-size: 40px;
+        font-weight: 900;
+        text-shadow: 3px 3px 2px #CECBCD
+
+      }
+
+      .digital-clock {
+        text-align: center;
+        font-size: 60px;
+        text-shadow: 3px 3px 2px #CECBCD
+      }
     </style>
   </head>
   <body>
@@ -620,15 +635,15 @@
       <div class="date-style">
         День недели: <span class="date-day"> 0</span>
       </div>
-      <div class="date-style">День месяца: <span class="date"> 0</span></div>
-      <div class="date-style">Месяц: <span class="date-month"> 0</span></div>
-      <div class="date-style">Год: <span class="date-year"> 0</span></div>
+      <div class="date-style">День месяца:<span class="date">0</span></div>
+      <div class="date-style">Месяц:<span class="date-month">0</span></div>
+      <div class="date-style">Год:<span class="date-year">0</span></div>
     </div>
     <div class="digital-clock">Время: <span class="date-time">0</span></div>
     <div class="clock">
       <span class="clock-arrow clock-hours__arrow"></span>
-      <span class="clock-arrow clock-minutes__arrow"></span>
       <span class="clock-arrow clock-seconds__arrow"></span>
+      <span class="clock-arrow clock-minutes__arrow"></span>
       <span class="clock-center"></span>
     </div>
 

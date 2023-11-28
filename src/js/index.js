@@ -5156,6 +5156,11 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //!  Ассинхронный JS
 
+/*
+ *    https://bool.dev/blog/detail/obyasnenie-event-loop-v-javascript-s-pomoshchyu-vizualizatsii
+ *    https://www.jscamp.app/ru/docs/javascript25/
+ */
+
 // for (let i = 3; i > 3; i--) {
 //     const delay = i * 1000
 
@@ -5541,70 +5546,102 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
-const refs = {
-  day: document.querySelector('.date-day'),
-  date: document.querySelector('.date'),
-  month: document.querySelector('.date-month'),
-  year: document.querySelector('.date-year'),
-  digitalClock: document.querySelector('.date-time'),
+// const refs = {
+//   day: document.querySelector('.date-day'),
+//   date: document.querySelector('.date'),
+//   month: document.querySelector('.date-month'),
+//   year: document.querySelector('.date-year'),
+//   digitalClock: document.querySelector('.date-time'),
 
-  //!____________________________
+//   //!____________________________
 
-  clockHours__arrow: document.querySelector('.clock-hours__arrow'),
-  clockMinutes__arrow: document.querySelector('.clock-minutes__arrow'),
-  clockSeconds__arrow: document.querySelector('.clock-seconds__arrow'),
-};
+//   clockHours__arrow: document.querySelector('.clock-hours__arrow'),
+//   clockMinutes__arrow: document.querySelector('.clock-minutes__arrow'),
+//   clockSeconds__arrow: document.querySelector('.clock-seconds__arrow'),
+// };
 
+// const namesOfMonth = [
+//   'Январь',
+//   'Февраль',
+//   'Март',
+//   'Апрель',
+//   'Май',
+//   'Июнь',
+//   'Июль',
+//   'Август',
+//   'Сентябрь',
+//   'Октябрь',
+//   'Ноябрь',
+//   'Декабрь',
+// ];
 
-const namesOfMonth = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
-];
+// const namesOfDays = [
+//   'Воскресенье',
+//   'Понедельник',
+//   'Вторник',
+//   'Среда',
+//   'Четверг',
+//   'Пятница',
+//   'Суббота',
+// ];
 
-const namesOfDays = [
-  'Воскресенье',
-  'Понедельник',
-  'Вторник',
-  'Среда',
-  'Четверг',
-  'Пятница',
-  'Суббота',
-];
+// setInterval(() => {
+//   const currentDate = new Date();
 
-setInterval(() => {
-  const currentDate = new Date();
+//   refs.day.textContent = namesOfDays[currentDate.getDay()];
+//   refs.date.textContent = currentDate.getDate();
+//   refs.month.textContent = namesOfMonth[currentDate.getMonth()];
+//   refs.year.textContent = currentDate.getFullYear();
+//   const currentTime = {
+//     hours: currentDate.getHours().toString().padStart(2, 0),
+//     minutes: currentDate.getMinutes().toString().padStart(2, 0),
+//     seconds: currentDate.getSeconds().toString().padStart(2, 0),
+//   };
 
-  refs.day.textContent = namesOfDays[currentDate.getDay()];
-  refs.date.textContent = currentDate.getDate();
-  refs.month.textContent = namesOfMonth[currentDate.getMonth()];
-  refs.year.textContent = currentDate.getFullYear();
-  const currentTime = {
-    hours: currentDate.getHours().toString().padStart(2, 0),
-    minutes: currentDate.getMinutes().toString().padStart(2, 0),
-    seconds: currentDate.getSeconds().toString().padStart(2, 0),
-  };
+//   const clock = {
+//     hours: (360 / 12) * currentTime.hours + (360 / 12 / 60) * currentTime.minutes,
+//     minutes: (360 / 60) * currentTime.minutes,
+//     seconds: (360 / 60) * currentTime.seconds,
+//   };
 
-  const clock = {
-    // hours
-    minutes: (360 / 60) * currentTime.minutes,
-    seconds: (360 / 60) * currentTime.seconds,
-  };
+//   // console.log(clock.minutes)
+//   const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
 
-  // console.log(clock.minutes)
-  const formatTime = `${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`;
+//   refs.digitalClock.textContent = formatTime;
 
-  refs.digitalClock.textContent = formatTime;
+//   refs.clockSeconds__arrow.style.transform = `rotate(${clock.seconds}deg)`;
+//   refs.clockMinutes__arrow.style.transform = `rotate(${clock.minutes}deg)`;
+//   refs.clockHours__arrow.style.transform = `rotate(${clock.hours}deg)`;
+// }, 1000);
 
-  refs.clockSeconds__arrow.style.transform = `rotate(${clock.seconds}deg)`;
-  // refs.clockMinutes__arrow.style.transform = `rotate(${clock.minutes}deg)`;
-}, 1000);
+//? _________________________________________
+
+// setInterval(() => {
+//   const currentDate = new Date();
+//   const targetDate = new Date('2023/11/30');
+
+// refs.digitalClock.textContent = convertMs(targetDate - currentDate);
+// }, 1000);
+
+// function convertMs(ms) {
+//   // Number of milliseconds per unit of time
+//   const second = 1000;
+//   const minute = second * 60;
+//   const hour = minute * 60;
+//   const day = hour * 24;
+
+//   // Remaining days
+//   const days = Math.floor(ms / day);
+//   // Remaining hours
+//   const hours = Math.floor((ms % day) / hour);
+//   // Remaining minutes
+//   const minutes = Math.floor(((ms % day) % hour) / minute);
+//   // Remaining seconds
+//   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+//   // return { days, hours, minutes, seconds };
+
+//   return `${days} Day(s) and ${hours.toString().padStart(2, 0)}:${minutes
+//     .toString()
+//     .padStart(2, 0)}:${seconds.toString().padStart(2, 0)} hrs`;
+// }
