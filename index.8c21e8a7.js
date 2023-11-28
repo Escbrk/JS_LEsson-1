@@ -1,3 +1,4 @@
+!function(){
 //! Метод concat()
 //! Функции
 //! Псевдомассив arguments
@@ -81,5 +82,7 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-const t={day:document.querySelector(".date-day"),date:document.querySelector(".date"),month:document.querySelector(".date-month"),year:document.querySelector(".date-year"),digitalClock:document.querySelector(".date-time")},e=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],n=["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];setInterval((()=>{const o=new Date;t.day.textContent=n[o.getDay()],t.date.textContent=o.getDate(),t.month.textContent=e[o.getMonth()],t.year.textContent=o.getFullYear();const a=`${o.getHours().toString().padStart(2,0)}:${o.getMinutes().toString().padStart(2,0)}:${o.getSeconds().toString().padStart(2,0)}`;t.digitalClock.textContent=a}),1e3);
-//# sourceMappingURL=index.801297eb.js.map
+var t={day:document.querySelector(".date-day"),date:document.querySelector(".date"),month:document.querySelector(".date-month"),year:document.querySelector(".date-year"),digitalClock:document.querySelector(".date-time"),
+//!____________________________
+clockHours__arrow:document.querySelector(".clock-hours__arrow"),clockMinutes__arrow:document.querySelector(".clock-minutes__arrow"),clockSeconds__arrow:document.querySelector(".clock-seconds__arrow")},e=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"],o=["Воскресенье","Понедельник","Вторник","Среда","Четверг","Пятница","Суббота"];setInterval((function(){var c=new Date;t.day.textContent=o[c.getDay()],t.date.textContent=c.getDate(),t.month.textContent=e[c.getMonth()],t.year.textContent=c.getFullYear();var n={hours:c.getHours().toString().padStart(2,0),minutes:c.getMinutes().toString().padStart(2,0),seconds:c.getSeconds().toString().padStart(2,0)},r={minutes:6*n.minutes,seconds:6*n.seconds},a="".concat(n.hours,":").concat(n.minutes,":").concat(n.seconds);t.digitalClock.textContent=a,t.clockSeconds__arrow.style.transform="rotate(".concat(r.seconds,"deg)")}),1e3)}();
+//# sourceMappingURL=index.8c21e8a7.js.map
