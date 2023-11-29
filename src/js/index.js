@@ -5615,6 +5615,7 @@ const magicBtn = document.querySelector('.js-magic__btn');
 // }, 1000);
 
 //? _________________________________________
+//! CLOCK !
 
 // setInterval(() => {
 //   const currentDate = new Date();
@@ -5645,3 +5646,85 @@ const magicBtn = document.querySelector('.js-magic__btn');
 //     .toString()
 //     .padStart(2, 0)}:${seconds.toString().padStart(2, 0)} hrs`;
 // }
+
+//!__________________________________________
+//? _________________________________________
+
+/*
+ *      Микро процессы имеют больший приоритет чем макро
+ *
+ *      Микро процессы:
+ *          1. Promise
+ *          2. Observer
+ *
+ *      Макро процессы:
+ *          1. setTimeout()
+ *          2. setInterval()
+ *          3. setImmediate()
+ *          4. requestAnimationFrame()
+ */
+
+// console.log('1');
+
+// setTimeout(() => console.log('2'), 0);
+
+// Promise.resolve('3').then(value => console.log(value))
+
+// console.log('4')
+
+//? _________________________________________
+
+// const promise = new Promise((res, rej) => {
+//   setTimeout(() => {
+//     const val = Math.random();
+
+//     if (val > 0.2) {
+//       res('Yeeees');
+//     } else {
+//       rej('Noooo');
+//     }
+//   }, 3000);
+// });
+// console.log(promise);
+
+// promise
+//   .then(value => {
+//     return value + ' Yeah';
+//   })
+//   .then(value => {
+//     console.log(value);
+//   })
+//   .catch(error => {
+//     console.error(error);
+//   })
+//   .finally(() => {
+//     console.log('after');
+//   });
+
+//? _________________________________________
+
+// const promise = fetch('https://pokeapi.co/api/v2/pokemon/ditto');
+
+// console.log(promise);
+
+// promise
+//   .then(resp => resp.json())
+//   .then(data => console.log(data))
+//   .catch(err => console.error(err))
+//   .finally(() => {
+//     console.log('good');
+//   });
+
+//? _________________________________________
+
+const refs = {
+  start: document.querySelector('.js-start'),
+  container: document.querySelector('.js-container'),
+};
+
+
+refs.start.addEventListener('click', onStart)
+
+function onStart() {
+    [...refs.container.children].forEach(box => (box.textContent = '🍓'));
+}
