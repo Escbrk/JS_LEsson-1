@@ -81,5 +81,11 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-const t={start:document.querySelector(".js-start"),container:document.querySelector(".js-container")};t.start.addEventListener("click",(function(){[...t.container.children].forEach((t=>t.textContent="🍓"))}));
-//# sourceMappingURL=index.11f67fc1.js.map
+//! setItem() - Добавить значение
+//! getItem() - Получить значение
+//! removeItem() - Удалить значение
+//! clear() - очистить все
+//!  Ассинхронный JS
+//! CLOCK !
+//!__________________________________________
+//# sourceMappingURL=index.eda42f55.js.map
