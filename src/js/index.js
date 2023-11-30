@@ -5717,14 +5717,242 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
-const refs = {
-  start: document.querySelector('.js-start'),
-  container: document.querySelector('.js-container'),
-};
+// const refs = {
+//   start: document.querySelector('.js-start'),
+//   container: document.querySelector('.js-container'),
+// };
 
+// refs.start.addEventListener('click', onStart);
 
-refs.start.addEventListener('click', onStart)
+//?____
 
-function onStart() {
-    [...refs.container.children].forEach(box => (box.textContent = '🍓'));
-}
+// function onStart() {
+//   const result = [];
+//   [...refs.container.children].forEach(box => (box.textContent = ''));
+//   [...refs.container.children].forEach((box, i) => {
+//     createPromise(i)
+//       .then(smile => {
+//         box.textContent = smile;
+//         result.push('1');
+//       })
+//       .catch(smile => {
+//         box.textContent = smile;
+//       })
+//       .finally(() => {
+//         setTimeout(() => {
+//           if (i === refs.container.children.length - 1) {
+//             if (!result.length || result.length === 3) {
+//               alert('WInner');
+//             } else {
+//               alert('Lost money');
+//             }
+//           }
+//         }, 500);
+//       });
+//   });
+// }
+
+// function createPromise(delay) {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       const random = Math.random();
+
+//       if (random > 0.5) {
+//         res('🤑');
+//       } else {
+//         rej('😈');
+//       }
+//     }, 1000 * delay);
+//   });
+// }
+
+//?_____
+
+// function onStart() {
+//   let counter = 0;
+
+//   [...refs.container.children].forEach(box => (box.textContent = ''));
+
+//   const promises = [...refs.container.children].map((_, i) => createPromise(i));
+
+//   Promise.allSettled(promises).then(items => {
+//     items.forEach((item, i) => {
+//       setTimeout(() => {
+//         if (item.status === 'fulfilled') {
+//           counter += 1;
+//         }
+//         refs.container.children[i].textContent = item.value || item.reason;
+
+//         if (refs.container.children.length - 1 === i) {
+//           setTimeout(() => {
+//             if (counter === refs.container.children.length || !counter) {
+//               alert('Winner!');
+//             } else {
+//               alert('Lost money');
+//             }
+//           }, 500);
+//         }
+//       }, i * 1000);
+//     });
+//   });
+// }
+
+// function createPromise() {
+//   return new Promise((res, rej) => {
+//     const random = Math.random();
+//     if (random > 0.5) {
+//       res('🤑');
+//     } else {
+//       rej('😈');
+//     }
+//   });
+// }
+
+//? _________________________________________
+
+// console.log('Request data...');
+
+// const p = new Promise((res, rej) => {
+//   setTimeout(() => {
+//     console.log('Prepairing data...');
+//     const backendData = {
+//       server: 'qwe',
+//       port: 2000,
+//       status: 'working',
+//     };
+//     res(backendData);
+//   }, 2000);
+// });
+
+// p.then(data => {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       data.modified = true;
+//       res(data);
+//       // console.log('Data received', backendData);
+//     }, 2000);
+//   });
+// })
+//   .then(clientData => {
+//     clientData.fromPromise = true;
+//     return clientData;
+//   })
+//   .then(data => {
+//     console.log('Modified data', data);
+//   })
+//   .catch(err => console.error('Error: ', err))
+//   .finally(() => console.log('Finaly'));
+
+//? _________________________________________
+
+// const sleep = ms => new Promise(res => setTimeout(() => res(), ms));
+
+// // sleep(2000).then(() => console.log('after 2 sec'))
+// // sleep(3000).then(() => console.log('after 3 sec'))
+
+// Promise.all([sleep(2000), sleep(5000)]).then(() => console.log('All promises'));
+
+// Promise.race([sleep(2000), sleep(5000)]).then(() =>
+//   console.log('Race promises')
+// );
+
+//? _________________________________________
+
+// const promise = fetch('https://api.sampleapis.com/countries/countries');
+
+// promise
+//   .then(data => data.json())
+//   .then(countries => countries)
+//   .catch(err => console.error(err))
+
+//? _________________________________________
+
+// const coffee = new Promise((res, rej) => {
+//   setTimeout(() => {
+//       // rej(Error ('Your coffee is ready!'));
+//       res('Your coffee is ready!');
+//   }, 1500);
+// });
+
+// coffee.then(data => console.log(data)).catch(err => console.error(err))
+
+//? _________________________________________
+
+// const family = [
+//   { member: 'Mother', id: 111, coffee: 'Latte' },
+//   { member: 'Father', id: 222, coffee: 'Espresso' },
+//   { member: 'Son', id: 333, coffee: 'Cappuchino' },
+// ];
+
+// const getCoffee = member => {
+//   const coffeePromise = fetch('https://api.sampleapis.com/coffee/hot');
+//   return coffeePromise.then(data =>
+//     data.json().then(list => {
+//       const coffee = list.find(drink => drink.title === member.coffee);
+//       console.log(coffee);
+//       return {
+//         ...member,
+//         coffee,
+//       };
+//     })
+//   );
+// };
+
+// const getFamilyMEmber = id => {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       const member = family.find(result => result.id === id);
+//       if (member) {
+//         res(member);
+//       } else {
+//         rej(Error("This member wasn't found!"));
+//       }
+//     }, 1500);
+//   });
+// };
+
+// getFamilyMEmber(111)
+//   .then(data => getCoffee(data))
+//   .then(newMember => console.log('new member', newMember))
+//   .catch(err => console.error(err));
+
+//? _________________________________________
+
+// const makeCoffee = () => {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       res('Your coffee is ready!');
+//     }, 500);
+//   });
+// };
+
+// const makeToast = () => {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       res('Your toasts are ready!');
+//     }, 2500);
+//   });
+// };
+
+// const coffeePromise = makeCoffee();
+// const toastPromise = makeToast();
+
+// // coffeePromise.then(data => console.log(data))
+// // toastPromise.then(data => console.log(data));
+
+// Promise.all([coffeePromise, toastPromise]).then(
+//   ([coffeePromise, toastPromise]) => console.log(coffeePromise, toastPromise)
+// );
+
+//? _________________________________________
+
+// const beers = fetch('https://api.sampleapis.com/beers/ale');
+// const wines = fetch('https://api.sampleapis.com/wines/reds');
+
+// Promise.all([beers, wines])
+//   .then(data => Promise.all(data.map(result => result.json())))
+//   .then(finalData => console.log(finalData))
+//   .catch(err => console.error(err));
+
+//? _________________________________________
+
