@@ -5956,3 +5956,20 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
+function getWeather(city, days) {
+  // https://api.weatherapi.com/v1/forecast.json?key=ea957238804947ab8d842259230712&q=Calgary&days=5
+  const API_KEY = 'ea957238804947ab8d842259230712';
+    const BASE_URL = 'https://api.weatherapi.com/v1';
+    
+
+    return fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}`).then(resp => {
+        console.log(resp)
+        if (!resp.ok) {
+            throw new Error(resp.status);
+        }
+
+        return resp.json()
+    });
+}
+
+getWeather('Calgary', 5).then(data => console.log(data)).catch(err => console.log(err))
