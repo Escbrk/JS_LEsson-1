@@ -1,3 +1,4 @@
+!function(){
 //! Метод concat()
 //! Функции
 //! Псевдомассив arguments
@@ -88,5 +89,5 @@ document.querySelector(".js-magic__btn");
 //!  Ассинхронный JS
 //! CLOCK !
 //!__________________________________________
-var o,e;(o="Calgary",e=5,fetch(`https://api.weatherapi.com/v1/forecast.json?key=ea957238804947ab8d842259230712&q=${o}&days=${e}`).then((o=>{if(console.log(o),!o.ok)throw new Error(o.status);return o.json()}))).then((o=>console.log(o))).catch((o=>console.log(o)));
-//# sourceMappingURL=index.ceeff14a.js.map
+function t(t,e){return fetch("".concat("https://api.weatherapi.com/v1","/forecast.json?key=").concat("ea957238804947ab8d842259230712","&q=").concat(t,"&days=").concat(e)).then((function(t){if(console.log(t),!t.ok)throw new Error(t.status);return t.json()}))}t("Calgary",5).then((function(t){return console.log(t)})).catch((function(t){return console.log(t)})),{form:document.querySelector('[action="submit"]'),submitBtn:document.querySelector('[type="submit"]')}.form.addEventListener("submit",(function(e){e.preventDefault();var n=e.currentTarget.elements,o=n.query,c=n.days;t(o.value,c.value).then((function(t){return console.log(t)})).catch((function(t){return console.log(t)}))}))}();
+//# sourceMappingURL=index.db624fdf.js.map
