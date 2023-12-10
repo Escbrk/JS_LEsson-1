@@ -5956,41 +5956,91 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
-function getWeather(city, days) {
-  // https://api.weatherapi.com/v1/forecast.json?key=ea957238804947ab8d842259230712&q=Calgary&days=5
-  const API_KEY = 'ea957238804947ab8d842259230712';
-  const BASE_URL = 'https://api.weatherapi.com/v1';
+// function getWeather(city, days) {
+//   const API_KEY = 'ea957238804947ab8d842259230712';
+//   const BASE_URL = 'https://api.weatherapi.com/v1';
+//   const params = new URLSearchParams({
+//     key: API_KEY,
+//     q: city,
+//     days,
+//     lang: 'ru',
+//   });
 
-  return fetch(
-    `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}`
-  ).then(resp => {
-    console.log(resp);
-    if (!resp.ok) {
-      throw new Error(resp.status);
-    }
+//   return fetch(
+//     `${BASE_URL}/forecast.json?${params}`
+//   ).then(resp => {
+//     if (!resp.ok) {
+//       throw new Error(resp.status);
+//     }
 
-    return resp.json();
-  });
-}
+//     return resp.json();
+//   });
+// }
 
-getWeather('Calgary', 5)
-  .then(data => console.log(data))
-  .catch(err => console.log(err));
+// const refs = {
+//   form: document.querySelector('[action="submit"]'),
+//   submitBtn: document.querySelector('[type="submit"]'),
+//   jsList: document.querySelector('.js-list'),
+// };
+
+// refs.form.addEventListener('submit', onSearch);
+
+// function onSearch(e) {
+//   e.preventDefault();
+
+//   const { query, days } = e.currentTarget.elements;
+
+//   getWeather(query.value, days.value)
+//     .then(
+//       data => (refs.jsList.innerHTML = createMarkup(data.forecast.forecastday))
+//     )
+//     .catch(err => console.log(err));
+// }
+
+// function createMarkup(arr) {
+//   return arr
+//     .map(
+//       ({
+//         date,
+//         day: {
+//           avgtemp_c,
+//           condition: { text, icon },
+//         },
+//       }) =>
+//         `<li>
+//             <img src="${icon}" alt="${text}">
+//             <p>${text}</p>
+//             <h2>${date}</h2>
+//             <h3>${avgtemp_c}</h3>
+//         </li>`
+//     )
+//     .join(' ');
+// }
+
+//? _________________________________________
 
 const refs = {
-  form: document.querySelector('[action="submit"]'),
-  submitBtn: document.querySelector('[type="submit"]'),
-//   days: document.querySelector(),
+  BASE_URL: 'https://the-one-api.dev/v2',
+  endpoint_HERO: '/character',
+  API_KEY: 'xeEdJIsN_UjM6SWwSduu',
 };
 
-refs.form.addEventListener('submit', onSearch);
+function getCharacter() {
+  const param = new URLSearchParams({
+    limit: 30,
+    page: 1,
+  });
 
-function onSearch(e) {
-    e.preventDefault();
-    
-    const { query, days } = e.currentTarget.elements;
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${refs.API_KEY}`
+    }
+  }
 
-  getWeather(query.value, days.value)
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+  fetch(`${refs.BASE_URL}${refs.endpoint_HERO}?${param}`, options).then(resp =>
+    console.log(resp)
+  );
 }
+
+getCharacter()
