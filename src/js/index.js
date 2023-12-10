@@ -6019,28 +6019,97 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
-const refs = {
-  BASE_URL: 'https://the-one-api.dev/v2',
-  endpoint_HERO: '/character',
-  API_KEY: 'xeEdJIsN_UjM6SWwSduu',
-};
+// const refs = {
+//   BASE_URL: 'https://the-one-api.dev/v2',
+//   endpoint_HERO: '/character',
+//   API_KEY: 'xeEdJIsN_UjM6SWwSduu',
+// };
 
-function getCharacter() {
-  const param = new URLSearchParams({
-    limit: 30,
-    page: 1,
-  });
+// function getCharacter() {
+//   const param = new URLSearchParams({
+//     limit: 30,
+//     page: 1,
+//   });
 
-  const options = {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${refs.API_KEY}`
-    }
-  }
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       Authorization: `Bearer ${refs.API_KEY}`
+//     }
+//   }
 
-  fetch(`${refs.BASE_URL}${refs.endpoint_HERO}?${param}`, options).then(resp =>
-    console.log(resp)
-  );
-}
+//   fetch(`${refs.BASE_URL}${refs.endpoint_HERO}?${param}`, options).then(resp =>
+//     console.log(resp)
+//   );
+// }
 
-getCharacter()
+// getCharacter()
+
+//? _________________________________________
+
+// const refs = {
+//   movieList: document.querySelector('.movie-list'),
+//   loadMore: document.querySelector('.js-load'),
+
+//   BASE_URL: 'https://api.themoviedb.org/3/',
+//   ENDPOINT: 'trending/movie/day',
+//   API_KEY: 'd0f00e3970f1028763a1388502d0f412',
+// };
+// let currentPage = 1;
+
+// refs.loadMore.addEventListener('click', onLoad);
+
+// function onLoad(e) {
+//   e.preventDefault();
+//   currentPage += 1;
+
+//   getTrending(currentPage)
+//     .then(data => {
+//       refs.movieList.insertAdjacentHTML(
+//         'beforeend',
+//         createMarkup(data.results)
+//       );
+
+//       if (data.page === data.total_pages) {
+//         refs.loadMore.hidden = true;
+//       }
+//     })
+//     .catch(err => console.error(err));
+// }
+
+// function getTrending(page = 1) {
+//   return fetch(
+//     `${refs.BASE_URL}${refs.ENDPOINT}?api_key=${refs.API_KEY}&page=${page}`
+//   ).then(resp => {
+//     if (!resp.ok) {
+//       throw new Error(resp.statusText);
+//     }
+
+//     return resp.json();
+//   });
+// }
+
+// getTrending()
+//   .then(data => {
+//     refs.movieList.insertAdjacentHTML('beforeend', createMarkup(data.results));
+//     if (data.page !== data.total_pages) {
+//       refs.loadMore.hidden = false;
+//     }
+//   })
+//   .catch(err => console.error(err));
+
+// function createMarkup(arr) {
+//   return arr
+//     .map(
+//       ({ poster_path, title, overview }) =>
+//         `<li style='list-style: none'>
+//         <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+//         <h2>${title}</h2>
+//         <p>${overview}</p>
+//       </li>`
+//     )
+//     .join(' ');
+// }
+
+//? _________________________________________
+
