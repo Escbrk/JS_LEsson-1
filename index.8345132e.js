@@ -81,12 +81,5 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-//! setItem() - Добавить значение
-//! getItem() - Получить значение
-//! removeItem() - Удалить значение
-//! clear() - очистить все
-//!  Ассинхронный JS
-//! CLOCK !
-//!__________________________________________
-function e(e,t){return fetch(`https://api.weatherapi.com/v1/forecast.json?key=ea957238804947ab8d842259230712&q=${e}&days=${t}`).then((e=>{if(console.log(e),!e.ok)throw new Error(e.status);return e.json()}))}e("Calgary",5).then((e=>console.log(e))).catch((e=>console.log(e)));({form:document.querySelector('[action="submit"]'),submitBtn:document.querySelector('[type="submit"]')}).form.addEventListener("submit",(function(t){t.preventDefault();const{query:o,days:n}=t.currentTarget.elements;e(o.value,n.value).then((e=>console.log(e))).catch((e=>console.log(e)))}));
-//# sourceMappingURL=index.a9515d3e.js.map
+const e="https://the-one-api.dev/v2",t="/character",o="xeEdJIsN_UjM6SWwSduu";!function(){const a=new URLSearchParams({limit:30,page:1});fetch(`${e}${t}?${a}`,{method:"GET",headers:{Authorization:`Bearer ${o}`}}).then((e=>console.log(e)))}();
+//# sourceMappingURL=index.8345132e.js.map

@@ -82,12 +82,5 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-//! setItem() - Добавить значение
-//! getItem() - Получить значение
-//! removeItem() - Удалить значение
-//! clear() - очистить все
-//!  Ассинхронный JS
-//! CLOCK !
-//!__________________________________________
-function t(t,e){return fetch("".concat("https://api.weatherapi.com/v1","/forecast.json?key=").concat("ea957238804947ab8d842259230712","&q=").concat(t,"&days=").concat(e)).then((function(t){if(console.log(t),!t.ok)throw new Error(t.status);return t.json()}))}t("Calgary",5).then((function(t){return console.log(t)})).catch((function(t){return console.log(t)})),{form:document.querySelector('[action="submit"]'),submitBtn:document.querySelector('[type="submit"]')}.form.addEventListener("submit",(function(e){e.preventDefault();var n=e.currentTarget.elements,o=n.query,c=n.days;t(o.value,c.value).then((function(t){return console.log(t)})).catch((function(t){return console.log(t)}))}))}();
-//# sourceMappingURL=index.db624fdf.js.map
+var e,t,c="https://the-one-api.dev/v2",a="/character",n="xeEdJIsN_UjM6SWwSduu";e=new URLSearchParams({limit:30,page:1}),t={method:"GET",headers:{Authorization:"Bearer ".concat(n)}},fetch("".concat(c).concat(a,"?").concat(e),t).then((function(e){return console.log(e)}))}();
+//# sourceMappingURL=index.6737626b.js.map
