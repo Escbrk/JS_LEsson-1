@@ -1,3 +1,4 @@
+!function(){
 //! Метод concat()
 //! Функции
 //! Псевдомассив arguments
@@ -81,11 +82,5 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-//! setItem() - Добавить значение
-//! getItem() - Получить значение
-//! removeItem() - Удалить значение
-//! clear() - очистить все
-//!  Ассинхронный JS
-//! CLOCK !
-//!__________________________________________
-//# sourceMappingURL=index.eda42f55.js.map
+var t={movieList:document.querySelector(".movie-list"),loadMore:document.querySelector(".js-load"),target:document.querySelector(".js-guard"),BASE_URL:"https://api.themoviedb.org/3/",ENDPOINT:"trending/movie/day",API_KEY:"d0f00e3970f1028763a1388502d0f412"},e=1,n=new IntersectionObserver((function(n,c){n.forEach((function(n){n.isIntersecting&&r(e+=1).then((function(e){t.movieList.insertAdjacentHTML("beforeend",o(e.results)),e.page===e.total_pages&&c.unobserve(t.target)})).catch((function(t){return console.error(t)}))}))}),{root:null,rootMargin:"300px",threshold:1});function o(t){return t.map((function(t){var e=t.poster_path,n=t.title,o=t.overview;return"<li style='list-style: none'>\n        <img src=\"https://image.tmdb.org/t/p/w500/".concat(e,'" alt="').concat(n,'" />\n        <h2>').concat(n,"</h2>\n        <p>").concat(o,"</p>\n      </li>")})).join(" ")}function r(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1;return fetch("".concat(t.BASE_URL).concat(t.ENDPOINT,"?api_key=").concat(t.API_KEY,"&page=").concat(e)).then((function(t){if(!t.ok)throw new Error(t.statusText);return t.json()}))}r().then((function(e){t.movieList.insertAdjacentHTML("beforeend",o(e.results)),n.observe(t.target)})).catch((function(t){return console.error(t)}))}();
+//# sourceMappingURL=index.f1e5f27b.js.map
