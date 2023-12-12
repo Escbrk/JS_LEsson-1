@@ -6134,6 +6134,7 @@ const refs = {
   loadMore: document.querySelector('.js-load'),
   target: document.querySelector('.js-guard'),
 
+
   BASE_URL: 'https://api.themoviedb.org/3/',
   ENDPOINT: 'trending/movie/day',
   API_KEY: 'd0f00e3970f1028763a1388502d0f412',
@@ -6149,6 +6150,7 @@ let options = {
 let observer = new IntersectionObserver(onLoad, options);
 
 function onLoad(entries, observer) {
+  console.log(entries)
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       currentPage += 1;
@@ -6172,8 +6174,8 @@ function createMarkup(arr) {
   return arr
     .map(
       ({ poster_path, title, overview }) =>
-        `<li style='list-style: none'>
-        <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+        `<li>
+        <img src="https://image.tmdb.org/t/p/w400/${poster_path}" alt="${title}" />
         <h2>${title}</h2>
         <p>${overview}</p>
       </li>`
