@@ -6204,15 +6204,142 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 //? _________________________________________
 
+/*
+ *      axios
+ *          async / await
+ *
+ *      CRUD
+ *          C - POST
+ *          R - GET
+ *          U -
+ *          D -
+ */
+
 import axios from 'axios';
 
-const fetchUsers = async () => {
-  const response = await axios.get(
-    '<https://jsonplaceholder.typicode.com/users>'
-  );
-  return response.data;
+//* GET
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+//   .then(response => response.json())
+//   .then(json => console.log(json));
+
+//* POST
+// const options = {
+//   method: 'POST',
+//   headers: {
+//     'Content-type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     title: 'foo',
+//     body: 'bar',
+//     userId: 12,
+//   }),
+// };
+
+// fetch('https://jsonplaceholder.typicode.com/posts', options)
+//   .then(resp => {
+//     if (!resp.ok) {
+//       throw new Error(resp.status);
+//     }
+//     return resp.json();
+//   })
+//   .then(data => console.log(data))
+//   .catch(err => console.error(err));
+
+const refs = {
+  addPost: document.querySelector('.js-add'),
+  posts: document.querySelector('.js-posts'),
+  formWrapper: document.querySelector('.js-form'),
+  ERROR: document.querySelector('.js-error'),
 };
 
-fetchUsers()
-  .then(users => console.log(users))
-  .catch(error => console.log(error));
+refs.addPost.addEventListener('click', handlerAddPost);
+
+function handlerAddPost() {
+  refs.formWrapper.innerHTML = `
+    <form action="submit" class='js-form-add' style="display: flex; flex-direction: column">
+        <input type="text" name="title">
+        <textarea name="body" cols="30" rows="10"></textarea>
+        <button>Add post</button>
+    </form>
+    `;
+
+  const form = document.querySelector('.js-form-add');
+  form.addEventListener('submit', handlerFormSubmit);
+}
+
+function handlerFormSubmit(e) {
+  e.preventDefault();
+
+  //!____________________________________________ ---> вариант 1
+
+    const { title, body } = e.currentTarget.elements;
+
+    const data = {
+      title: title.value,
+      body: body.value,
+    };
+
+  //!____________________________________________
+
+  //!____________________________________________ ---> вариант 2
+
+  //   const {
+  //     name: { value: title },
+  //     description: { value: body },
+  //   } = e.currentTarget.elements;
+
+  //     const data = { title, body };
+
+  //!____________________________________________
+
+  /* 
+        !____________________________________________
+
+            !---> вариант 3 (НЕ ВСЕШДА РАБОТАЕТ) -> ГУГЛИ ДОКУМЕНТАЦИЮ ДЛЯ FormData()
+
+   */
+  // const data = new FormData(e.currentTarget)
+  // data.forEach(el => console.log(el))
+
+  //!____________________________________________
+
+  addPostService(data)
+    .then(obj => {
+      refs.posts.insertAdjacentHTML('beforeend', createPostMarkup(obj));
+    })
+    .catch(() => {
+      refs.ERROR.innerHTML = 'Невозможно добавить пост';
+    })
+    .finally(() => {
+      refs.formWrapper.innerHTML = '';
+      setTimeout(() => {
+        refs.ERROR.innerHTML = '';
+      }, 2000);
+    });
+}
+
+function createPostMarkup({ id, title, body }) {
+  return `
+    <li data-id="'${id}">
+        <h2>${title}</h2>
+        <p>${body}</p>
+    </li>`;
+}
+
+function addPostService(data) {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  };
+  return fetch('https://jsonplaceholder.typicode.com/posts', options).then(
+    resp => {
+      if (!resp.ok) {
+        throw new Error(resp.status);
+      }
+      return resp.json();
+    }
+  );
+}
