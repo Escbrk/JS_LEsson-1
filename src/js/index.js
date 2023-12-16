@@ -6206,23 +6206,24 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 /*
  *      axios
- *          async / await
  *
  *      CRUD
  *          C - POST
  *          R - GET
- *          U -
+ *          U - PUT / PATCH
  *          D -
  */
 
 import axios from 'axios';
 
 //* GET
+
 // fetch('https://jsonplaceholder.typicode.com/posts/1')
 //   .then(response => response.json())
 //   .then(json => console.log(json));
 
 //* POST
+
 // const options = {
 //   method: 'POST',
 //   headers: {
@@ -6245,101 +6246,221 @@ import axios from 'axios';
 //   .then(data => console.log(data))
 //   .catch(err => console.error(err));
 
-const refs = {
-  addPost: document.querySelector('.js-add'),
-  posts: document.querySelector('.js-posts'),
-  formWrapper: document.querySelector('.js-form'),
-  ERROR: document.querySelector('.js-error'),
-};
+// const refs = {
+//   addPost: document.querySelector('.js-add'),
+//   posts: document.querySelector('.js-posts'),
+//   formWrapper: document.querySelector('.js-form'),
+//   ERROR: document.querySelector('.js-error'),
+// };
 
-refs.addPost.addEventListener('click', handlerAddPost);
+// refs.addPost.addEventListener('click', handlerAddPost);
 
-function handlerAddPost() {
-  refs.formWrapper.innerHTML = `
-    <form action="submit" class='js-form-add' style="display: flex; flex-direction: column">
-        <input type="text" name="title">
-        <textarea name="body" cols="30" rows="10"></textarea>
-        <button>Add post</button>
-    </form>
-    `;
+// function handlerAddPost() {
+//   refs.formWrapper.innerHTML = `
+//     <form action="submit" class='js-form-add' style="display: flex; flex-direction: column">
+//         <input type="text" name="title">
+//         <textarea name="body" cols="30" rows="10"></textarea>
+//         <button>Add post</button>
+//     </form>
+//     `;
 
-  const form = document.querySelector('.js-form-add');
-  form.addEventListener('submit', handlerFormSubmit);
-}
+//   const form = document.querySelector('.js-form-add');
+//   form.addEventListener('submit', handlerFormSubmit);
+// }
 
-function handlerFormSubmit(e) {
-  e.preventDefault();
+// function handlerFormSubmit(e) {
+//   e.preventDefault();
 
-  //!____________________________________________ ---> вариант 1
+//   //!____________________________________________ ---> вариант 1
 
-    const { title, body } = e.currentTarget.elements;
+//   const { title, body } = e.currentTarget.elements;
 
-    const data = {
-      title: title.value,
-      body: body.value,
-    };
+//   const data = {
+//     title: title.value,
+//     body: body.value,
+//   };
 
-  //!____________________________________________
+//   //!____________________________________________
 
-  //!____________________________________________ ---> вариант 2
+//   //!____________________________________________ ---> вариант 2
 
-  //   const {
-  //     name: { value: title },
-  //     description: { value: body },
-  //   } = e.currentTarget.elements;
+//   //   const {
+//   //     name: { value: title },
+//   //     description: { value: body },
+//   //   } = e.currentTarget.elements;
 
-  //     const data = { title, body };
+//   //     const data = { title, body };
 
-  //!____________________________________________
+//   //!____________________________________________
 
-  /* 
-        !____________________________________________
+//   /*
+//         !____________________________________________
 
-            !---> вариант 3 (НЕ ВСЕШДА РАБОТАЕТ) -> ГУГЛИ ДОКУМЕНТАЦИЮ ДЛЯ FormData()
+//             !---> вариант 3 (НЕ ВСЕШДА РАБОТАЕТ) -> ГУГЛИ ДОКУМЕНТАЦИЮ ДЛЯ FormData()
 
-   */
-  // const data = new FormData(e.currentTarget)
-  // data.forEach(el => console.log(el))
+//    */
+//   // const data = new FormData(e.currentTarget)
+//   // data.forEach(el => console.log(el))
 
-  //!____________________________________________
+//   //!____________________________________________
 
-  addPostService(data)
-    .then(obj => {
-      refs.posts.insertAdjacentHTML('beforeend', createPostMarkup(obj));
-    })
-    .catch(() => {
-      refs.ERROR.innerHTML = 'Невозможно добавить пост';
-    })
-    .finally(() => {
-      refs.formWrapper.innerHTML = '';
-      setTimeout(() => {
-        refs.ERROR.innerHTML = '';
-      }, 2000);
-    });
-}
+//   addPostService(data)
+//     .then(obj => {
+//       refs.posts.insertAdjacentHTML('beforeend', createPostMarkup(obj));
+//     })
+//     .catch(() => {
+//       refs.ERROR.innerHTML = 'Невозможно добавить пост';
+//     })
+//     .finally(() => {
+//       refs.formWrapper.innerHTML = '';
+//       setTimeout(() => {
+//         refs.ERROR.innerHTML = '';
+//       }, 2000);
+//     });
+// }
 
-function createPostMarkup({ id, title, body }) {
-  return `
-    <li data-id="'${id}">
-        <h2>${title}</h2>
-        <p>${body}</p>
-    </li>`;
-}
+// function createPostMarkup({ id, title, body }) {
+//   return `
+//     <li data-id="'${id}">
+//         <h2>${title}</h2>
+//         <p>${body}</p>
+//     </li>`;
+// }
 
-function addPostService(data) {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
-  return fetch('https://jsonplaceholder.typicode.com/posts', options).then(
-    resp => {
-      if (!resp.ok) {
-        throw new Error(resp.status);
-      }
-      return resp.json();
+// function addPostService(data) {
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   };
+//   return fetch('https://jsonplaceholder.typicode.com/posts', options).then(
+//     resp => {
+//       if (!resp.ok) {
+//         throw new Error(resp.status);
+//       }
+//       return resp.json();
+//     }
+//   );
+// }
+
+//* PUT / PATCH
+
+// const options = {
+//   method: 'PUT',
+//   body: JSON.stringify({
+//     id: 1,
+//     title: 'cat',
+//   }),
+//   headers: {
+//     'Content-type': 'application/json',
+//   },
+// };
+
+// fetch('https://jsonplaceholder.typicode.com/posts/1', options).then(resp =>
+//   resp.json()
+// ).then(data => console.log(data))
+
+//!____________________________________________
+
+// const options = {
+//   method: 'PATCH',
+//   body: JSON.stringify({
+//     id: 1,
+//     title: 'cat',
+//     body: 'Hello dear cat',
+//   }),
+//   headers: {
+//     'Content-type': 'application/json',
+//   },
+// };
+
+// fetch('https://jsonplaceholder.typicode.com/posts/1', options)
+//   .then(resp => resp.json())
+//   .then(data => console.log(data)).catch(err => console.error(err))
+
+//* DELETE
+
+// const options = {
+//   method: 'DELETE',
+//   // body: JSON.stringify({
+//   //   id: 1,
+//   // }),
+// };
+// fetch('https://jsonplaceholder.typicode.com/posts/1', options)
+//   .then(resp => resp.json())
+//   .then(data => console.log(data));
+
+//!____________________________________________
+
+/*
+ *          async / await
+ */
+
+// async function getCapital(countrie) {
+//   // !!!! Только в том случае, когда с данными работаем в середине функции !!!!
+//   try {
+//     const URL = 'https://restcountries.com/v3.1/name/';
+//     const resp = await fetch(`${URL}${countrie}`);
+//     if (!resp.ok) {
+//       throw new Error(resp.statusText)
+//     }
+
+//     const data = await resp.json();
+//     console.log(data)
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+
+// getCapital('canada');
+
+//!____________________________________________
+
+// async function getCapital(countrie) {
+//     // !!!! Только в том случае, когда с данными работаем за пределами функции !!!!
+//   const URL = 'https://restcountries.com/v3.1/name/';
+//   const resp = await fetch(`${URL}${countrie}`);
+//   if (!resp.ok) {
+//     throw new Error(resp.statusText);
+//   }
+
+//   return resp.json();
+// }
+
+// getCapital('canada').then(data => console.log(data)).catch(e => console.error(e))
+
+//!____________________________________________
+
+// async function foo() {
+
+// }
+// console.log(foo())
+
+//!____________________________________________
+
+async function getCapital() {
+  const URL = 'https://restcountries.com/v3.1/name/';
+  const arr = ['Canada', 'U4SA', 'Mexico'];
+
+  const responses = arr.map(async ctr => {
+    const resp = await fetch(`${URL}${ctr}`);
+    if (!resp.ok) {
+      throw new Error('Nott Found!');
     }
-  );
+    return resp.json();
+  });
+
+  const prom = await Promise.allSettled(responses);
+  return prom;
 }
+
+getCapital()
+  .then(data => {
+    const res = data.filter(({ status }) => status === 'fulfilled').map(({value}) => value[0])
+    const rej = data.filter(({ status }) => status === 'rejected');
+    console.log(res);
+    console.log(rej);
+  })
+  .catch(e => console.log(e));
