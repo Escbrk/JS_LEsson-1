@@ -81,12 +81,11 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-const e={addPost:document.querySelector(".js-add"),posts:document.querySelector(".js-posts"),formWrapper:document.querySelector(".js-form"),ERROR:document.querySelector(".js-error")};function t(t){t.preventDefault();
-//!____________________________________________ ---> вариант 1
-const{title:n,body:o}=t.currentTarget.elements;
-//!____________________________________________
-//!____________________________________________ ---> вариант 2
+(
 //!____________________________________________
 //!____________________________________________
-(function(e){const t={method:"POST",headers:{"Content-type":"application/json"},body:JSON.stringify(e)};return fetch("https://jsonplaceholder.typicode.com/posts",t).then((e=>{if(!e.ok)throw new Error(e.status);return e.json()}))})({title:n.value,body:o.value}).then((t=>{e.posts.insertAdjacentHTML("beforeend",function({id:e,title:t,body:n}){return`\n    <li data-id="'${e}">\n        <h2>${t}</h2>\n        <p>${n}</p>\n    </li>`}(t))})).catch((()=>{e.ERROR.innerHTML="Невозможно добавить пост"})).finally((()=>{e.formWrapper.innerHTML="",setTimeout((()=>{e.ERROR.innerHTML=""}),2e3)}))}e.addPost.addEventListener("click",(function(){e.formWrapper.innerHTML='\n    <form action="submit" class=\'js-form-add\' style="display: flex; flex-direction: column">\n        <input type="text" name="title">\n        <textarea name="body" cols="30" rows="10"></textarea>\n        <button>Add post</button>\n    </form>\n    ';document.querySelector(".js-form-add").addEventListener("submit",t)}));
-//# sourceMappingURL=index.9cfc4831.js.map
+//!____________________________________________
+//!____________________________________________
+//!____________________________________________
+async function(){const t=["Canada","U4SA","Mexico"].map((async t=>{const e=await fetch(`https://restcountries.com/v3.1/name/${t}`);if(!e.ok)throw new Error("Nott Found!");return e.json()}));return await Promise.allSettled(t)})().then((t=>{const e=t.filter((({status:t})=>"fulfilled"===t)).map((({value:t})=>t[0])),o=t.filter((({status:t})=>"rejected"===t));console.log(e),console.log(o)})).catch((t=>console.log(t)));
+//# sourceMappingURL=index.d3b89abe.js.map
