@@ -81,11 +81,5 @@ document.querySelector(".js-magic__btn");
 //!     7. Функция вызывается в контексте созданного объекта
 //!     8. В свойство this.__proto__ записывается ссылка на объект Функция.prototype
 //!     9. Ссылка на объект возвращается в место вызова new Функция()
-(
-//!____________________________________________
-//!____________________________________________
-//!____________________________________________
-//!____________________________________________
-//!____________________________________________
-async function(){const t=["Canada","U4SA","Mexico"].map((async t=>{const e=await fetch(`https://restcountries.com/v3.1/name/${t}`);if(!e.ok)throw new Error("Nott Found!");return e.json()}));return await Promise.allSettled(t)})().then((t=>{const e=t.filter((({status:t})=>"fulfilled"===t)).map((({value:t})=>t[0])),o=t.filter((({status:t})=>"rejected"===t));console.log(e),console.log(o)})).catch((t=>console.log(t)));
-//# sourceMappingURL=index.d3b89abe.js.map
+const t={form:document.querySelector(".js-form"),addBtn:document.querySelector(".js-add"),list:document.querySelector(".js-list"),container:document.querySelector(".js-form-container")};t.addBtn.addEventListener("click",(function(){t.container.insertAdjacentHTML("beforeend",'<input type="text" name="country"></input>')})),t.form.addEventListener("submit",(function(n){n.preventDefault();const e=new FormData(n.currentTarget);(async function(t){const n=t.map((async t=>{const n=await fetch(`https://restcountries.com/v3.1/name/${t}`);if(!n.ok)throw new Error;return n.json()})),e=await Promise.allSettled(n);return e.filter((({status:t})=>"fulfilled"===t)).map((({value:t})=>t[0]))})(e.getAll("country").filter((t=>t)).map((t=>t.trim()))).then((async n=>{const e=n.map((({capital:t})=>t[0])),r=await async function(t){const n="ea957238804947ab8d842259230712",e="https://api.weatherapi.com/v1",r=t.map((async t=>{const r=new URLSearchParams({key:n,q:t,lang:"ru"}),a=await fetch(`${e}/current.json?${r}`);if(!a.ok)throw new Error(a.status);return a.json()})),a=await Promise.allSettled(r);return a.filter((({status:t})=>"fulfilled"===t)).map((({value:t})=>t))}(e);t.list.innerHTML=async function(t){return t.map((({current:{temp_c:t,condition:{text:n,icon:e},location:{country:r,name:a}}})=>`\n      <li>\n        <div>\n            <h2>${r}</h2>\n            <h3>${a}</h3>\n        </div>\n        <img src="${e}" alt="${n}">\n        <p>${n}</p>\n        <p>${t}</p>\n      </li>`)).join("")}(r)})).catch((t=>console.log(t)))}));
+//# sourceMappingURL=index.0bb54807.js.map
