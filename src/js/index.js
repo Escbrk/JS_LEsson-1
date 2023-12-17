@@ -6477,8 +6477,7 @@ const refs = {
 refs.addBtn.addEventListener('click', handlerAddInput);
 
 function handlerAddInput() {
-  const markup = '<input type="text" name="country"></input>';
-
+  const markup = '<input type="text" name="country">';
   refs.container.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -6491,13 +6490,15 @@ function handlerForm(evt) {
     .getAll('country')
     .filter(item => item)
     .map(item => item.trim());
+  
   getCountries(arr)
     .then(async resp => {
       const capitals = resp.map(({ capital }) => capital[0]);
       const weatherService = await getWeather(capitals);
-      refs.list.innerHTML = createMarkum(weatherService);
+      refs.list.innerHTML = createMarkup(weatherService);
     })
     .catch(e => console.log(e));
+
 }
 
 async function getCountries(arr) {
@@ -6544,15 +6545,14 @@ async function getWeather(arr) {
   return objs
 }
 
-async function createMarkum(arr) {
+function createMarkup(arr) {
   return arr
     .map(
       ({
         current: {
           temp_c,
-          condition: { text, icon },
+          condition: { text, icon } },
           location: { country, name },
-        },
       }) => `
       <li>
         <div>
