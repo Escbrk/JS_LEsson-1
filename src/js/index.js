@@ -6440,27 +6440,129 @@ import axios from 'axios';
 
 //!____________________________________________
 
-async function getCapital() {
-  const URL = 'https://restcountries.com/v3.1/name/';
-  const arr = ['Canada', 'U4SA', 'Mexico'];
+// async function getCapital() {
+//   const URL = 'https://restcountries.com/v3.1/name/';
+//   const arr = ['Canada', 'U4SA', 'Mexico'];
 
-  const responses = arr.map(async ctr => {
-    const resp = await fetch(`${URL}${ctr}`);
+//   const responses = arr.map(async ctr => {
+//     const resp = await fetch(`${URL}${ctr}`);
+//     if (!resp.ok) {
+//       throw new Error('Nott Found!');
+//     }
+//     return resp.json();
+//   });
+
+//   const prom = await Promise.allSettled(responses);
+//   return prom;
+// }
+
+// getCapital()
+//   .then(data => {
+//     const res = data.filter(({ status }) => status === 'fulfilled').map(({value}) => value[0])
+//     const rej = data.filter(({ status }) => status === 'rejected');
+//     console.log(res);
+//     console.log(rej);
+//   })
+//   .catch(e => console.log(e));
+
+//!____________________________________________
+
+const refs = {
+  form: document.querySelector('.js-form'),
+  addBtn: document.querySelector('.js-add'),
+  list: document.querySelector('.js-list'),
+  container: document.querySelector('.js-form-container'),
+};
+
+refs.addBtn.addEventListener('click', handlerAddInput);
+
+function handlerAddInput() {
+  const markup = '<input type="text" name="country"></input>';
+
+  refs.container.insertAdjacentHTML('beforeend', markup);
+}
+
+refs.form.addEventListener('submit', handlerForm);
+
+function handlerForm(evt) {
+  evt.preventDefault();
+  const data = new FormData(evt.currentTarget);
+  const arr = data
+    .getAll('country')
+    .filter(item => item)
+    .map(item => item.trim());
+  getCountries(arr)
+    .then(async resp => {
+      const capitals = resp.map(({ capital }) => capital[0]);
+      const weatherService = await getWeather(capitals);
+      refs.list.innerHTML = createMarkum(weatherService);
+    })
+    .catch(e => console.log(e));
+}
+
+async function getCountries(arr) {
+  const resps = arr.map(async item => {
+    const resp = await fetch(`https://restcountries.com/v3.1/name/${item}`);
     if (!resp.ok) {
-      throw new Error('Nott Found!');
+      throw new Error();
     }
     return resp.json();
   });
 
-  const prom = await Promise.allSettled(responses);
-  return prom;
+  const data = await Promise.allSettled(resps);
+
+  const countryObj = data
+    .filter(({ status }) => status === 'fulfilled')
+    .map(({ value }) => value[0]);
+  return countryObj;
 }
 
-getCapital()
-  .then(data => {
-    const res = data.filter(({ status }) => status === 'fulfilled').map(({value}) => value[0])
-    const rej = data.filter(({ status }) => status === 'rejected');
-    console.log(res);
-    console.log(rej);
-  })
-  .catch(e => console.log(e));
+async function getWeather(arr) {
+  const API_KEY = 'ea957238804947ab8d842259230712';
+  const BASE_URL = 'https://api.weatherapi.com/v1';
+
+  const resps = arr.map(async city => {
+    const params = new URLSearchParams({
+      key: API_KEY,
+      q: city,
+      lang: 'ru',
+    });
+
+    const resp = await fetch(`${BASE_URL}/current.json?${params}`);
+
+    if (!resp.ok) {
+      throw new Error(resp.status);
+    }
+    return resp.json();
+  });
+
+  const data = await Promise.allSettled(resps);
+  const objs = data
+    .filter(({ status }) => status === 'fulfilled')
+    .map(({ value }) => value);
+
+  return objs
+}
+
+async function createMarkum(arr) {
+  return arr
+    .map(
+      ({
+        current: {
+          temp_c,
+          condition: { text, icon },
+          location: { country, name },
+        },
+      }) => `
+      <li>
+        <div>
+            <h2>${country}</h2>
+            <h3>${name}</h3>
+        </div>
+        <img src="${icon}" alt="${text}">
+        <p>${text}</p>
+        <p>${temp_c}</p>
+      </li>`
+    )
+    .join('');
+}
