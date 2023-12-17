@@ -6472,9 +6472,15 @@ const refs = {
   addBtn: document.querySelector('.js-add'),
   list: document.querySelector('.js-list'),
   container: document.querySelector('.js-form-container'),
+  clearBtn: document.querySelector('.js-clear'),
 };
 
 refs.addBtn.addEventListener('click', handlerAddInput);
+refs.clearBtn.addEventListener('click', onClear)
+
+function onClear() {
+  refs.list.innerHTML = ''
+}
 
 function handlerAddInput() {
   const markup = '<input type="text" name="country">';
@@ -6490,15 +6496,18 @@ function handlerForm(evt) {
     .getAll('country')
     .filter(item => item)
     .map(item => item.trim());
-  
+
   getCountries(arr)
     .then(async resp => {
       const capitals = resp.map(({ capital }) => capital[0]);
       const weatherService = await getWeather(capitals);
       refs.list.innerHTML = createMarkup(weatherService);
     })
-    .catch(e => console.log(e));
-
+    .catch(e => console.log(e))
+    .finally(() => {
+      refs.form.reset()
+      refs.container.innerHTML = '<input type="text" name="country">';     
+    });
 }
 
 async function getCountries(arr) {
@@ -6542,7 +6551,7 @@ async function getWeather(arr) {
     .filter(({ status }) => status === 'fulfilled')
     .map(({ value }) => value);
 
-  return objs
+  return objs;
 }
 
 function createMarkup(arr) {
@@ -6551,8 +6560,9 @@ function createMarkup(arr) {
       ({
         current: {
           temp_c,
-          condition: { text, icon } },
-          location: { country, name },
+          condition: { text, icon },
+        },
+        location: { country, name },
       }) => `
       <li>
         <div>
