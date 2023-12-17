@@ -4735,8 +4735,8 @@ const magicBtn = document.querySelector('.js-magic__btn');
 
 /*
  *      Всплытие событий
- *      event.target - целевой (исходный) элемент
- *      event.currentTarget - текущий элемент, на слушателе которого поймали событие
+ *          event.target - целевой (исходный) элемент
+ *          event.currentTarget - текущий элемент, на слушателе которого поймали событие
  */
 
 // const refs = {
@@ -6467,112 +6467,115 @@ import axios from 'axios';
 
 //!____________________________________________
 
-const refs = {
-  form: document.querySelector('.js-form'),
-  addBtn: document.querySelector('.js-add'),
-  list: document.querySelector('.js-list'),
-  container: document.querySelector('.js-form-container'),
-  clearBtn: document.querySelector('.js-clear'),
-};
+// const refs = {
+//   form: document.querySelector('.js-form'),
+//   addBtn: document.querySelector('.js-add'),
+//   list: document.querySelector('.js-list'),
+//   container: document.querySelector('.js-form-container'),
+//   clearBtn: document.querySelector('.js-clear'),
+// };
 
-refs.addBtn.addEventListener('click', handlerAddInput);
-refs.clearBtn.addEventListener('click', onClear)
+// refs.addBtn.addEventListener('click', handlerAddInput);
+// refs.clearBtn.addEventListener('click', onClear);
 
-function onClear() {
-  refs.list.innerHTML = ''
-}
+// function onClear() {
+//   refs.list.innerHTML = '';
+// }
 
-function handlerAddInput() {
-  const markup = '<input type="text" name="country">';
-  refs.container.insertAdjacentHTML('beforeend', markup);
-}
+// function handlerAddInput() {
+//   const markup = '<input type="text" name="country">';
+//   refs.container.insertAdjacentHTML('beforeend', markup);
+// }
 
-refs.form.addEventListener('submit', handlerForm);
+// refs.form.addEventListener('submit', handlerForm);
 
-function handlerForm(evt) {
-  evt.preventDefault();
-  const data = new FormData(evt.currentTarget);
-  const arr = data
-    .getAll('country')
-    .filter(item => item)
-    .map(item => item.trim());
+// function handlerForm(evt) {
+//   evt.preventDefault();
+//   const data = new FormData(evt.currentTarget);
+//   const arr = data
+//     .getAll('country')
+//     .filter(item => item)
+//     .map(item => item.trim());
 
-  getCountries(arr)
-    .then(async resp => {
-      const capitals = resp.map(({ capital }) => capital[0]);
-      const weatherService = await getWeather(capitals);
-      refs.list.innerHTML = createMarkup(weatherService);
-    })
-    .catch(e => console.log(e))
-    .finally(() => {
-      refs.form.reset()
-      refs.container.innerHTML = '<input type="text" name="country">';     
-    });
-}
+//   getCountries(arr)
+//     .then(async resp => {
+//       const capitals = resp.map(({ capital }) => capital[0]);
+//       const weatherService = await getWeather(capitals);
+//       refs.list.innerHTML = createMarkup(weatherService);
+//     })
+//     .catch(e => console.log(e))
+//     .finally(() => {
+//       refs.form.reset();
+//       refs.container.innerHTML = '<input type="text" name="country">';
+//     });
+// }
 
-async function getCountries(arr) {
-  const resps = arr.map(async item => {
-    const resp = await fetch(`https://restcountries.com/v3.1/name/${item}`);
-    if (!resp.ok) {
-      throw new Error();
-    }
-    return resp.json();
-  });
+// async function getCountries(arr) {
+//   const resps = arr.map(async item => {
+//     const resp = await fetch(`https://restcountries.com/v3.1/name/${item}`);
+//     if (!resp.ok) {
+//       throw new Error();
+//     }
+//     return resp.json();
+//   });
 
-  const data = await Promise.allSettled(resps);
+//   const data = await Promise.allSettled(resps);
 
-  const countryObj = data
-    .filter(({ status }) => status === 'fulfilled')
-    .map(({ value }) => value[0]);
-  return countryObj;
-}
+//   const countryObj = data
+//     .filter(({ status }) => status === 'fulfilled')
+//     .map(({ value }) => value[0]);
+//   return countryObj;
+// }
 
-async function getWeather(arr) {
-  const API_KEY = 'ea957238804947ab8d842259230712';
-  const BASE_URL = 'https://api.weatherapi.com/v1';
+// async function getWeather(arr) {
+//   const API_KEY = 'ea957238804947ab8d842259230712';
+//   const BASE_URL = 'https://api.weatherapi.com/v1';
 
-  const resps = arr.map(async city => {
-    const params = new URLSearchParams({
-      key: API_KEY,
-      q: city,
-      lang: 'ru',
-    });
+//   const resps = arr.map(async city => {
+//     const params = new URLSearchParams({
+//       key: API_KEY,
+//       q: city,
+//       lang: 'ru',
+//     });
 
-    const resp = await fetch(`${BASE_URL}/current.json?${params}`);
+//     const resp = await fetch(`${BASE_URL}/current.json?${params}`);
 
-    if (!resp.ok) {
-      throw new Error(resp.status);
-    }
-    return resp.json();
-  });
+//     if (!resp.ok) {
+//       throw new Error(resp.status);
+//     }
+//     return resp.json();
+//   });
 
-  const data = await Promise.allSettled(resps);
-  const objs = data
-    .filter(({ status }) => status === 'fulfilled')
-    .map(({ value }) => value);
+//   const data = await Promise.allSettled(resps);
+//   const objs = data
+//     .filter(({ status }) => status === 'fulfilled')
+//     .map(({ value }) => value);
 
-  return objs;
-}
+//   return objs;
+// }
 
-function createMarkup(arr) {
-  return arr
-    .map(
-      ({
-        current: {
-          temp_c,
-          condition: { text, icon },
-        },
-        location: { country, name },
-      }) => `
-      <li>
-        <div>
-            <h2>${country}</h2>
-            <h3>${name}</h3>
-        </div>
-        <img src="${icon}" alt="${text}">
-        <p>${text}</p>
-        <p>${temp_c}</p>
-      </li>`
-    )
-    .join('');
-}
+// function createMarkup(arr) {
+//   return arr
+//     .map(
+//       ({
+//         current: {
+//           temp_c,
+//           condition: { text, icon },
+//         },
+//         location: { country, name },
+//       }) => `
+//       <li>
+//         <div>
+//             <h2>${country}</h2>
+//             <h3>${name}</h3>
+//         </div>
+//         <img src="${icon}" alt="${text}">
+//         <p>${text}</p>
+//         <p>${temp_c}</p>
+//       </li>`
+//     )
+//     .join('');
+// }
+
+console.dir(document);
+console.log(window)
