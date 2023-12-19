@@ -6577,5 +6577,3 @@ import axios from 'axios';
 //     .join('');
 // }
 
-console.dir(document);
-console.log(window)
