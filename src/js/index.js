@@ -6577,3 +6577,64 @@ import axios from 'axios';
 //     .join('');
 // }
 
+//!____________________________________________
+
+import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
+import '../css/localStorage.css';
+
+// console.log(localStorage);
+
+// localStorage.setItem('my-data', JSON.stringify({ name: 'mango', age: 2 }));
+
+// const savedData = localStorage.getItem('my-data');
+
+// console.log(savedData);
+// console.log(JSON.parse(savedData));
+
+const STORAGE_KEY = 'message';
+const formData = {}
+
+const refs = {
+  form: document.querySelector('.feedback-form'),
+  input: document.querySelector('.feedback-form input'),
+  textArea: document.querySelector('.feedback-form textarea'),
+  formBtn: document.querySelector('button[type="submit"]'),
+};
+
+// populateTextArea()
+updForm()
+
+// refs.form.addEventListener('submit', onSubmit)
+// refs.textArea.addEventListener('input', throttle(onInput, 200));
+
+// function onSubmit(e) {
+//     e.preventDefault()
+
+//     e.target.reset();
+//     localStorage.removeItem(STORAGE_KEY);
+// }
+
+// function onInput(e) {
+//     const message = e.target.value
+//     localStorage.setItem(STORAGE_KEY, message);
+// }
+
+
+// function populateTextArea(e) {
+//     const savedMessage = localStorage.getItem(STORAGE_KEY);
+
+//     if (savedMessage) {
+//         refs.textArea.value = savedMessage
+//     }
+// }
+
+refs.form.addEventListener('input', e => {
+    formData[e.target.name] = e.target.value
+    console.log(formData)
+
+    localStorage.setItem('formData', JSON.stringify(formData))
+})
+
+// function updForm(e) {
+// }
