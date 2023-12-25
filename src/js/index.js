@@ -4864,6 +4864,8 @@ const magicBtn = document.querySelector('.js-magic__btn');
 // }
 
 //? ___________________________________________
+// import colorCardTpl from '../templates/color-card.hbs'
+// console.log(colorCardTpl)
 
 // const colors = [
 //     { hex: '#f44336', rgb: '244,67,54' },
@@ -6579,9 +6581,9 @@ import axios from 'axios';
 
 //!____________________________________________
 
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
-import '../css/localStorage.css';
+// import throttle from 'lodash.throttle';
+// import debounce from 'lodash.debounce';
+// import '../css/localStorage.css';
 
 // console.log(localStorage);
 
@@ -6592,18 +6594,18 @@ import '../css/localStorage.css';
 // console.log(savedData);
 // console.log(JSON.parse(savedData));
 
-const STORAGE_KEY = 'message';
-const formData = {}
+// const STORAGE_KEY = 'message';
+// const formData = {};
 
-const refs = {
-  form: document.querySelector('.feedback-form'),
-  input: document.querySelector('.feedback-form input'),
-  textArea: document.querySelector('.feedback-form textarea'),
-  formBtn: document.querySelector('button[type="submit"]'),
-};
+// const refs = {
+//   form: document.querySelector('.feedback-form'),
+//   input: document.querySelector('.feedback-form input'),
+//   textArea: document.querySelector('.feedback-form textarea'),
+//   formBtn: document.querySelector('button[type="submit"]'),
+// };
 
 // populateTextArea()
-updForm()
+// updForm();
 
 // refs.form.addEventListener('submit', onSubmit)
 // refs.textArea.addEventListener('input', throttle(onInput, 200));
@@ -6620,7 +6622,6 @@ updForm()
 //     localStorage.setItem(STORAGE_KEY, message);
 // }
 
-
 // function populateTextArea(e) {
 //     const savedMessage = localStorage.getItem(STORAGE_KEY);
 
@@ -6629,12 +6630,26 @@ updForm()
 //     }
 // }
 
-refs.form.addEventListener('input', e => {
-    formData[e.target.name] = e.target.value
-    console.log(formData)
+// refs.form.addEventListener('input', e => {
+//   formData[e.target.name] = e.target.value;
+//   console.log(formData);
 
-    localStorage.setItem('formData', JSON.stringify(formData))
-})
+//   localStorage.setItem('formData', JSON.stringify(formData));
+// });
 
 // function updForm(e) {
+//   const data = localStorage.getItem('formData');
+//   const parsedData = JSON.parse(data);
+
+//   console.log(data);
+//   console.log(parsedData);
+
+//   if (data) {
+//     refs.input.value = parsedData.name;
+//     // refs.textArea.value = parsedData.comments;
+//   }
 // }
+
+//!____________________________________________
+// import Handlebars from 'handlebars';
+//!____________________________________________
