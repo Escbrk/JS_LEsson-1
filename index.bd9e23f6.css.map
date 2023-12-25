@@ -1,1 +1,0 @@
-{"mappings":"ACAA","sources":["index.bd9e23f6.css","src/css/localStorage.css"],"sourcesContent":[".feedback-form {\n  width: 400px;\n  flex-direction: column;\n  display: flex;\n}\n\n/*# sourceMappingURL=index.bd9e23f6.css.map */\n",".feedback-form {\n    display: flex;\n    flex-direction: column;\n    width: 400px;\n}"],"names":[],"version":3,"file":"index.bd9e23f6.css.map"}
