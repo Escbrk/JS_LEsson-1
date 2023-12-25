@@ -6,7 +6,9 @@
   "scripts": {
     "start": "parcel src/*.html --no-cache",
     "build": "parcel build src/*.html --public-url /JS_Lesson-1/ --no-cache",
-    "git": "git add ."
+    "pregit": "git add .",
+    "git": "git commit -m 'upd'",
+    "postgit":"git push"
   },
   "repository": {
     "type": "git",
