@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      /* #parent,
+      #child,
+      #inner-child {
+        margin: 16px;
+        padding: 16px;
+        border: 1px solid #ffc107;
+        border-radius: 4px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      #parent {
+        background-color: #673ab7;
+      }
+
+      #child {
+        background-color: #448aff;
+      }
+
+      #inner-child {
+        background-color: #006988;
+      }
+
+      .tags {
+        outline: 1px solid tomato;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 8px;
+        background-color: #fff;
+        list-style: none;
+        user-select: none;
+      }
+
+      .tags__item {
+        margin: 4px;
+      }
+
+      .tags__btn {
+        border: 1px solid #212121;
+        border-radius: 4px;
+        display: inline-block;
+        padding: 4px 10px 4px;
+
+        font-size: 24px;
+        font-family: inherit;
+        color: #212121;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+        text-decoration: none;
+        outline: none;
+
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      .tags__btn-active {
+        color: #fff;
+        background-color: #3f51b5;
+      } */
+
+      /* .box {
+        display: none;
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      } */
+
+      /* ___________________________________ */
+
+      /* .clock {
+        width: 550px;
+        height: 550px;
+        background-image: url(https://i.ibb.co/dBGxSK1/hiclipart-com-3.png);
+        background-color: rgba(255, 255, 255, 0);
+        background-size: cover;
+        border-radius: 50%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .clock-arrow {
+        position: absolute;
+        background-color: black;
+        transform-origin: bottom;
+        transform: translateX(-50%);
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+      }
+
+      .clock-center {
+        position: absolute;
+        background-color: black;
+        top: 268px;
+        left: 268px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
+
+      .clock-seconds__arrow {
+        bottom: 50%;
+        left: 50%;
+        width: 5px;
+        height: 40%;
+      }
+
+      .clock-minutes__arrow {
+        bottom: 50%;
+        left: 50%;
+        width: 7px;
+        height: 33%;
+      }
+
+      .clock-hours__arrow {
+        bottom: 50%;
+        left: 50%;
+        width: 12px;
+        height: 24%;
+      }
+
+      .date {
+        width: 100px;
+        height: 100px;
+        color: black;
+      }
+
+      .calendar {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .date-style {
+        display: flex;
+        font-size: 40px;
+        font-weight: 900;
+        text-shadow: 3px 3px 2px #CECBCD
+
+      }
+
+      .digital-clock {
+        text-align: center;
+        font-size: 60px;
+        text-shadow: 3px 3px 2px #CECBCD
+      } */
+
+      /* ___________________________________ */
+
+      /* .item {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        outline: auto;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px;
+      }
+
+      .js-container {
+        display: flex;
+        border: 1px solid black;
+        width: 153px;
+      } */
+
+      /* li {
+        list-style: none;
+      }
+      img {
+        height: 650px;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <label for="">
+            Число
+            <input type="number" data-value/>
+        </label>
+        <button type="button" data-add>Прибавить</button>
+        <button type="button" data-reset>Очистить</button>
+
+        <p class="js-output">Сумма: <span>0</span></p> -->
+
+    <!-- <button class="js-button">Это кнопка<span role="image" aria-label="Иконка волшебника">🧙</span></button> -->
+
+    <!-- <div class="counter">
+            <button class="js-decrement">-</button>
+            <p class="js-value" style="display: inline-block">0</p>
+            <button class="js-increment">+</button>
+        </div> -->
+
+    <!--!____________________________________________  -->
+
+    <!--   <div id="counter1">
+            <button data-decrement>-</button>
+            <span data-value>0</span>
+            <button data-increment>+</button>
+        </div>
+
+        <div id="counter2">
+            <button data-decrement>-</button>
+            <span data-value>0</span>
+            <button data-increment>+</button>
+        </div>  -->
+
+    <!-- <button>Сделать магию 🧙</button> -->
+    <!-- <ul class="site-nav">
+            <li class="site-nav__item">
+                <a href="/index.html" class="site-nav__link">О нас</a>
+            </li>
+            <li class="site-nav__item">
+                <a href="" class="site-nav__link">Портфолио</a>
+            </li>
+            <li class="site-nav__item">
+                <a href="" class="site-nav__link">Контакты</a>
+            </li>
+        </ul>
+
+        <button type="button" class="js-magic__btn">Сделать магию 🧙</button> -->
+
+    <!-- <section class="hero"> -->
+    <!-- <h1 class="hero__title">Все про меня</h1>
+            <img loading="lazy"
+                class="hero__image"
+                data-src="https://images.pexels.com/photos/57416/cat-sweet-kitty-animals-57416.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=480"
+                alt="It's me"
+                width="320"
+            /> -->
+    <!-- </section> -->
+    <!-- <hr /> -->
+
+    <!-- <input type="text" class="js-input" value="" /> -->
+
+    <!-- <div class="js-actions">
+            <button type="button" data-action="add">Создать</button
+            ><button type="button" data-action="remove">Удалить</button
+            ><button type="button" data-action="edit">Редактировать</button>
+        </div> -->
+
+    <!-- <div class="color-picker js-color-picker"></div> -->
+
+    <!-- <button type="button" class="js-target-btn">Целевая кнопка</button>
+        <button type="button" class="js-add-listener">Добавить слушатель</button>
+        <button type="button" class="js-remove-listener">Снять слушатель</button> -->
+
+    <!-- ? ___________________________________________ -->
+
+    <!-- <form class="js-register-form" autocomplete="off">
+            <div role="group">
+                <label
+                    >Почта
+                    <input type="email" name="email" />
+                </label>
+                <label
+                    >Пароль
+                    <input type="password" name="password" />
+                </label>
+            </div>
+            <br />
+            <div role="group">
+                <b>Тип подписки</b>
+                <label>
+                    <input type="radio" name="subscription" value="free" />
+                    Free
+                </label>
+                <label>
+                    <input type="radio" name="subscription" value="basic" />
+                    Basic
+                </label>
+                <label>
+                    <input type="radio" name="subscription" value="pro" />
+                    Pro
+                </label>
+            </div>
+            <br />
+            <button type="submit">Зарегистрироваться</button>
+        </form> -->
+
+    <!-- ? ___________________________________________ -->
+
+    <!-- <label>Имя
+            <input type="text" class="js-input">
+        </label>
+        <p><label>
+            <input type="checkbox" class="js-license">
+            Принимаю лицензионное соглашение
+        </label></p>
+
+        <button type="submit" disabled class="js-button">
+            Зарегистрироваться как <span>Аноним</span>
+        </button> -->
+
+    <!-- ? ___________________________________________ -->
+
+    <!-- <button class="js-clear">Очистить</button>
+        <p class="output js-output"></p> -->
+
+    <!-- ? ___________________________________________
+
+        <button class="button" data-action="open-modal">Открыть модалку</button>
+
+        <div class="backdrop js-backdrop">
+            <div class="modal">
+                <h2>Modal window</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iure non laudantium, sed enim debitis quo ullam, sit,
+                    dolores unde culpa consequatur? Ut porro, aliquid tempora
+                    debitis asperiores voluptates quos blanditiis. Lorem ipsum
+                    dolor, sit amet consectetur adipisicing elit. Impedit eum,
+                    perferendis officiis id dolorem architecto ullam
+                    necessitatibus tempore itaque harum ab totam quisquam
+                    doloribus odio, libero inventore distinctio! Rerum,
+                    eligendi?
+                </p>
+                <button type="button" class="button" data-action="close-modal">Закрыть модалку</button>
+            </div>
+        </div> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <div id="parent">PARENT
+            <div id="child">CHILD
+                <div id="inner-child">INNER-CHILD</div>
+            </div>
+        </div> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <button type="button" class="js-add-btn">Добавить кнопку</button>
+
+        <div class="container js-container">
+            <button type="button">Кнопка-1</button>
+            <button type="button">Кнопка-2</button>
+            <button type="button">Кнопка-3</button>
+            <button type="button">Кнопка-4</button>
+            <button type="button">Кнопка-5</button>
+        </div> -->
+
+    <!--!____________________________________________  -->
+
+    
+    <!-- <ul class="tags js-tags">
+            <li class="tags__item"><button class="tags__btn" data-value="html">#html</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="css">#css</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="javascript">#javascript</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="npm">#npm</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="webpack">#webpack</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="react">#react</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="redux">#redux</button></li>
+            <li class="tags__item"><button class="tags__btn" data-value="nodejs">#nodejs</button></li>
+        </ul> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <div class="palette js-palette"></div> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <p class="js-coords">Кол-во вызовов onMouseMove: 0</p>
+        <hr>
+        <input type="text" class="js-input">
+        <p class="js-output">Кол-во вызовов onInputChange: 0</p> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <label>
+                Что ищем?
+                <input type="text" id="filter">
+            </label>
+
+            <ul class="js-list"></ul> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <ul class="feed">
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/684/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/579/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/300/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/400/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/699/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/694/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/620/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/687/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/784/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/604/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/654/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+            <li class="feed__item">
+                <img
+                    loading="lazy"
+                    data-src="https://picsum.photos/id/598/600/400"
+                    alt="qweqwe"
+                    width="640"
+                    height="480"
+                    class="lazyload"
+                />
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores natus rerum repudiandae doloribus officiis mollitia
+                    deserunt aliquid reprehenderit expedita ullam! Deserunt
+                    perferendis mollitia labore quibusdam ipsum maiores iusto
+                    inventore dolore. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nesciunt a repellat exercitationem id quos
+                    rerum voluptate laboriosam quae quasi, sit corrupti,
+                    necessitatibus officia, possimus est qui itaque alias.
+                    Similique, modi.
+                </p>
+            </li>
+        </ul> -->
+
+    <!-- <header>
+      <ul
+        style="display: flex; flex-direction: row; gap: 20px; list-style: none"
+      >
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./favorite.html">Favorite</a></li>
+        <li><a href="./checkout.html">Checkout</a></li>
+      </ul>
+
+      <input type="text" class="js-search" />
+    </header>
+
+    <ul class="list"></ul>-->
+    <!-- 
+    <div class="box js-box">
+        <h2>Реклама: O_o</h2>
+        <p>реклама исчезнет через: <span class="js-timer"></span></p>
+    </div> -->
+
+    <!--! ЧАСЫ -->
+
+    <!-- <div class="calendar">
+      <div class="date-style">
+        День недели: <span class="date-day"> 0</span>
+      </div>
+      <div class="date-style">День месяца:<span class="date">0</span></div>
+      <div class="date-style">Месяц:<span class="date-month">0</span></div>
+      <div class="date-style">Год:<span class="date-year">0</span></div>
+    </div>
+    <div class="digital-clock">Время: <span class="date-time">0</span></div>
+    <div class="clock">
+      <span class="clock-arrow clock-hours__arrow"></span>
+      <span class="clock-arrow clock-seconds__arrow"></span>
+      <span class="clock-arrow clock-minutes__arrow"></span>
+      <span class="clock-center"></span>
+    </div> -->
+
+    <!--!__________________________ -->
+
+    <!-- <button class="js-start">Start Game</button>
+    <div class="js-container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <form action="submit">
+        <input type="text" name="query">
+        <select name="days">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+            <option value="14">14</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <ul class="js-list">
+</ul> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <ul class="movie-list"></ul>
+
+    <div class="js-guard"></div>
+
+    <button class="js-load" hidden>Load More</button> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <div>
+        <img width="750" height="200" src="https://pixabay.com/get/g6cda02b1c80c3ca9bd3e8fdc7ea05d9c32443791f2893aca2273ace2b1709e84645c6c18b9074a4d908056116643541aecd2d7cdb2b0ba0d509d1594185be186_1280.jpg" alt="cat">
+        <button class="js-add">Add comment</button>
+        <p class="js-error"></p>
+        <div class="js-form"></div>
+        <ul class="js-posts"></ul>
+    </div> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <form action="submit" class="js-form">
+        <div class="js-form-container">
+            <input type="text" name="country">
+        </div>
+        
+        <button>Search country</button>
+    </form>
+<button class="js-add">Add country</button>
+<button class="js-clear">Clear</button>
+
+<ul class="js-list"></ul> -->
+
+    <!--!____________________________________________  -->
+
+    <!-- <form action="" class="feedback-form">
+      <label>
+        <b>Name</b>
+        <input
+          type="text"
+          name="name"
+          placeholder="Text your name "
+          value="Anonymous"
+        />
+      </label>
+      <label>
+        <b>Message</b>
+        <textarea name="comments" rows="6"></textarea>
+      </label>
+      <button type="submit">Leave a review</button>
+    </form> -->
+
+    <!--!____________________________________________  -->
+
+    <script defer src="./js/index.js" type="module"></script>
+  </body>
+</html>
