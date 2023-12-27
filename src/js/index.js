@@ -129,14 +129,43 @@
 // }
 
 //! setInterval()
-const logger = time => console.log(`Лог каждые ${time}ms - ${Date.now()}`);
+// const logger = time => console.log(`Лог каждые ${time}ms - ${Date.now()}`);
 
-console.log('До вызова setInterval');
-const intervalId = setInterval(logger, 2000, 2000);
-console.log('После вызова setInterval');
+// console.log('До вызова setInterval');
+// const intervalId = setInterval(logger, 2000, 2000);
+// console.log('После вызова setInterval');
 
-const shouldCancelInterval = Math.random() > 0.3;
-console.log(shouldCancelInterval)
-if (shouldCancelInterval) {
-  clearInterval(intervalId);
+// const shouldCancelInterval = Math.random() > 0.3;
+// console.log(shouldCancelInterval)
+// if (shouldCancelInterval) {
+//   clearInterval(intervalId);
+// }
+
+//?_____________________________________________
+
+// console.log('До вызова setTimeout');
+// setTimeout(() => {
+//     console.log('Вызов отложенной функции')
+// }, 0)
+// console.log('После вызова setTimeout');
+
+//?_____________________________________________
+//* ОПОВЕЩЕНИЯ
+
+const refs = {
+  notification: document.querySelector('.js-alert'),
+};
+
+refs.notification.addEventListener('click', onClick)
+
+function onClick() {
+    //
+}
+
+function showNotification() {
+    refs.notification.classList.add('is-visible')
+}
+
+function hideNotification() {
+    refs.notification.classList.remove('is-visible');
 }
